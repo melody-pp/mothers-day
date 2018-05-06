@@ -5,4 +5,6 @@ export default {
   motherPic: '',     // 母亲头像
   selfPic: '',       // 自己头像
   userGender: '',    // 自己性别 男：0  女：1
+  picResult: '',     // 最终生成图片dataURL
+  personalInfo: '',  // 用户个人信息
 }

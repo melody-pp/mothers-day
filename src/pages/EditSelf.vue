@@ -3,7 +3,7 @@
     <img src="../assets/editSelf/pic_01.jpg" class="page-bg">
     <img src="../assets/editSelf/pic_05.png" class="pic-frame center">
     <img src="../assets/editSelf/pic_06.png" class="mask center">
-    <img :src="selfPic" class="selfPic">
+    <img :src="selfPic" class="selfPic center">
     <img src="../assets/editSelf/pic_04.png" class="tips center">
     <img src="../assets/editSelf/pic_02.png" class="next male" @click="next(0)">
     <img src="../assets/editSelf/pic_01.png" class="next female" @click="next(1)">
@@ -13,18 +13,13 @@
 </template>
 
 <script>
-  import { mapMutations } from 'vuex'
+  import { vuexMixin } from '../components/mixins'
   import { parseFile } from '../components/utils'
 
   export default {
     name: 'EditSelf',
-    computed: {
-      selfPic () {
-        return this.$store.state.selfPic
-      }
-    },
+    mixins: [vuexMixin],
     methods: {
-      ...mapMutations(['setUserGender', 'saveSelfPic', 'moveDown']),
       next (gender) {
         this.moveDown()
         this.setUserGender(gender)

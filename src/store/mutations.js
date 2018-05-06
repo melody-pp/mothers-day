@@ -36,5 +36,11 @@ export default {
   },
   setUserGender (state, userGender) {
     state.userGender = userGender
-  }
+  },
+  setPicResult (state, picResult) {
+    state.picResult = picResult
+  },
+  setPersonalInfo (state, personalInfo) {
+    state.personalInfo = personalInfo
+  },
 }

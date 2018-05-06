@@ -10,13 +10,13 @@
 </template>
 
 <script>
-  import { mapMutations } from 'vuex'
+  import { vuexMixin } from '../components/mixins'
   import { parseFile } from '../components/utils'
 
   export default {
     name: 'Copywriting',
+    mixins: [vuexMixin],
     methods: {
-      ...mapMutations(['saveMotherPic', 'moveDown']),
       takeMother () {
         parseFile(this.$refs.mother.files[0], result => {
           this.moveDown()

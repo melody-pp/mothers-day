@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/home/LOGO.png" class="logo">
+    <img src="./assets/home/LOGO.png" class="logo" v-show="$store.state.pageIndex < 4">
     <img src="./assets/home/GO.png" class="go" @click="$store.commit('moveDown')">
     <MainView/>
   </div>

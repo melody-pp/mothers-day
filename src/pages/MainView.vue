@@ -7,6 +7,8 @@
     <Copywriting/>
     <EditMother/>
     <EditSelf/>
+    <PicResult/>
+    <PersonalInfo/>
   </div>
 </template>
 
@@ -15,21 +17,18 @@
   import Copywriting from './Copywriting'
   import EditMother from './EditMother'
   import EditSelf from './EditSelf'
-  import { mapMutations } from 'vuex'
+  import PicResult from './PicResult'
+  import PersonalInfo from './PersonalInfo'
+  import { vuexMixin } from '../components/mixins'
 
   export default {
     name: 'MainView',
-    components: {Home, Copywriting, EditMother, EditSelf},
-    computed: {
-      pageIndex () {
-        return this.$store.state.pageIndex
-      }
-    },
+    mixins: [vuexMixin],
+    components: {Home, Copywriting, EditMother, EditSelf, PicResult, PersonalInfo},
     data: () => ({
       startY: 0,  // 用来判断用户手势是否触发翻页
     }),
     methods: {
-      ...mapMutations(['moveUp', 'moveDown', 'moveTo', 'setMoving']),
       touchstart (event) {
         this.startY = event.changedTouches[0].pageY
       },
