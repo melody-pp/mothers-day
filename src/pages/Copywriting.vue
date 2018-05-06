@@ -29,7 +29,7 @@
 
 <style scoped>
   .title {
-    top: 2vh;
+    top: 5vw;
     left: 5vw;
     width: 17vw;
     position: absolute;

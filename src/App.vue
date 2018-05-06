@@ -1,20 +1,22 @@
 <template>
   <div id="app">
-    <img src="./assets/home/LOGO.png" class="logo" v-show="$store.state.pageIndex < 4">
-    <img src="./assets/home/GO.png" class="go" @click="$store.commit('moveDown')">
+    <img src="./assets/home/LOGO.png" class="logo" v-show="pageIndex!==4">
+    <img src="./assets/home/GO.png" class="go" @click="moveDown">
     <MainView/>
   </div>
 </template>
 
 <script>
+  import { vuexMixin } from './components/mixins'
   import 'normalize.css'
   import MainView from './pages/MainView'
 
   export default {
     name: 'App',
     components: {MainView},
+    mixins: [vuexMixin],
     created () {
-      this.$store.dispatch('getUser')
+      this.getUser()
     }
   }
 </script>
@@ -31,7 +33,7 @@
   }
 
   .logo {
-    top: 2vh;
+    top: 5vw;
     right: 0;
     z-index: 2;
     width: 30vw;
@@ -40,7 +42,7 @@
 
   .go {
     left: 50%;
-    bottom: 7vh;
+    bottom: 15vw;
     z-index: 2;
     width: 12vw;
     position: absolute;
@@ -52,7 +54,7 @@
       transform: translateX(-50%) translateY(0);
     }
     50% {
-      transform: translateX(-50%) translateY(3vh);
+      transform: translateX(-50%) translateY(7vw);
     }
     100% {
       transform: translateX(-50%) translateY(0);
