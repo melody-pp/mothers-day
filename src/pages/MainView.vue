@@ -19,7 +19,7 @@
   import EditSelf from './EditSelf'
   import PicResult from './PicResult'
   import PersonalInfo from './PersonalInfo'
-  import { vuexMixin } from '../components/mixins'
+  import { vuexMixin } from '../components/mixins/index'
 
   export default {
     name: 'MainView',

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import { vuexMixin } from '../components/mixins'
+  import { vuexMixin } from '../components/mixins/index'
   import { parseFile } from '../components/utils'
 
   export default {

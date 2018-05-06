@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import { vuexMixin } from '../components/mixins'
+  import { vuexMixin } from '../components/mixins/index'
 
   export default {
     name: 'PersonalInfo',
