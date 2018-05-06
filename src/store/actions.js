@@ -6,5 +6,5 @@ export default {
         name: '测试用户'
       })
     })
-  }
+  },
 }
