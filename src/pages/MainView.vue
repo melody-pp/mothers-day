@@ -3,19 +3,23 @@
        @touchstart="touchstart" @touchend="touchend"
        @touchmove="touchmove" @transitionend="setMoving(false)"
        :style="{transform: `translate3d(0,-${pageIndex*100}vh,0)`}">
-    <page1/>
-    <page2/>
+    <Home/>
+    <Copywriting/>
+    <EditMother/>
+    <EditSelf/>
   </div>
 </template>
 
 <script>
-  import Page1 from './Page1'
-  import Page2 from './Page2'
+  import Home from './Home'
+  import Copywriting from './Copywriting'
+  import EditMother from './EditMother'
+  import EditSelf from './EditSelf'
   import { mapMutations } from 'vuex'
 
   export default {
     name: 'MainView',
-    components: {Page1, Page2},
+    components: {Home, Copywriting, EditMother, EditSelf},
     computed: {
       pageIndex () {
         return this.$store.state.pageIndex
@@ -51,6 +55,7 @@
 
     > div {
       height: 100vh;
+      position: relative;
     }
   }
 </style>

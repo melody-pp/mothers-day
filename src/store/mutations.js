@@ -28,4 +28,13 @@ export default {
       state.pageIndex = index
     }
   },
+  saveMotherPic (state, motherPic) {
+    state.motherPic = motherPic
+  },
+  saveSelfPic (state, selfPic) {
+    state.selfPic = selfPic
+  },
+  setUserGender (state, userGender) {
+    state.userGender = userGender
+  }
 }
