@@ -22,7 +22,7 @@
       }
     },
     data: () => ({
-      startY: 0,  // 用来判断是否触发翻页
+      startY: 0,  // 用来判断用户手势是否触发翻页
     }),
     methods: {
       ...mapMutations(['moveUp', 'moveDown', 'moveTo', 'setMoving']),
