@@ -3,34 +3,78 @@
     <img src="../assets/editSelf/pic_01.jpg" class="page-bg">
     <img src="../assets/editSelf/pic_05.png" class="pic-frame center">
     <img src="../assets/editSelf/pic_06.png" class="mask center">
-    <img :src="selfPic" class="selfPic">
+    <img ref="selfImg" :src="selfPic" class="selfPic">
     <img src="../assets/editSelf/pic_04.png" class="tips center">
-    <!--<img src="../assets/editSelf/pic_02.png" class="next male" @click="next(0)">-->
-    <!--<img src="../assets/editSelf/pic_01.png" class="next female" @click="next(1)">-->
     <div class="center genderBox clearfix">
-      <label class="fl" for=""><input type="radio">先生</label><label class="fr" for=""><input type="radio">女士</label>
+      <label class="fl">
+        <input type="radio" name="gender" :value="1" v-model="gender">先生
+      </label>
+      <label class="fr">
+        <input type="radio" name="gender" :value="1" v-model="gender">女士
+      </label>
     </div>
-    <img src="../assets/editSelf/compoundBtn.png" class="reTake center">
-    <img src="../assets/editSelf/pic_03.png" class="reTake center" style="top:150vw;">
+    <img src="../assets/editSelf/compoundBtn.png" class="next center" @click="next">
+    <img src="../assets/editSelf/pic_03.png" class="reTake center">
     <input class="reTake center" type="file" ref="self" @change="takeSelf">
+    <canvas hidden ref="canvas" width="320" height="400"/>
+
   </div>
 </template>
 
 <script>
   import { vuexMixin } from '../components/mixins/index'
   import { parseFile } from '../components/utils'
-
+  /* for  AlloyFinger  start */
+  let afInstance
+  import AlloyFinger from '../components/AlloyFinger'
+  /* for  AlloyFinger   end  */
   export default {
     name: 'EditSelf',
     mixins: [vuexMixin],
+    data: () => ({
+      zoom: 1,    // 图片缩放比例
+      deltaX: 0,  // 图片移动横坐标
+      deltaY: 0,  // 图片移动纵坐标
+      gender: 0,
+    }),
     methods: {
-      next (gender) {
+      next () {
+        const {selfImg, canvas} = this.$refs
+        const ctx = canvas.getContext('2d')
+        const screenRatio = window.innerWidth * 0.695 / 549
+        const imgRatio = selfImg.width / selfImg.naturalWidth * this.zoom
+
+        ctx.drawImage(
+          selfImg,
+          (115 * screenRatio - this.deltaX) / imgRatio,
+          (120 * screenRatio - this.deltaY) / imgRatio,
+          (320 * screenRatio) / imgRatio,
+          (400 * screenRatio) / imgRatio,
+          0, 0, 320, 400)
+
+        this.saveSelfPic(canvas.toDataURL())
+
         this.moveDown()
-        this.setUserGender(gender)
+        this.setUserGender(this.gender)
       },
       takeSelf () {
         parseFile(this.$refs.self.files[0], this.saveSelfPic)
       },
+    },
+    watch: {
+      motherPic () {
+        try {
+          this.zoom = 1
+          this.deltaX = 0
+          this.deltaY = 0
+          afInstance.destroy()
+        } catch (e) {}
+
+        afInstance = new AlloyFinger(this.$refs.mask, {
+          pinch: this.pinch,
+          pressMove: this.pressMove,
+        })
+      }
     }
   }
 </script>
@@ -53,7 +97,6 @@
     position: absolute;
     max-width: 69.5vw;
     max-height: 96.7vw;
-    z-index: 11;
   }
 
   .genderBox {
@@ -81,8 +124,13 @@
     }
   }
 
-  .reTake {
+  .next {
     top: 140vw;
+    width: 36vw;
+  }
+
+  .reTake {
+    top: 150vw;
     width: 36vw;
   }
 

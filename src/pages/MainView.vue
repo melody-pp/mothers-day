@@ -1,13 +1,14 @@
 <template>
   <div class="fp-wrapper"
+       @touchmove="touchmove"
        @transitionend="setMoving(false)"
        :style="{transform: `translate3d(0,-${pageIndex*100}vh,0)`}">
-    <!--<Home/>-->
-    <!--<Copywriting/>-->
-    <!--<EditMother/>-->
-    <!--<EditSelf/>-->
-    <!--<PicResult/>-->
-    <!--<PersonalInfo/>-->
+    <Home/>
+    <Copywriting/>
+    <EditMother/>
+    <EditSelf/>
+    <PicResult/>
+    <PersonalInfo/>
     <Rules/>
     <Ranking/>
   </div>

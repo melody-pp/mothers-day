@@ -6,6 +6,12 @@
     <img src="" class="button confirm" @click="confirm">
     <img src="" class="button reTake" @click="reTake">
     <div class="modal" v-show="showModal"></div>
+
+    <img hidden src="../assets/picResult/MattingWoman.png" ref="woman">
+    <img hidden src="../assets/picResult/MattingMan.png" ref="man">
+    <img hidden :src="motherPic" ref="mother">
+    <img hidden :src="selfPic" ref="self">
+    <canvas hidden width="681" height="1014" ref="canvas"/>
   </div>
 </template>
 
@@ -18,16 +24,20 @@
     data: () => ({
       showModal: false,  // 是否显示遮罩
     }),
-    computed: {
-      picResult () {
-        return this.userGender
-          ? require('../assets/picResult/MattingWoman.png')
-          : require('../assets/picResult/MattingMan.png')
-      }
+    mounted () {
+      const {woman, man, mother, self, canvas} = this.$refs
+      const ctx = canvas.getContext('2d')
+
+      ctx.drawImage(this.userGender ? woman : man, 0, 0)
+      ctx.drawImage(mother, 0, 0, 320, 400, this.userGender ? 100 : 80, this.userGender ? 105 : 230, 320, 400)
+      ctx.drawImage(self, 0, 0, 320, 400, this.userGender ? 210 : 220, this.userGender ? 120 : 150, 320, 400)
+
+      this.setPicResult(canvas.toDataURL())
     },
     methods: {
       confirm () {
         this.showModal = true
+        this.postPicResult()
       },
       reTake () {
 

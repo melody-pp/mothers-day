@@ -3,12 +3,13 @@
     <img src="../assets/editMother/pic_01.jpg" class="page-bg">
     <img src="../assets/editMother/pic_04.png" class="pic-frame center">
     <img ref="mask" src="../assets/editMother/pic_06.png" class="mask center">
-    <img :src="motherPic" class="motherPic" :style="imgStyle">
+    <img ref="motherImg" :src="motherPic" class="motherPic" :style="imgStyle">
     <img src="../assets/editMother/pic_01.png" class="tips center">
     <img src="../assets/editMother/pic_02.png" class="next center">
     <input class="next center" type="file" ref="self" @change="takeSelf">
     <img src="../assets/editMother/pic_03.png" class="reTake center">
     <input class="reTake center" type="file" ref="mother" @change="takeMother">
+    <canvas hidden ref="canvas" width="320" height="400"/>
   </div>
 </template>
 
@@ -45,9 +46,25 @@
     },
     methods: {
       takeSelf () {
-        parseFile(this.$refs.self.files[0], result => {
+        const {self, canvas, motherImg} = this.$refs
+        const ctx = canvas.getContext('2d')
+        const screenRatio = window.innerWidth * 0.695 / 549
+        const imgRatio = motherImg.width / motherImg.naturalWidth * this.zoom
+
+        ctx.drawImage(
+          motherImg,
+          (115 * screenRatio - this.deltaX) / imgRatio,
+          (120 * screenRatio - this.deltaY) / imgRatio,
+          (320 * screenRatio) / imgRatio,
+          (400 * screenRatio) / imgRatio,
+          0, 0, 320, 400)
+
+        this.saveMotherPic(canvas.toDataURL())
+
+        parseFile(self.files[0], result => {
           this.moveDown()
           this.saveSelfPic(result)
+          this.postSelfPic()
         })
       },
       takeMother () {
@@ -98,7 +115,6 @@
     max-width: 69.5vw;
     max-height: 96.7vw;
     position: absolute;
-    z-index: 1;
   }
 
   .tips {

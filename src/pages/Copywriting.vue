@@ -21,6 +21,7 @@
         parseFile(this.$refs.mother.files[0], result => {
           this.moveDown()
           this.saveMotherPic(result)
+          this.postMotherPic()
         })
       }
     }
