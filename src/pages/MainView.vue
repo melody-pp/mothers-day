@@ -8,7 +8,7 @@
     <!--<EditSelf/>-->
     <!--<PicResult/>-->
     <!--<PersonalInfo/>-->
-    <!--<Rules/>-->
+    <Rules/>
     <Ranking/>
   </div>
 </template>

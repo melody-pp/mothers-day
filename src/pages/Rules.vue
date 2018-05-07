@@ -4,6 +4,7 @@
     <img src="../assets/personalInfo/pic_01.png" class="title">
     <img src="../assets/rules/guize.png" class="guize center">
     <img src="../assets/rules/fanhui.png" class="fanhui center">
+    <img src="../assets/rules/shiquan.png" class="shiquan center">
 
   </div>
 </template>
@@ -33,6 +34,11 @@
   .fanhui {
     top: 150vw;
     width: 30vw;
+  }
+
+  .shiquan {
+    bottom: 10vw;
+    width: 50vw;
   }
 
 
