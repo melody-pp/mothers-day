@@ -32,9 +32,12 @@
     }),
     computed: {
       imgStyle () {
+        const scale = `scale(${this.zoom})`
+        const rotate = `rotate(${this.angle}deg)`
+        const translate = `translate(${this.deltaX}px, ${this.deltaY}px)`
+
         return {
-          transform: `translate(${this.deltaX}px, ${this.deltaY}px) rotate(${this.angle}deg)`,
-          scale: this.zoom
+          transform: `${scale} ${rotate} ${translate}`
         }
       }
     },
@@ -55,11 +58,11 @@
       },
       pinch (evt) {
         this.zoom = evt.zoom
-        console.log(evt.zoom)
+        alert(`缩放：${evt.zoom}`)
       },
       rotate (evt) {
         this.angle = evt.angle
-        console.log(evt.angle)
+        alert(`旋转：${evt.angle}`)
       },
       pressMove (evt) {
         this.deltaX += evt.deltaX
@@ -69,6 +72,10 @@
     watch: {
       motherPic () {
         try {
+          this.zoom = 1
+          this.angle = 0
+          this.deltaX = 0
+          this.deltaY = 0
           afInstance.destroy()
         } catch (e) {}
 
