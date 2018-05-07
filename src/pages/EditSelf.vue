@@ -37,9 +37,15 @@
     width: 75vw;
   }
 
-  .mask, .selfPic {
+  .mask {
     top: 17.5vw;
     width: 69.5vw;
+  }
+
+  .selfPic {
+    top: 17.5vw;
+    max-width: 69.5vw;
+    max-height: 96.7vw;
   }
 
   .tips {
