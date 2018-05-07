@@ -2,8 +2,8 @@
   <div class="page">
     <img src="../assets/editMother/pic_01.jpg" class="page-bg">
     <img src="../assets/editMother/pic_04.png" class="pic-frame center">
-    <img src="../assets/editMother/pic_06.png" class="mask center">
-    <img ref="motherImg" :src="motherPic" class="motherPic" :style="imgStyle">
+    <img ref="mask" src="../assets/editMother/pic_06.png" class="mask center">
+    <img :src="motherPic" class="motherPic" :style="imgStyle">
     <img src="../assets/editMother/pic_01.png" class="tips center">
     <img src="../assets/editMother/pic_02.png" class="next center">
     <input class="next center" type="file" ref="self" @change="takeSelf">
@@ -26,24 +26,21 @@
     mixins: [vuexMixin],
     data: () => ({
       zoom: 1,    // 图片缩放比例
-      angle: 0,   // 图片旋转角度
       deltaX: 0,  // 图片移动横坐标
       deltaY: 0,  // 图片移动纵坐标
     }),
     computed: {
       imgStyle () {
         const scale = `scale(${this.zoom})`
-        const rotate = `rotate(${this.angle}deg)`
         const translate = `translate(${this.deltaX}px, ${this.deltaY}px)`
 
         return {
-          transform: `${scale} ${rotate} ${translate}`
+          transform: `${scale}  ${translate}`
         }
       }
     },
     created () {
       this.pinch = this.pinch.bind(this)
-      this.rotate = this.rotate.bind(this)
       this.pressMove = this.pressMove.bind(this)
     },
     methods: {
@@ -60,10 +57,6 @@
         const ratio = 3  // 倍数，调整此值来改变灵敏度
         this.zoom = 1 + (evt.zoom - 1) / ratio
       },
-      rotate (evt) {
-        const ratio = 4 // 倍数，调整此值来改变灵敏度
-        this.angle = evt.angle * ratio
-      },
       pressMove (evt) {
         this.deltaX += evt.deltaX
         this.deltaY += evt.deltaY
@@ -73,15 +66,13 @@
       motherPic () {
         try {
           this.zoom = 1
-          this.angle = 0
           this.deltaX = 0
           this.deltaY = 0
           afInstance.destroy()
         } catch (e) {}
 
-        afInstance = new AlloyFinger(this.$refs.motherImg, {
+        afInstance = new AlloyFinger(this.$refs.mask, {
           pinch: this.pinch,
-          rotate: this.rotate,
           pressMove: this.pressMove,
         })
       }
@@ -107,7 +98,7 @@
     max-width: 69.5vw;
     max-height: 96.7vw;
     position: absolute;
-    z-index: 11;
+    z-index: 1;
   }
 
   .tips {
