@@ -2,11 +2,11 @@
   <div class="fp-wrapper"
        @transitionend="setMoving(false)"
        :style="{transform: `translate3d(0,-${pageIndex*100}vh,0)`}">
-    <Home/>
-    <Copywriting/>
-    <EditMother/>
-    <EditSelf/>
-    <PicResult/>
+    <!--<Home/>-->
+    <!--<Copywriting/>-->
+    <!--<EditMother/>-->
+    <!--<EditSelf/>-->
+    <!--<PicResult/>-->
     <PersonalInfo/>
   </div>
 </template>
