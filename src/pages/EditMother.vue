@@ -13,8 +13,9 @@
 </template>
 
 <script>
-  import { vuexMixin } from '../components/mixins/index'
+  import AlloyFinger from '../components/AlloyFinger'
   import { parseFile } from '../components/utils'
+  import { vuexMixin } from '../components/mixins/index'
 
   export default {
     name: 'EditMother',
