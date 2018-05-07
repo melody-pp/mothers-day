@@ -21,8 +21,8 @@
     computed: {
       picResult () {
         return this.userGender
-          ? require('../assets/picResult/pic_02.png')
-          : require('../assets/picResult/pic_03.png')
+          ? require('../assets/picResult/MattingWoman.png')
+          : require('../assets/picResult/MattingMan.png')
       }
     },
     methods: {

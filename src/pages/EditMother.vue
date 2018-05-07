@@ -42,12 +42,14 @@
   .mask {
     top: 17.5vw;
     width: 69.5vw;
+    z-index: 10;
   }
 
   .motherPic {
     top: 17.5vw;
     max-width: 69.5vw;
     max-height: 96.7vw;
+    z-index: 1;
   }
 
   .tips {
