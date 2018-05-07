@@ -24,7 +24,10 @@
   export default {
     name: 'MainView',
     mixins: [vuexMixin],
-    components: {Home, Copywriting, EditMother, EditSelf, PicResult, PersonalInfo},
+    components: {
+      Home, Copywriting, EditMother,
+      EditSelf, PicResult, PersonalInfo
+    },
     data: () => ({
       startY: 0,  // 用来判断用户手势是否触发翻页
     }),

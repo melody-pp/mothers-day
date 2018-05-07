@@ -7,14 +7,14 @@
 </template>
 
 <script>
-  import { vuexMixin } from './components/mixins'
   import 'normalize.css'
   import MainView from './pages/MainView'
+  import { vuexMixin } from './components/mixins'
 
   export default {
     name: 'App',
-    components: {MainView},
     mixins: [vuexMixin],
+    components: {MainView},
     created () {
       this.getUser()
     }
