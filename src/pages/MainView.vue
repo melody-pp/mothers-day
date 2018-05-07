@@ -8,7 +8,8 @@
     <!--<EditSelf/>-->
     <!--<PicResult/>-->
     <!--<PersonalInfo/>-->
-    <Rules/>
+    <!--<Rules/>-->
+    <Ranking/>
   </div>
 </template>
 
@@ -20,6 +21,7 @@
   import PicResult from './PicResult'
   import PersonalInfo from './PersonalInfo'
   import Rules from './Rules'
+  import Ranking from './Ranking'
   import { vuexMixin } from '../components/mixins/index'
 
   export default {
@@ -27,7 +29,7 @@
     mixins: [vuexMixin],
     components: {
       Home, Copywriting, EditMother,
-      EditSelf, PicResult, PersonalInfo, Rules
+      EditSelf, PicResult, PersonalInfo, Rules, Ranking
     },
     data: () => ({
       startY: 0,  // 用来判断用户手势是否触发翻页

@@ -57,11 +57,11 @@
         parseFile(this.$refs.mother.files[0], this.saveMotherPic)
       },
       pinch (evt) {
-        const ratio = 2  // 倍数，调整此值来改变灵敏度
+        const ratio = 3  // 倍数，调整此值来改变灵敏度
         this.zoom = 1 + (evt.zoom - 1) / ratio
       },
       rotate (evt) {
-        const ratio = 5 // 倍数，调整此值来改变灵敏度
+        const ratio = 4 // 倍数，调整此值来改变灵敏度
         this.angle = evt.angle * ratio
       },
       pressMove (evt) {

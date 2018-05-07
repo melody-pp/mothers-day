@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/home/LOGO.png" class="logo" v-show="pageIndex!==4">
+    <!--<img src="./assets/home/LOGO.png" class="logo" v-show="pageIndex!==4">-->
     <MainView/>
   </div>
 </template>
