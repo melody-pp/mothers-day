@@ -5,9 +5,13 @@
     <img src="../assets/editSelf/pic_06.png" class="mask center">
     <img :src="selfPic" class="selfPic">
     <img src="../assets/editSelf/pic_04.png" class="tips center">
-    <img src="../assets/editSelf/pic_02.png" class="next male" @click="next(0)">
-    <img src="../assets/editSelf/pic_01.png" class="next female" @click="next(1)">
-    <img src="../assets/editSelf/pic_03.png" class="reTake center">
+    <!--<img src="../assets/editSelf/pic_02.png" class="next male" @click="next(0)">-->
+    <!--<img src="../assets/editSelf/pic_01.png" class="next female" @click="next(1)">-->
+    <div class="center genderBox clearfix">
+      <label class="fl" for=""><input type="radio">先生</label><label class="fr" for=""><input type="radio">女士</label>
+    </div>
+    <img src="../assets/editSelf/compoundBtn.png" class="reTake center">
+    <img src="../assets/editSelf/pic_03.png" class="reTake center" style="top:150vw;">
     <input class="reTake center" type="file" ref="self" @change="takeSelf">
   </div>
 </template>
@@ -50,6 +54,14 @@
     max-width: 69.5vw;
     max-height: 96.7vw;
     z-index: 11;
+  }
+
+  .genderBox {
+    top: 73%;
+    width: 40vw;
+    > label {
+
+    }
   }
 
   .tips {

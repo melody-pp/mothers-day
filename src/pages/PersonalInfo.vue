@@ -65,13 +65,23 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -92%);
-      > input, select {
+      > input {
+        margin-left: 22vw;
+        height: 6vw;
+        width: 51vw;
+        border: none;
+        outline: none;
+        font-size: 5.1vw;
+        background-color: transparent;
+      }
+      > select {
         margin-left: 22vw;
         height: 7vw;
         width: 51vw;
         border: none;
         outline: none;
-        font-size: 5.2vw;
+        font-size: 5.1vw;
+        background-color: transparent;
       }
 
     }

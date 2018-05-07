@@ -7,7 +7,8 @@
     <!--<EditMother/>-->
     <!--<EditSelf/>-->
     <!--<PicResult/>-->
-    <PersonalInfo/>
+    <!--<PersonalInfo/>-->
+    <Rules/>
   </div>
 </template>
 
@@ -18,6 +19,7 @@
   import EditSelf from './EditSelf'
   import PicResult from './PicResult'
   import PersonalInfo from './PersonalInfo'
+  import Rules from './Rules'
   import { vuexMixin } from '../components/mixins/index'
 
   export default {
@@ -25,7 +27,7 @@
     mixins: [vuexMixin],
     components: {
       Home, Copywriting, EditMother,
-      EditSelf, PicResult, PersonalInfo
+      EditSelf, PicResult, PersonalInfo, Rules
     },
     data: () => ({
       startY: 0,  // 用来判断用户手势是否触发翻页
