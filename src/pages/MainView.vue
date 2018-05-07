@@ -1,7 +1,6 @@
 <template>
   <div class="fp-wrapper"
-       @touchstart="touchstart" @touchend="touchend"
-       @touchmove="touchmove" @transitionend="setMoving(false)"
+       @transitionend="setMoving(false)"
        :style="{transform: `translate3d(0,-${pageIndex*100}vh,0)`}">
     <Home/>
     <Copywriting/>

@@ -3,7 +3,7 @@
     <img src="../assets/editSelf/pic_01.jpg" class="page-bg">
     <img src="../assets/editSelf/pic_05.png" class="pic-frame center">
     <img src="../assets/editSelf/pic_06.png" class="mask center">
-    <img :src="selfPic" class="selfPic center">
+    <img :src="selfPic" class="selfPic">
     <img src="../assets/editSelf/pic_04.png" class="tips center">
     <img src="../assets/editSelf/pic_02.png" class="next male" @click="next(0)">
     <img src="../assets/editSelf/pic_01.png" class="next female" @click="next(1)">
@@ -45,9 +45,11 @@
 
   .selfPic {
     top: 17.5vw;
+    left: 15vw;
+    position: absolute;
     max-width: 69.5vw;
     max-height: 96.7vw;
-    z-index: 1;
+    z-index: 11;
   }
 
   .tips {
