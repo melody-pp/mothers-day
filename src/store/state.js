@@ -7,4 +7,5 @@ export default {
   userGender: 0,     // 自己性别 男：0  女：1
   picResult: '',     // 最终生成图片dataURL
   personalInfo: '',  // 用户个人信息
+  rankList: [],      // 排行榜信息
 }

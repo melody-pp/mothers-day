@@ -15,7 +15,7 @@
     mixins: [vuexMixin],
     components: {MainView},
     created () {
-      this.getUser()
+
     }
   }
 </script>
