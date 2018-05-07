@@ -41,7 +41,7 @@
   }
 
   .button {
-    top: 105vw;
+    top: 110vw;
     width: 35vw;
   }
 
@@ -51,7 +51,7 @@
   }
 
   .tips {
-    top: 120vw;
+    top: 125vw;
     width: 70vw;
   }
 </style>
