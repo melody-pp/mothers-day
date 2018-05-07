@@ -6,8 +6,11 @@
 </template>
 
 <script>
+  import { vuexMixin } from '../components/mixins/index'
+
   export default {
-    name: 'Home'
+    name: 'Home',
+    mixins: [vuexMixin],
   }
 </script>
 
