@@ -8,8 +8,8 @@
     <EditSelf/>
     <PicResult/>
     <PersonalInfo/>
-    <Rules/>
     <Ranking/>
+    <Rules/>
   </div>
 </template>
 

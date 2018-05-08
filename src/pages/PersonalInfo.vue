@@ -16,10 +16,7 @@
       <div class="chexing">
         <select name="" id="" v-model="chexing">
           <option disabled value="">请选择</option>
-          <option>QQ</option>
-          <option>A1</option>
-          <option>A3</option>
-          <option>A5</option>
+          <option v-for="cartype in cartypes">{{cartype}}</option>
         </select>
       </div>
     </div>
@@ -38,7 +35,8 @@
         xingming: '',
         dianhua: '',
         chengshi: '',
-        chexing: ''
+        chexing: '',
+        cartypes: ['QQ', 'A1', 'A3', 'A5', 'E3', 'E5', 'G3', 'G5', 'G6', 'M1', 'M5', 'V5', 'V8', 'X1', 'X5', '艾瑞泽3', '艾瑞泽5', '艾瑞泽7', '艾瑞泽7e', '艾瑞泽M7', '东方之子', '风云', '风云2', '旗云', '瑞虎3', '瑞虎3X', '瑞虎5', '瑞虎5x', '瑞虎7', '瑞虎8']
       }
     },
     methods: {
@@ -53,7 +51,7 @@
 
         //  这里是发请求到后端，参数他会直接从store里面取，可以看postPersonalInfo这个方法里面
         //  postPersonalInfo 返回了一个promise, 可以用.then回调
-        this.postPersonalInfo().then(this.moveDown)
+        this.postPersonalInfo().then(this.moveTo(6, true))
       }
     }
   }

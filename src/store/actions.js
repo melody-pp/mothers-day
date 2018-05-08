@@ -11,18 +11,18 @@ export default {
       openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
       motherthumb: state.motherPic,
       childthumb: state.selfPic,
-      togetherthumb: state.picResult,
+      tothumb: state.picResult,
     })
   },
   postPersonalInfo ({state}) {
     return http.post('/add_person', {
-      openid: state.user.openid,
+      openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
       ...state.personalInfo,
     })
   },
   postVote ({state}) {
     return http.post('/add_vote', {
-      openid: state.user.openid,
+      openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
       voteopenid: state.user.voteopenid,
     })
   },

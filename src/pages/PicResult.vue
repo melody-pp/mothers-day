@@ -13,6 +13,17 @@
     <img src="../assets/picResult/pic_04.png" class="enterBtn" @click="confirm">
     <img src="../assets/picResult/pic_05.png" class="myHome">
     <img src="../assets/picResult/pic_06.png" class="onceMore" @click="reTake">
+    <!--<img src="../assets/picResult/rulesBtn.png" class="rulesBtn">-->
+    <!--<img src="../assets/picResult/prizeBtn.png" class="prizeBtn">-->
+    <!--<img src="../assets/picResult/prizeBtn.png" class="prizeBtn">-->
+    <!--彈框-->
+    <!--<div class="waringModal">-->
+    <!--<div class="contentBox">-->
+    <!--<img src="../assets/picResult/shuoming.png" class="center">-->
+    <!--<img src="../assets/picResult/queren.png" class="center">-->
+    <!--<img src="../assets/picResult/quxiao.png" class="center">-->
+    <!--</div>-->
+    <!--</div>-->
   </div>
 </template>
 
@@ -40,7 +51,7 @@
         this.postPicResult()
       },
       reTake () {
-        this.moveTo(2)
+        this.moveTo(2,true)
       }
     },
     watch: {
@@ -75,14 +86,14 @@
     background: rgba(0, 0, 0, .5);
   }
 
-  .enterBtn {
+  .enterBtn, .rulesBtn {
     position: absolute;
     top: 162vw;
     left: 10vw;
     width: 34vw;
   }
 
-  .myHome {
+  .myHome, .prizeBtn {
     position: absolute;
     top: 162vw;
     right: 10vw;
@@ -94,5 +105,21 @@
     top: 145vw;
     right: 10vw;
     width: 34vw;
+  }
+
+  .waringModal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    .contentBox {
+      background: url("../assets/picResult/beijing.png") no-repeat;
+      background-size: cover;
+      width: 60vw;
+      height: 40vw;
+      top: 50vw;
+    }
   }
 </style>
