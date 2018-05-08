@@ -11,6 +11,7 @@ export default {
       url: location.href
     })
   },
+  // 获取个人主页展示信息
   getPerson ({state, commit}) {
     http.post('/get_person', {
       openid: state.urlParams.shareOpenid
@@ -18,6 +19,7 @@ export default {
       commit('setPerson', res.data)
     })
   },
+  // 获取用户点赞信息
   getVoteperson ({state, commit}) {
     http.post('/get_voteperson', {
       openid: state.urlParams.openid

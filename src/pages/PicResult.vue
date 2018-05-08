@@ -3,8 +3,6 @@
     <img src="../assets/picResult/pic_01.jpg" class="page-bg">
     <img :src="picResult" class="picResult center">
     <img src="../assets/picResult/pic_01.png" class="tips center">
-    <div class="modal" v-show="showModal"></div>
-
     <img hidden src="../assets/picResult/MattingWoman.png" ref="woman">
     <img hidden src="../assets/picResult/MattingMan.png" ref="man">
     <img hidden :src="motherPic" ref="mother">
@@ -15,11 +13,11 @@
     <img src="../assets/picResult/pic_06.png" class="onceMore" @click="reTake">
 
     <!--彈框-->
-    <div class="waringModal">
+    <div class="waringModal" v-show="showModal">
       <div class="contentBox">
         <img src="../assets/picResult/shuoming.png" class="center shuoming">
-        <img src="../assets/picResult/queren.png" class="queren">
-        <img src="../assets/picResult/quxiao.png" class="quxiao">
+        <img src="../assets/picResult/queren.png" class="queren" @click="queren">
+        <img src="../assets/picResult/quxiao.png" class="quxiao" @click="quxiao">
       </div>
     </div>
   </div>
@@ -44,13 +42,19 @@
         ctx.drawImage(this.userGender ? woman : man, 0, 0)
         this.setPicResult(canvas.toDataURL())
       },
-      confirm () {
-        this.showModal = true
-        this.postPicResult()
-      },
       reTake () {
         this.moveTo(1, true)
-      }
+      },
+      confirm () {
+        this.showModal = true
+      },
+      queren () {
+        this.moveDown()
+        this.postPicResult()
+      },
+      quxiao () {
+        this.showModal = false
+      },
     },
     watch: {
       gender () {
@@ -75,15 +79,6 @@
     left: 32vw;
   }
 
-  .modal {
-    top: 0;
-    left: 0;
-    z-index: 2;
-    height: 100vh;
-    position: absolute;
-    background: rgba(0, 0, 0, .5);
-  }
-
   .enterBtn, .rulesBtn {
     position: absolute;
     top: 162vw;
@@ -99,12 +94,12 @@
   }
 
   .waringModal {
-    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+    height: 100vh;
+    position: absolute;
+    background: rgba(0, 0, 0, .6);
     .contentBox {
       background: url("../assets/picResult/beijing.png") no-repeat;
       background-size: cover;
