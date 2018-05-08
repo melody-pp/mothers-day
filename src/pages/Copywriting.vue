@@ -19,6 +19,7 @@
     methods: {
       takeMother () {
         parseFile(this.$refs.mother.files[0], result => {
+          console.log('aaa')
           this.moveDown()
           this.saveMotherPic(result)
         })

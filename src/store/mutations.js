@@ -11,25 +11,25 @@ export default {
   },
   moveUp (state, disableAnimate) {
     // 翻页中或者已翻到顶，不再触发
-    if (!state.isMoving || !state.pageIndex) {
+    if (!state.isMoving && state.pageIndex) {
       state.pageIndex--
-      state.isMoving = true
-      state.useAnimate = !disableAnimate
+      state.isMoving = !(disableAnimate === true)
+      state.useAnimate = !(disableAnimate === true)
     }
   },
   moveDown (state, disableAnimate) {
     // 翻页中或者已翻到底，不再触发
-    if (!state.isMoving || state.pageIndex > MAX_PAGE_INDEX) {
+    if (!state.isMoving && state.pageIndex < MAX_PAGE_INDEX) {
       state.pageIndex++
-      state.isMoving = true
-      state.useAnimate = !disableAnimate
+      state.isMoving = !(disableAnimate === true)
+      state.useAnimate = !(disableAnimate === true)
     }
   },
   moveTo (state, index, disableAnimate) {
     if (!state.isMoving) {
-      state.isMoving = true
       state.pageIndex = index
-      state.useAnimate = !disableAnimate
+      state.isMoving = !(disableAnimate === true)
+      state.useAnimate = !(disableAnimate === true)
     }
   },
   saveMotherPic (state, motherPic) {
