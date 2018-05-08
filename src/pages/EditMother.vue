@@ -64,7 +64,6 @@
         parseFile(self.files[0], result => {
           this.moveDown()
           this.saveSelfPic(result)
-          this.postSelfPic()
         })
       },
       takeMother () {
