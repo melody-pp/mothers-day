@@ -2,8 +2,8 @@
   <div class="page">
     <img class="page-bg" src="../assets/copywriting/pic_01.jpg">
     <div class="searchBox center">
-      <input type="text" class="searchInput" placeholder="请输入关键字">
-      <img src="../assets/ranking/sousuo1.png" class="searchIcon">
+      <input class="searchInput" placeholder="请输入关键字" v-model="searchText" @keydown.enter="postSearch(searchText)">
+      <img src="../assets/ranking/sousuo1.png" class="searchIcon" @click="postSearch(searchText)">
     </div>
     <div class="rankingBox center">
       <RankItem v-for="item of rankList" :item="item" :key="item.openid" class="rankItem"/>
@@ -22,6 +22,9 @@
     name: 'Ranking',
     mixins: [vuexMixin],
     components: {RankItem},
+    data: () => ({
+      searchText: ''
+    }),
     mounted () {
       this.getRankList()
     },
@@ -68,7 +71,7 @@
 
   .rankItem {
     width: 40vw;
-    margin: 4vw;
+    margin: 3.9vw;
     float: left;
   }
 
