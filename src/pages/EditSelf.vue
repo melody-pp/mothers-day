@@ -100,7 +100,7 @@
   }
 
   .genderBox {
-    top: 73%;
+    top: 130vw;
     width: 40vw;
     > label {
 

@@ -5,16 +5,16 @@
     <img src="../assets/personalInfo/pic_03.png" class="text-title center">
     <div class="inforInput">
       <div class="xingming">
-        <input type="text">
+        <input type="text" v-model="xingming">
       </div>
       <div class="dianhua">
-        <input type="text">
+        <input type="text" v-model="dianhua">
       </div>
       <div class="chengshi">
-        <input type="text">
+        <input type="text" v-model="chengshi">
       </div>
       <div class="chexing">
-        <select name="" id="">
+        <select name="" id="" v-model="chexing">
           <option value="volvo">QQ</option>
           <option value="saab">A1</option>
           <option value="opel">A3</option>
@@ -22,16 +22,34 @@
         </select>
       </div>
     </div>
-    <img src="../assets/personalInfo/pic_02.png" class="infoBtn">
+    <img src="../assets/personalInfo/pic_02.png" class="infoBtn" @click="submitInfo">
   </div>
 </template>
 
 <script>
-  import { vuexMixin } from '../components/mixins/index'
+  // import { vuexMixin } from '../components/mixins/index'
 
   export default {
     name: 'PersonalInfo',
-    mixins: [vuexMixin],
+    // mixins: [vuexMixin],
+    data () {
+      return {
+        xingming: '',
+        dianhua: '',
+        chengshi: '',
+        chexing: ''
+      }
+    },
+    methods: {
+      submitInfo () {
+        this.axios.post('/add_person', {
+          username: this.xingming,
+          phone: this.dianhua,
+          address: this.chengshi,
+          cartype: chexing
+        })
+      }
+    }
   }
 </script>
 
