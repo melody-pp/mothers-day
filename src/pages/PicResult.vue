@@ -99,6 +99,13 @@
     width: 34vw;
   }
 
+  .myHome {
+    position: absolute;
+    top: 162vw;
+    right: 10vw;
+    width: 34vw;
+  }
+
   .onceMore {
     position: absolute;
     top: 145vw;
@@ -109,8 +116,9 @@
   .waringModal {
     top: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     z-index: 2;
-    height: 100vh;
     position: absolute;
     background: rgba(0, 0, 0, .6);
     .contentBox {
