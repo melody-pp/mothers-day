@@ -1,24 +1,16 @@
 import axios from 'axios'
 
 const http = axios.create({
-  baseURL: '/mother/index.php/index/',
+  baseURL: '/mother/index.php/index/index/',
 })
 export default {
-  postMotherPic ({state}) {
-    return http.post('/uploadmotherthumb', {
-      openid: state.user.openid,
-      motherthumb: state.motherPic,
-    })
-  },
-  postSelfPic ({state}) {
-    return http.post('/uploadmotherthumb', {
-      openid: state.user.openid,
-      childthumb: state.selfPic,
-    })
-  },
+
   postPicResult ({state}) {
-    return http.post('/uploadchildthumb', {
-      openid: state.user.openid,
+    return http.post('/uploadthumb', {
+      // openid: state.user.openid,
+      openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
+      motherthumb: state.motherPic,
+      childthumb: state.selfPic,
       togetherthumb: state.picResult,
     })
   },

@@ -3,10 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store'
-import axios from 'axios'
 
 Vue.config.productionTip = false
-Vue.prototype.axios = axios.create({baseURL: '/mother/index.php/index/'})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

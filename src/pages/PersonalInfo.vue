@@ -15,10 +15,11 @@
       </div>
       <div class="chexing">
         <select name="" id="" v-model="chexing">
-          <option value="volvo">QQ</option>
-          <option value="saab">A1</option>
-          <option value="opel">A3</option>
-          <option value="audi">A5</option>
+          <option disabled value="">请选择</option>
+          <option>QQ</option>
+          <option>A1</option>
+          <option>A3</option>
+          <option>A5</option>
         </select>
       </div>
     </div>
