@@ -3,7 +3,9 @@
     <img src="../assets/editSelf/pic_01.jpg" class="page-bg">
     <img src="../assets/editSelf/pic_05.png" class="pic-frame center">
     <img ref="mask" src="../assets/editSelf/pic_06.png" class="mask center">
-    <img ref="selfImg" :src="selfPic" class="selfPic" :style="imgStyle">
+    <div class="img-container center">
+      <img ref="selfImg" :src="selfPic" class="selfPic" :style="imgStyle">
+    </div>
     <img src="../assets/editSelf/pic_04.png" class="tips center">
     <div class="center genderBox clearfix">
       <label class="fl">
@@ -31,18 +33,15 @@
     name: 'EditSelf',
     mixins: [vuexMixin],
     data: () => ({
-      zoom: 1,    // 图片缩放比例
       deltaX: 0,  // 图片移动横坐标
       deltaY: 0,  // 图片移动纵坐标
       gender: 0,
     }),
     computed: {
       imgStyle () {
-        const scale = `scale(${this.zoom})`
-        const translate = `translate(${this.deltaX}px, ${this.deltaY}px)`
-
         return {
-          transform: `${scale}  ${translate}`
+          top: this.deltaY + 'px',
+          left: this.deltaX + 'px',
         }
       }
     },
@@ -51,14 +50,12 @@
         const {selfImg, canvas} = this.$refs
         const ctx = canvas.getContext('2d')
         const screenRatio = window.innerWidth * 0.695 / 549
-        const imgRatio = selfImg.width / selfImg.naturalWidth * this.zoom
-
         ctx.drawImage(
           selfImg,
-          (115 * screenRatio) / imgRatio - this.deltaX,
-          (120 * screenRatio) / imgRatio - this.deltaY,
-          (320 * screenRatio) / imgRatio,
-          (400 * screenRatio) / imgRatio,
+          115 * screenRatio - this.deltaX,
+          120 * screenRatio - this.deltaY,
+          320 * screenRatio,
+          400 * screenRatio,
           0, 0, 320, 400)
 
         this.saveSelfPic(canvas.toDataURL())
@@ -68,10 +65,6 @@
       takeSelf () {
         parseFile(this.$refs.self.files[0], this.saveSelfPic)
       },
-      pinch (evt) {
-        const ratio = 3  // 倍数，调整此值来改变灵敏度
-        this.zoom = 1 + (evt.zoom - 1) / ratio
-      },
       pressMove (evt) {
         this.deltaX += evt.deltaX
         this.deltaY += evt.deltaY
@@ -80,12 +73,13 @@
     watch: {
       selfPic () {
         try {
+          this.deltaX = 0
+          this.deltaY = 0
           afInstance.destroy()
         } catch (e) {}
 
         afInstance = new AlloyFinger(this.$refs.mask, {
-          pinch: this.pinch,
-          pressMove: this.pressMove,
+          pressMove: this.pressMove.bind(this),
         })
       }
     }
@@ -104,19 +98,21 @@
     z-index: 10;
   }
 
-  .selfPic {
+  .img-container {
     top: 17.5vw;
-    left: 15vw;
+    width: 69.5vw;
+    height: 96.7vw;
+    overflow: hidden;
+  }
+
+  .selfPic {
     position: absolute;
-    max-width: 69.5vw;
-    max-height: 96.7vw;
   }
 
   .genderBox {
     top: 130vw;
     width: 40vw;
     > label {
-
     }
   }
 

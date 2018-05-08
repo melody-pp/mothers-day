@@ -1,9 +1,11 @@
 <template>
-  <div class="page">
+  <div ref="page" class="page">
     <img src="../assets/editMother/pic_01.jpg" class="page-bg">
     <img src="../assets/editMother/pic_04.png" class="pic-frame center">
-    <img ref="mask" src="../assets/editMother/pic_06.png" class="mask center">
-    <img ref="motherImg" :src="motherPic" class="motherPic" :style="imgStyle">
+    <img src="../assets/editMother/pic_06.png" class="mask center">
+    <div class="img-container center">
+      <img ref="motherImg" :src="motherPic" class="motherPic" :style="imgStyle">
+    </div>
     <img src="../assets/editMother/pic_01.png" class="tips center">
     <img src="../assets/editMother/pic_02.png" class="next center">
     <input class="next center" type="file" ref="self" @change="takeSelf">
@@ -26,37 +28,29 @@
     name: 'EditMother',
     mixins: [vuexMixin],
     data: () => ({
-      zoom: 1,    // 图片缩放比例
       deltaX: 0,  // 图片移动横坐标
       deltaY: 0,  // 图片移动纵坐标
     }),
     computed: {
       imgStyle () {
-        const scale = `scale(${this.zoom})`
-        const translate = `translate(${this.deltaX}px, ${this.deltaY}px)`
-
         return {
-          transform: `${scale}  ${translate}`
+          top: this.deltaY + 'px',
+          left: this.deltaX + 'px',
         }
       }
-    },
-    created () {
-      this.pinch = this.pinch.bind(this)
-      this.pressMove = this.pressMove.bind(this)
     },
     methods: {
       takeSelf () {
         const {self, canvas, motherImg} = this.$refs
         const ctx = canvas.getContext('2d')
         const screenRatio = window.innerWidth * 0.695 / 549
-        const imgRatio = motherImg.width / motherImg.naturalWidth * this.zoom
 
         ctx.drawImage(
           motherImg,
-          (115 * screenRatio) / imgRatio - this.deltaX,
-          (120 * screenRatio) / imgRatio - this.deltaY,
-          (320 * screenRatio) / imgRatio,
-          (400 * screenRatio) / imgRatio,
+          115 * screenRatio - this.deltaX,
+          120 * screenRatio - this.deltaY,
+          320 * screenRatio,
+          400 * screenRatio,
           0, 0, 320, 400)
 
         this.saveMotherPic(canvas.toDataURL())
@@ -68,10 +62,6 @@
       takeMother () {
         parseFile(this.$refs.mother.files[0], this.saveMotherPic)
       },
-      pinch (evt) {
-        const ratio = 3  // 倍数，调整此值来改变灵敏度
-        this.zoom = 1 + (evt.zoom - 1) / ratio
-      },
       pressMove (evt) {
         this.deltaX += evt.deltaX
         this.deltaY += evt.deltaY
@@ -80,12 +70,13 @@
     watch: {
       motherPic () {
         try {
+          this.deltaX = 0
+          this.deltaY = 0
           afInstance.destroy()
         } catch (e) {}
 
-        afInstance = new AlloyFinger(this.$refs.mask, {
-          pinch: this.pinch,
-          pressMove: this.pressMove,
+        afInstance = new AlloyFinger(this.$refs.page, {
+          pressMove: this.pressMove.bind(this)
         })
       }
     }
@@ -104,11 +95,14 @@
     z-index: 10;
   }
 
-  .motherPic {
+  .img-container {
     top: 17.5vw;
-    left: 15vw;
-    max-width: 69.5vw;
-    max-height: 96.7vw;
+    width: 69.5vw;
+    height: 96.7vw;
+    overflow: hidden;
+  }
+
+  .motherPic {
     position: absolute;
   }
 
