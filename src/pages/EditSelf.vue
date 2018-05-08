@@ -55,14 +55,13 @@
 
         ctx.drawImage(
           selfImg,
-          (115 * screenRatio - this.deltaX) / imgRatio,
-          (120 * screenRatio - this.deltaY) / imgRatio,
+          (115 * screenRatio) / imgRatio - this.deltaX,
+          (120 * screenRatio) / imgRatio - this.deltaY,
           (320 * screenRatio) / imgRatio,
           (400 * screenRatio) / imgRatio,
           0, 0, 320, 400)
 
         this.saveSelfPic(canvas.toDataURL())
-
         this.moveDown()
         this.setUserGender(this.gender)
       },
@@ -81,9 +80,6 @@
     watch: {
       selfPic () {
         try {
-          this.zoom = 1
-          this.deltaX = 0
-          this.deltaY = 0
           afInstance.destroy()
         } catch (e) {}
 
