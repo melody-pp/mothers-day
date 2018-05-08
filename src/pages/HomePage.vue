@@ -54,12 +54,16 @@
         }
       },
       voted () {
-        return this.votedInfo.voteopenid===this.person.openid
+        return this.votedInfo.voteopenid === this.person.openid
       }
     },
     methods: {
       vote () {
-        this.postVote(this.person.openid)
+        if (+this.votedInfo.flag === 1) {
+          // 已经投过，弹窗告诉用户不可再投
+        } else {
+          this.postVote(this.person.voteopenid)
+        }
       }
     }
   }
