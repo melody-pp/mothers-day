@@ -9,4 +9,5 @@ export default {
   picResult: '',     // 最终生成图片dataURL
   personalInfo: '',  // 用户个人信息
   rankList: [],      // 排行榜信息
+  votedList: [],     // 已经给哪些人点过赞
 }

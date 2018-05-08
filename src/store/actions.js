@@ -4,7 +4,6 @@ const http = axios.create({
   baseURL: '/mother/index.php/index/index/',
 })
 export default {
-
   postPicResult ({state}) {
     return http.post('/uploadthumb', {
       // openid: state.user.openid,
@@ -20,21 +19,21 @@ export default {
       ...state.personalInfo,
     })
   },
-  postVote ({state}, voteopenid) {
-    return http.post('/add_vote', {
+  postVote ({state, commit}, voteopenid) {
+    http.post('/add_vote', {
       openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
       voteopenid,
+    }).then(() => {
+      commit('addVote', voteopenid)
     })
   },
   postSearch ({commit}, nickname) {
     http.post('/search_message', {nickname}).then(res => {
-      console.log(res)
       commit('setRankList', res.data)
     })
   },
   getRankList ({commit}) {
     http.post('/ranking').then(res => {
-      console.log(res)
       commit('setRankList', res.data)
     })
   },
