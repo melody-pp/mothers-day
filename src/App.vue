@@ -24,6 +24,12 @@
       }, {})
 
       this.saveUrlParams(urlParams)
+      this.getVoteperson()
+
+      if (+urlParams.photoflag === 1) {
+        this.getPerson()
+      }
+
       this.getSignPackage().then(({data}) => {
         this.configWX(data)
       })
@@ -45,6 +51,7 @@
         wx.ready(() => {
           wx.onMenuShareTimeline(this.getShareConfig())
           wx.onMenuShareAppMessage(this.getShareConfig())
+          document.getElementById('bgmusic').play()
         })
         wx.error(err => console.log(err))
       },

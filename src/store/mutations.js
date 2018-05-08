@@ -47,6 +47,9 @@ export default {
   setPersonalInfo (state, personalInfo) {
     state.personalInfo = personalInfo
   },
+  setPerson (state, person) {
+    state.person = person
+  },
   setRankList (state, rankList) {
     state.rankList = rankList
   },

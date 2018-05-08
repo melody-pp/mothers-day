@@ -6,12 +6,25 @@ const http = axios.create({
 
 export default {
   // 获取微信签名
-  getSignPackage ({state}) {
+  getSignPackage () {
     return http.post('/getSignPackage', {
       url: location.href
     })
   },
-
+  getPerson ({state, commit}) {
+    http.get('/get_person', {
+      openid: state.urlParams.shareOpenid
+    }).then(res => {
+      commit('setPerson', res.data)
+    })
+  },
+  getVoteperson ({state, commit}) {
+    http.get('/get_voteperson', {
+      openid: state.urlParams.openid
+    }).then(res => {
+      commit('setVoted', res.data)
+    })
+  },
   // 上传合照
   postPicResult ({state}) {
     return http.post('/uploadthumb', {

@@ -10,4 +10,5 @@ export default {
   personalInfo: '',  // 用户个人信息
   rankList: [],      // 排行榜信息
   votedList: [],     // 已经给哪些人点过赞
+  person: {},        //个人主页展示信息
 }

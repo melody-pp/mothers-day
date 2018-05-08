@@ -6,9 +6,10 @@
     <img class="tips" src="../assets/homePage/pic_01.png">
     <!--<img src="../assets/homePage/cansaiyouka.png" class="youkaBtn">-->
     <div class="voteBox">
-      <span class="nickName">南风张小菊</span>
-      <span class="rankingNum">NO.15</span>
-      <span class="voteNum">96411</span><span>票</span>
+      <span class="nickName">{{person.username}}</span>
+      <img :src="medalSrc" v-if="item.rank<4">
+      <span v-else class="rankingNum">No.{{person.rank}}</span>
+      <span class="voteNum">{{person.vote}}</span><span>票</span>
       <svg @click="vote" class="voteIcon" :class="{voted}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
            x="0px" y="0px" viewBox="-60 61.25 64 64" style="enable-background:new -60 61.25 64 64;" xml:space="preserve">
             <path d="M-27.968,120.29c-1.312,0-2.688-0.576-4.064-1.696c-0.032-0.032-0.096-0.064-0.128-0.128l-20.096-20.128
@@ -35,12 +36,32 @@
 
 <script>
   import { vuexMixin } from '../components/mixins/index'
-  import { parseFile } from '../components/utils'
 
   export default {
     name: 'HomePage',
     mixins: [vuexMixin],
-    methods: {}
+    computed: {
+      medalSrc () {
+        switch (this.person.rank) {
+          case 1:
+            return require('../assets/ranking/jin.png')
+          case 2:
+            return require('../assets/ranking/yin.png')
+          case 3:
+            return require('../assets/ranking/tong.png')
+          default:
+            return ''
+        }
+      },
+      voted () {
+        return this.votedList.includes(this.person.openid)
+      }
+    },
+    methods: {
+      vote () {
+        this.postVote(this.person.openid)
+      }
+    }
   }
 </script>
 
