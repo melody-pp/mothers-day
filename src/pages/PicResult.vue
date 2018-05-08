@@ -51,7 +51,7 @@
         this.postPicResult()
       },
       reTake () {
-        this.moveTo(2,true)
+        this.moveTo(1,true)
       }
     },
     watch: {

@@ -20,10 +20,10 @@ export default {
       ...state.personalInfo,
     })
   },
-  postVote ({state}) {
+  postVote ({state}, voteopenid) {
     return http.post('/add_vote', {
       openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
-      voteopenid: state.user.voteopenid,
+      voteopenid,
     })
   },
   postSearch ({commit}, nickname) {
