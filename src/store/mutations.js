@@ -50,4 +50,11 @@ export default {
   setRankList (state, rankList) {
     state.rankList = rankList
   },
+  setVoted (state, votedList) {
+    state.votedList = votedList
+  },
+  addVote (state, voteopenid) {
+    state.votedList.push(voteopenid)
+  },
+
 }

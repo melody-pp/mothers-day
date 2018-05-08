@@ -7,7 +7,7 @@
       <span>{{item.vote}}</span>
       <span>票</span>
       <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-      <svg @click="vote" class="voteIcon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg @click="vote" class="voteIcon" :class="{voted}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
            x="0px" y="0px" viewBox="-60 61.25 64 64" style="enable-background:new -60 61.25 64 64;" xml:space="preserve">
             <path d="M-27.968,120.29c-1.312,0-2.688-0.576-4.064-1.696c-0.032-0.032-0.096-0.064-0.128-0.128l-20.096-20.128
               c-3.04-3.04-4.704-7.072-4.704-11.392c0-4.288,1.664-8.352,4.704-11.36c6.272-6.272,16.48-6.272,22.752,0l1.472,1.472l1.504-1.504
@@ -48,11 +48,14 @@
           default:
             return ''
         }
+      },
+      voted () {
+        return this.votedList.includes(this.item.voteopenid)
       }
     },
     methods: {
       vote () {
-        this.postVote(this.item.openid).then(res => {
+        this.postVote(this.item.voteopenid).then(res => {
           // 这里做投票成功的处理 如： 改变svg颜色
         })
       }
@@ -90,6 +93,9 @@
       .voteIcon {
         width: 5.5vw;
         fill: #b5b6b6;
+        &.voted {
+          fill: #dc403f;
+        }
       }
     }
   }
