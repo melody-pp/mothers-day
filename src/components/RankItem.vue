@@ -1,10 +1,10 @@
 <template>
   <div class="perRankingBox">
-    <img src="../assets/picResult/pic_02.png">
-    <p>{{item.username}}</p>
+    <img :src="item.tothumb">
+    <p>{{item.nickname}}</p>
     <div class="rankingInfo">
       <img :src="medalSrc" v-show="item.rank<4">
-      <span>{{item.votenum}}</span>
+      <span>{{item.vote}}</span>
       <span>票</span>
       <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
       <svg @click="vote" class="voteIcon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
