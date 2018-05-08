@@ -30,9 +30,12 @@
 </template>
 
 <script>
+  import { vuexMixin } from './mixins'
+
   export default {
     name: 'RankItem',
     props: ['item'],
+    mixins: [vuexMixin],
     computed: {
       medalSrc () {
         switch (this.item.rank) {
