@@ -46,7 +46,7 @@
           username: this.xingming,
           phone: this.dianhua,
           address: this.chengshi,
-          cartype: chexing
+          cartype: this.chexing
         })
       }
     }
