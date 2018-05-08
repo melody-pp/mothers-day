@@ -12,14 +12,14 @@ export default {
     })
   },
   getPerson ({state, commit}) {
-    http.get('/get_person', {
+    http.post('/get_person', {
       openid: state.urlParams.shareOpenid
     }).then(res => {
       commit('setPerson', res.data)
     })
   },
   getVoteperson ({state, commit}) {
-    http.get('/get_voteperson', {
+    http.post('/get_voteperson', {
       openid: state.urlParams.openid
     }).then(res => {
       commit('setVoted', res.data)

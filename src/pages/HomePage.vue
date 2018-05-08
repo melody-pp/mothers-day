@@ -7,7 +7,7 @@
     <!--<img src="../assets/homePage/cansaiyouka.png" class="youkaBtn">-->
     <div class="voteBox">
       <span class="nickName">{{person.username}}</span>
-      <img :src="medalSrc" v-if="item.rank<4">
+      <img :src="medalSrc" v-if="person.rank<4">
       <span v-else class="rankingNum">No.{{person.rank}}</span>
       <span class="voteNum">{{person.vote}}</span><span>票</span>
       <svg @click="vote" class="voteIcon" :class="{voted}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
