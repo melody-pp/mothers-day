@@ -21,6 +21,13 @@
       </div>
     </div>
     <img src="../assets/personalInfo/pic_02.png" class="infoBtn" @click="submitInfo">
+    <div class="warningBox">
+      <div class="bgBox center">
+        <img src="../assets/personalInfo/tishi.png" class="tishi center">
+        <img src="../assets/personalInfo/queren.png" class="queren">
+        <img src="../assets/personalInfo/quxiao.png" class="quxiao">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -129,4 +136,38 @@
 
   }
 
+  .warningBox {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .bgBox {
+      background: url("../assets/personalInfo/beijing.png") no-repeat;
+      background-size: cover;
+      width: 96vw;
+      height: 60vw;
+      top: 50vw;
+    }
+    .tishi {
+      width: 60vw;
+      position: absolute;
+      top: 18vw;
+
+    }
+    .queren {
+      width: 23vw;
+      position: absolute;
+      top: 42vw;
+      left: 19vw;
+    }
+    .quxiao {
+      width: 23vw;
+      position: absolute;
+      top: 42vw;
+      right: 19vw;
+    }
+
+  }
 </style>
