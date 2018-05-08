@@ -51,7 +51,7 @@
         }
       },
       voted () {
-        return this.votedList.includes(this.item.voteopenid)
+        return this.votedInfo.voteopenid === this.item.openid
       }
     },
     methods: {

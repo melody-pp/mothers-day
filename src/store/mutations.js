@@ -53,11 +53,12 @@ export default {
   setRankList (state, rankList) {
     state.rankList = rankList
   },
-  setVoted (state, votedList) {
-    state.votedList = votedList
+  setVoted (state, votedInfo) {
+    state.votedInfo = votedInfo
   },
   addVote (state, voteopenid) {
-    state.votedList.push(voteopenid)
+    state.votedInfo.flag = 1
+    state.votedInfo.voteopenid = voteopenid
     const user = state.rankList.find(item => item.voteopenid === voteopenid)
     user.vote = Number(user.vote) + 1
   },
