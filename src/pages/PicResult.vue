@@ -36,10 +36,23 @@
       generateRes () {
         const {woman, man, mother, self, canvas} = this.$refs
         const ctx = canvas.getContext('2d')
+        const imgXYWH = [0, 0, 320, 400]
+        const canvasWH = [160, 200]
+        const womanMotherXYWH = [180, 190].concat(canvasWH)
+        const womanSelfXYWH = [345, 210].concat(canvasWH)
+        const manMotherXYWH = [145, 370].concat(canvasWH)
+        const manSelfXYWH = [365, 250].concat(canvasWH)
 
-        ctx.drawImage(mother, 0, 0, 320, 400, this.userGender ? 100 : 80, this.userGender ? 105 : 230, 320, 400)
-        ctx.drawImage(self, 0, 0, 320, 400, this.userGender ? 210 : 220, this.userGender ? 120 : 150, 320, 400)
-        ctx.drawImage(this.userGender ? woman : man, 0, 0)
+        if (this.userGender) {
+          ctx.drawImage(mother, ...imgXYWH, ...womanMotherXYWH)
+          ctx.drawImage(self, ...imgXYWH, ...womanSelfXYWH)
+          ctx.drawImage(woman, 0, 0)
+        } else {
+          ctx.drawImage(mother, ...imgXYWH, ...manMotherXYWH)
+          ctx.drawImage(self, ...imgXYWH, ...manSelfXYWH)
+          ctx.drawImage(man, 0, 0)
+        }
+
         this.setPicResult(canvas.toDataURL())
       },
       reTake () {
