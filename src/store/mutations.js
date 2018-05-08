@@ -4,28 +4,32 @@ export default {
   saveUser (state, user) {
     state.user = user
   },
-  setMoving (state, isMoving) {
-    // 设置是否正在翻页
-    state.isMoving = isMoving
+  moveEnd (state) {
+    // 翻页完成回调
+    state.isMoving = false
+    state.useAnimate = true
   },
-  moveUp (state) {
+  moveUp (state, disableAnimate) {
     // 翻页中或者已翻到顶，不再触发
     if (!state.isMoving || !state.pageIndex) {
       state.pageIndex--
       state.isMoving = true
+      state.useAnimate = !disableAnimate
     }
   },
-  moveDown (state) {
+  moveDown (state, disableAnimate) {
     // 翻页中或者已翻到底，不再触发
     if (!state.isMoving || state.pageIndex > MAX_PAGE_INDEX) {
       state.pageIndex++
       state.isMoving = true
+      state.useAnimate = !disableAnimate
     }
   },
-  moveTo (state, index) {
+  moveTo (state, index, disableAnimate) {
     if (!state.isMoving) {
       state.isMoving = true
       state.pageIndex = index
+      state.useAnimate = !disableAnimate
     }
   },
   saveMotherPic (state, motherPic) {

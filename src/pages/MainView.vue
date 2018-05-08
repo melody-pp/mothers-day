@@ -1,7 +1,6 @@
 <template>
-  <div class="fp-wrapper"
-       @touchmove="touchmove"
-       @transitionend="setMoving(false)"
+  <div class="fp-wrapper" :class="{useAnimate}"
+       @touchmove="touchmove" @transitionend="moveEnd"
        :style="{transform: `translate3d(0,-${pageIndex*100}vh,0)`}">
     <Home/>
     <Copywriting/>
@@ -57,7 +56,9 @@
 
 <style scoped lang="scss">
   .fp-wrapper {
-    transition: all 700ms ease-out;
+    &.useAnimate {
+      transition: all 700ms ease-out;
+    }
 
     > div {
       height: 100vh;
