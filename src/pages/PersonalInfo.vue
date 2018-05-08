@@ -27,11 +27,11 @@
 </template>
 
 <script>
-  // import { vuexMixin } from '../components/mixins/index'
+  import { vuexMixin } from '../components/mixins/index'
 
   export default {
     name: 'PersonalInfo',
-    // mixins: [vuexMixin],
+    mixins: [vuexMixin],
     data () {
       return {
         xingming: '',
@@ -42,12 +42,17 @@
     },
     methods: {
       submitInfo () {
-        this.axios.post('/add_person', {
+        // 这里是把personnalInfo存到store里面
+        this.setPersonalInfo({
           username: this.xingming,
           phone: this.dianhua,
           address: this.chengshi,
           cartype: this.chexing
         })
+
+        //  这里是发请求到后端，参数他会直接从store里面取，可以看postPersonalInfo这个方法里面
+        //  postPersonalInfo 返回了一个promise, 可以用.then回调
+        this.postPersonalInfo().then(this.moveDown)
       }
     }
   }
