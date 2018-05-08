@@ -54,6 +54,7 @@
       vote () {
         this.postVote(this.item.openid).then(res => {
           // 这里做投票成功的处理 如： 改变svg颜色
+
         })
       }
     }
