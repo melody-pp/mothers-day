@@ -70,6 +70,7 @@
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 5px #bbbaba;
+    transition: all 1s;
 
     > img {
       width: 100%;
