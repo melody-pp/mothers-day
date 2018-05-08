@@ -73,6 +73,7 @@
     width: 40vw;
     margin: 3.9vw;
     float: left;
+    height: 75vw;
   }
 
   .mine, .rules {

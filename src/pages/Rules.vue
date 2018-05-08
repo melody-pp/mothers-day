@@ -3,7 +3,7 @@
     <img src="../assets/rules/beijing.jpg" class="page-bg">
     <img src="../assets/personalInfo/pic_01.png" class="title">
     <img src="../assets/rules/guize.png" class="guize center">
-    <img src="../assets/rules/fanhui.png" class="fanhui center">
+    <img src="../assets/rules/fanhui.png" class="fanhui center" @click="toPrize">
     <img src="../assets/rules/shiquan.png" class="shiquan center">
 
   </div>
@@ -16,7 +16,7 @@
     name: 'Rules',
     mixins: [vuexMixin],
     methods: {
-      toRules () {
+      toPrize () {
         this.moveTo(6, true)
       }
     }

@@ -13,9 +13,7 @@
     <img src="../assets/picResult/pic_04.png" class="enterBtn" @click="confirm">
     <img src="../assets/picResult/pic_05.png" class="myHome">
     <img src="../assets/picResult/pic_06.png" class="onceMore" @click="reTake">
-    <!--<img src="../assets/picResult/rulesBtn.png" class="rulesBtn">-->
-    <!--<img src="../assets/picResult/prizeBtn.png" class="prizeBtn">-->
-    <!--<img src="../assets/picResult/prizeBtn.png" class="prizeBtn">-->
+
     <!--彈框-->
     <!--<div class="waringModal">-->
     <!--<div class="contentBox">-->
@@ -93,12 +91,6 @@
     width: 34vw;
   }
 
-  .myHome, .prizeBtn {
-    position: absolute;
-    top: 162vw;
-    right: 10vw;
-    width: 34vw;
-  }
 
   .onceMore {
     position: absolute;

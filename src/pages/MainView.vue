@@ -10,6 +10,8 @@
     <PersonalInfo/>
     <Ranking/>
     <Rules/>
+    <HomePage/>
+
   </div>
 </template>
 
@@ -22,6 +24,7 @@
   import PersonalInfo from './PersonalInfo'
   import Rules from './Rules'
   import Ranking from './Ranking'
+  import HomePage from './HomePage'
   import { vuexMixin } from '../components/mixins/index'
 
   export default {
@@ -29,7 +32,7 @@
     mixins: [vuexMixin],
     components: {
       Home, Copywriting, EditMother,
-      EditSelf, PicResult, PersonalInfo, Rules, Ranking
+      EditSelf, PicResult, PersonalInfo, Rules, Ranking, HomePage
     },
     data: () => ({
       startY: 0,  // 用来判断用户手势是否触发翻页

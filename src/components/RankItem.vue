@@ -4,7 +4,7 @@
     <p>{{item.nickname}}</p>
     <div class="rankingInfo">
       <img :src="medalSrc" v-show="item.rank<4">
-      <span v-show="item.rank>3">{{item.rank}}</span>
+      <span class="noRank" v-show="item.rank>3">NO.{{item.rank}}</span>
       <span class="voteNum">{{item.vote}}</span>
       <span class="danwei">票</span>
       <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -94,9 +94,16 @@
       }
       .voteNum {
         margin-left: 1vw;
+        width: 12vw;
+        display: inline-block;
       }
       .danwei {
         margin-right: 1vw;
+      }
+      .noRank {
+        font-style: italic;
+        font-size: 3.5vw;
+        color: #855432;
       }
 
       .voteIcon {
