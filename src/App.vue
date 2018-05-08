@@ -45,40 +45,15 @@
         })
         wx.error(err => console.log(err))
       },
-      refreshConfig () {
-        const wx = require('weixin-js-sdk')
-        wx.onMenuShareTimeline(this.getShareConfig())
-        wx.onMenuShareAppMessage(this.getShareConfig())
-      },
       getShareConfig () {
-        return {
-          title: this.getShareTitle(),
-          link: this.getShareLink(),
-          imgUrl: this.getShareImg(),
-          desc: this.getDesc(),
-        }
+        const title = '带上母亲来一场说走就走的自驾游，给母亲一个难忘的节日！'
+        const link = location.origin + '/mother/index.php/index/index/person_index?openid=' + this.urlParams.openid
+        const imgUrl = location.origin + require('./assets/copywriting/pic_01.png')
+        const desc = '这里是一些描述文案'
+
+        return {title, link, imgUrl, desc}
       },
-      getShareTitle () {
-        return 'title'
-      },
-      getShareLink () {
-        return location.origin + '/shareLink'
-      },
-      getShareImg () {
-        return 'img'
-      },
-      getDesc () {
-        return 'desc'
-      }
     },
-    watch: {
-      personalInfo () {
-        this.refreshConfig()
-      },
-      picResult () {
-        this.refreshConfig()
-      }
-    }
   }
 </script>
 
