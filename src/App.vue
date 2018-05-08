@@ -29,10 +29,13 @@
       })
     },
     methods: {
-      configWX (data) {
+      configWX ({appId, nonceStr, signature, timestamp}) {
         const wx = require('weixin-js-sdk')
         wx.config({
-          ...data,
+          appId,
+          nonceStr,
+          signature,
+          timestamp,
           debug: false,
           jsApiList: [
             'onMenuShareTimeline',
