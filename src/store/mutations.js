@@ -55,6 +55,6 @@ export default {
   },
   addVote (state, voteopenid) {
     state.votedList.push(voteopenid)
+    state.rankList.find(item => item.voteopenid === voteopenid).vote += 1
   },
-
 }
