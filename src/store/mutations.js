@@ -55,6 +55,7 @@ export default {
   },
   addVote (state, voteopenid) {
     state.votedList.push(voteopenid)
-    state.rankList.find(item => item.voteopenid === voteopenid).vote += 1
+    const user = state.rankList.find(item => item.voteopenid === voteopenid)
+    user.vote = Number(user.vote) + 1
   },
 }
