@@ -8,7 +8,7 @@
     <div class="rankingBox center">
       <RankItem v-for="item of rankList" :item="item" :key="item.openid" class="rankItem"/>
     </div>
-    <img src="../assets/ranking/gerenzhongxin.png" class="mine">
+    <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="toHomePage">
     <img src="../assets/ranking/huodongguize.png" class="rules" @click="toRules">
   </div>
 </template>
@@ -31,6 +31,9 @@
     methods: {
       toRules () {
         this.moveTo(7, true)
+      },
+      toHomePage () {
+        this.moveTo(8, true)
       }
     }
   }

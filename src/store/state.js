@@ -1,6 +1,6 @@
 export default {
   user: {},
-  pageIndex: 4,      // 当前显示页面index
+  pageIndex: 6,      // 当前显示页面index
   useAnimate: true,  // 翻页是否有动画效果
   isMoving: false,   // 页面翻页中标识，翻页中不再触发翻页
   motherPic: '',     // 母亲头像

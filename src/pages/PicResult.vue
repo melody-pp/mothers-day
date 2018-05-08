@@ -109,7 +109,7 @@
       background: url("../assets/picResult/beijing.png") no-repeat;
       background-size: cover;
       width: 84vw;
-      height: 40vw;
+      height: 42vw;
       top: 58vw;
       left: 9vw;
       position: absolute;
