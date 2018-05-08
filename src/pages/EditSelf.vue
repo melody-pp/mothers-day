@@ -2,12 +2,12 @@
   <div class="page">
     <img src="../assets/editSelf/pic_01.jpg" class="page-bg">
     <img src="../assets/editSelf/pic_05.png" class="pic-frame center">
-    <img src="../assets/editSelf/pic_06.png" class="mask center">
+    <img ref="mask" src="../assets/editSelf/pic_06.png" class="mask center">
     <img ref="selfImg" :src="selfPic" class="selfPic">
     <img src="../assets/editSelf/pic_04.png" class="tips center">
     <div class="center genderBox clearfix">
       <label class="fl">
-        <input type="radio" name="gender" :value="1" v-model="gender">先生
+        <input type="radio" name="gender" :value="0" v-model="gender">先生
       </label>
       <label class="fr">
         <input type="radio" name="gender" :value="1" v-model="gender">女士
