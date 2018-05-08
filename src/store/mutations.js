@@ -1,8 +1,8 @@
 const MAX_PAGE_INDEX = 10
 
 export default {
-  saveUser (state, user) {
-    state.user = user
+  saveUrlParams (state, urlParams) {
+    state.urlParams = urlParams
   },
   moveEnd (state) {
     // 翻页完成回调

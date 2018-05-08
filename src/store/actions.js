@@ -5,10 +5,17 @@ const http = axios.create({
 })
 
 export default {
+  // 获取微信签名
+  getSignPackage ({state}) {
+    return http.post('/getSignPackage', {
+      url: location.href
+    })
+  },
+
   // 上传合照
   postPicResult ({state}) {
     return http.post('/uploadthumb', {
-      // openid: state.user.openid,
+      // openid: state.urlParams.openid,
       openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
       motherthumb: state.motherPic,
       childthumb: state.selfPic,
@@ -18,7 +25,7 @@ export default {
   // 上传个人信息
   postPersonalInfo ({state}) {
     return http.post('/add_person', {
-      // openid: state.user.openid,
+      // openid: state.urlParams.openid,
       openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
       ...state.personalInfo,
     })
@@ -26,7 +33,7 @@ export default {
   // 投票
   postVote ({state, commit}, voteopenid) {
     http.post('/add_vote', {
-      // openid: state.user.openid,
+      // openid: state.urlParams.openid,
       openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
       voteopenid,
     }).then(() => {

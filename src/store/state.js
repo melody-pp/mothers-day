@@ -1,5 +1,5 @@
 export default {
-  user: {},
+  urlParams: {},     // 进入页面时url中带的参数，包括：subscribe、succflag、photoflag、self、openid
   pageIndex: 6,      // 当前显示页面index
   useAnimate: true,  // 翻页是否有动画效果
   isMoving: false,   // 页面翻页中标识，翻页中不再触发翻页
