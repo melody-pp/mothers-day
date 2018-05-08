@@ -17,7 +17,6 @@
     <img src="../assets/editSelf/pic_03.png" class="reTake center">
     <input class="reTake center" type="file" ref="self" @change="takeSelf">
     <canvas hidden ref="canvas" width="320" height="400"/>
-
   </div>
 </template>
 
@@ -58,11 +57,22 @@
         this.setUserGender(this.gender)
       },
       takeSelf () {
-        parseFile(this.$refs.self.files[0], this.saveSelfPic)
+        parseFile(this.$refs.self.files[0], result => {
+          this.saveSelfPic(result)
+          this.postSelfPic()
+        })
+      },
+      pinch (evt) {
+        const ratio = 3  // 倍数，调整此值来改变灵敏度
+        this.zoom = 1 + (evt.zoom - 1) / ratio
+      },
+      pressMove (evt) {
+        this.deltaX += evt.deltaX
+        this.deltaY += evt.deltaY
       },
     },
     watch: {
-      motherPic () {
+      selfPic () {
         try {
           this.zoom = 1
           this.deltaX = 0

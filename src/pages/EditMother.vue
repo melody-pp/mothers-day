@@ -68,7 +68,10 @@
         })
       },
       takeMother () {
-        parseFile(this.$refs.mother.files[0], this.saveMotherPic)
+        parseFile(this.$refs.mother.files[0], result => {
+          this.saveMotherPic(result)
+          this.postMotherPic()
+        })
       },
       pinch (evt) {
         const ratio = 3  // 倍数，调整此值来改变灵敏度
@@ -77,7 +80,7 @@
       pressMove (evt) {
         this.deltaX += evt.deltaX
         this.deltaY += evt.deltaY
-      }
+      },
     },
     watch: {
       motherPic () {
