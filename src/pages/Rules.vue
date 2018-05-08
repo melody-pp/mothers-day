@@ -15,6 +15,11 @@
   export default {
     name: 'Rules',
     mixins: [vuexMixin],
+    methods: {
+      toRules () {
+        this.moveTo(6, true)
+      }
+    }
   }
 </script>
 

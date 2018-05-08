@@ -4,8 +4,9 @@
     <p>{{item.nickname}}</p>
     <div class="rankingInfo">
       <img :src="medalSrc" v-show="item.rank<4">
-      <span>{{item.vote}}</span>
-      <span>票</span>
+      <span v-show="item.rank>3">{{item.rank}}</span>
+      <span class="voteNum">{{item.vote}}</span>
+      <span class="danwei">票</span>
       <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
       <svg @click="vote" class="voteIcon" :class="{voted}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
            x="0px" y="0px" viewBox="-60 61.25 64 64" style="enable-background:new -60 61.25 64 64;" xml:space="preserve">
@@ -89,8 +90,14 @@
       > span {
         position: relative;
         top: -1.4vw;
-        margin: 0 1vw;
       }
+      .voteNum {
+        margin-left: 1vw;
+      }
+      .danwei {
+        margin-right: 1vw;
+      }
+
       .voteIcon {
         width: 5.5vw;
         fill: #b5b6b6;

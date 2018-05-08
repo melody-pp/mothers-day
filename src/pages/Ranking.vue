@@ -9,7 +9,7 @@
       <RankItem v-for="item of rankList" :item="item" :key="item.openid" class="rankItem"/>
     </div>
     <img src="../assets/ranking/gerenzhongxin.png" class="mine">
-    <img src="../assets/ranking/huodongguize.png" class="rules">
+    <img src="../assets/ranking/huodongguize.png" class="rules" @click="toRules">
   </div>
 </template>
 
@@ -24,6 +24,11 @@
     components: {RankItem},
     mounted () {
       this.getRankList()
+    },
+    methods: {
+      toRules () {
+        this.moveTo(7, true)
+      }
     }
   }
 </script>
