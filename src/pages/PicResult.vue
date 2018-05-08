@@ -24,23 +24,29 @@
     data: () => ({
       showModal: false,  // 是否显示遮罩
     }),
-    mounted () {
-      const {woman, man, mother, self, canvas} = this.$refs
-      const ctx = canvas.getContext('2d')
-
-      ctx.drawImage(this.userGender ? woman : man, 0, 0)
-      ctx.drawImage(mother, 0, 0, 320, 400, this.userGender ? 100 : 80, this.userGender ? 105 : 230, 320, 400)
-      ctx.drawImage(self, 0, 0, 320, 400, this.userGender ? 210 : 220, this.userGender ? 120 : 150, 320, 400)
-
-      this.setPicResult(canvas.toDataURL())
-    },
     methods: {
+      generateRes () {
+        const {woman, man, mother, self, canvas} = this.$refs
+        const ctx = canvas.getContext('2d')
+
+        ctx.drawImage(mother, 0, 0, 320, 400, this.userGender ? 100 : 80, this.userGender ? 105 : 230, 320, 400)
+        ctx.drawImage(self, 0, 0, 320, 400, this.userGender ? 210 : 220, this.userGender ? 120 : 150, 320, 400)
+        ctx.drawImage(this.userGender ? woman : man, 0, 0)
+        this.setPicResult(canvas.toDataURL())
+      },
       confirm () {
         this.showModal = true
         this.postPicResult()
       },
       reTake () {
-
+      }
+    },
+    watch: {
+      gender () {
+        this.generateRes()
+      },
+      selfPic () {
+        this.generateRes()
       }
     }
   }
