@@ -67,10 +67,7 @@
         })
       },
       takeMother () {
-        parseFile(this.$refs.mother.files[0], result => {
-          this.saveMotherPic(result)
-          this.postMotherPic()
-        })
+        parseFile(this.$refs.mother.files[0], this.saveMotherPic)
       },
       pinch (evt) {
         const ratio = 3  // 倍数，调整此值来改变灵敏度

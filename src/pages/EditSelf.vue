@@ -3,7 +3,7 @@
     <img src="../assets/editSelf/pic_01.jpg" class="page-bg">
     <img src="../assets/editSelf/pic_05.png" class="pic-frame center">
     <img ref="mask" src="../assets/editSelf/pic_06.png" class="mask center">
-    <img ref="selfImg" :src="selfPic" class="selfPic">
+    <img ref="selfImg" :src="selfPic" class="selfPic" :style="imgStyle">
     <img src="../assets/editSelf/pic_04.png" class="tips center">
     <div class="center genderBox clearfix">
       <label class="fl">
@@ -36,6 +36,16 @@
       deltaY: 0,  // 图片移动纵坐标
       gender: 0,
     }),
+    computed: {
+      imgStyle () {
+        const scale = `scale(${this.zoom})`
+        const translate = `translate(${this.deltaX}px, ${this.deltaY}px)`
+
+        return {
+          transform: `${scale}  ${translate}`
+        }
+      }
+    },
     methods: {
       next () {
         const {selfImg, canvas} = this.$refs
@@ -57,10 +67,7 @@
         this.setUserGender(this.gender)
       },
       takeSelf () {
-        parseFile(this.$refs.self.files[0], result => {
-          this.saveSelfPic(result)
-          this.postSelfPic()
-        })
+        parseFile(this.$refs.self.files[0], this.saveSelfPic)
       },
       pinch (evt) {
         const ratio = 3  // 倍数，调整此值来改变灵敏度

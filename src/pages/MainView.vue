@@ -11,7 +11,6 @@
     <Ranking/>
     <Rules/>
     <HomePage/>
-
   </div>
 </template>
 
@@ -32,26 +31,12 @@
     mixins: [vuexMixin],
     components: {
       Home, Copywriting, EditMother,
-      EditSelf, PicResult, PersonalInfo, Rules, Ranking, HomePage
+      EditSelf, PicResult, PersonalInfo,
+      Rules, Ranking, HomePage
     },
-    data: () => ({
-      startY: 0,  // 用来判断用户手势是否触发翻页
-    }),
     methods: {
-      touchstart (event) {
-        this.startY = event.changedTouches[0].pageY
-      },
       touchmove (event) {
         event.preventDefault()
-      },
-      touchend (event) {
-        const endY = event.changedTouches[0].pageY
-        if (endY - this.startY < -5) {
-          this.moveDown()
-        }
-        if (endY - this.startY > 5) {
-          this.moveUp()
-        }
       },
     }
   }

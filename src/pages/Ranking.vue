@@ -8,14 +8,13 @@
     <div class="rankingBox center">
       <RankItem v-for="item of rankList" :item="item" :key="item.openid" class="rankItem"/>
     </div>
-    <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="toHomePage">
-    <img src="../assets/ranking/huodongguize.png" class="rules" @click="toRules">
+    <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8, true)">
+    <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7, true)">
   </div>
 </template>
 
 <script>
   import { vuexMixin } from '../components/mixins/index'
-  import { parseFile } from '../components/utils'
   import RankItem from '../components/RankItem'
 
   export default {
@@ -28,14 +27,6 @@
     mounted () {
       this.getRankList()
     },
-    methods: {
-      toRules () {
-        this.moveTo(7, true)
-      },
-      toHomePage () {
-        this.moveTo(8, true)
-      }
-    }
   }
 </script>
 
