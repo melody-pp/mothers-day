@@ -15,13 +15,13 @@
     <img src="../assets/picResult/pic_06.png" class="onceMore" @click="reTake">
 
     <!--彈框-->
-    <!--<div class="waringModal">-->
-    <!--<div class="contentBox">-->
-    <!--<img src="../assets/picResult/shuoming.png" class="center">-->
-    <!--<img src="../assets/picResult/queren.png" class="center">-->
-    <!--<img src="../assets/picResult/quxiao.png" class="center">-->
-    <!--</div>-->
-    <!--</div>-->
+    <div class="waringModal">
+      <div class="contentBox">
+        <img src="../assets/picResult/shuoming.png" class="center shuoming">
+        <img src="../assets/picResult/queren.png" class="queren">
+        <img src="../assets/picResult/quxiao.png" class="quxiao">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -49,7 +49,7 @@
         this.postPicResult()
       },
       reTake () {
-        this.moveTo(1,true)
+        this.moveTo(1, true)
       }
     },
     watch: {
@@ -91,7 +91,6 @@
     width: 34vw;
   }
 
-
   .onceMore {
     position: absolute;
     top: 145vw;
@@ -109,9 +108,27 @@
     .contentBox {
       background: url("../assets/picResult/beijing.png") no-repeat;
       background-size: cover;
-      width: 60vw;
+      width: 84vw;
       height: 40vw;
-      top: 50vw;
+      top: 58vw;
+      left: 9vw;
+      position: absolute;
+      .shuoming {
+        width: 67vw;
+        top: 9vw;
+      }
+      .queren {
+        width: 23vw;
+        position: absolute;
+        top: 27vw;
+        left: 14vw;
+      }
+      .quxiao {
+        width: 23vw;
+        position: absolute;
+        top: 27vw;
+        right: 14vw;
+      }
     }
   }
 </style>
