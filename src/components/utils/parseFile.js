@@ -21,28 +21,35 @@ export const parseFile = (file, callBack) => {
       const scale = Math.max(549 / imgWidth, 764 / imgHeight)
       const ratio = zoom * scale
 
-      EXIF.getData(img, function () {
-        const orientation = EXIF.getTag(this, 'Orientation')
-        const ctx = canvas.getContext('2d')
-        let rotate = false
-        if (orientation === 6) {
-          rotate = true
-          ctx.translate(275, 382)
-          ctx.rotate(Math.PI / 2)
-        }
-        if (orientation === 8) {
-          rotate = true
-          ctx.translate(275, 382)
-          ctx.rotate(-Math.PI / 2)
-        }
-        ctx.drawImage(img,
-          rotate ? -imgWidth / 2 : 0,
-          rotate ? -imgHeight / 2 : 0,
-          imgWidth, imgHeight, 0, 0,
-          imgWidth * ratio, imgHeight * ratio)
+      const ctx = canvas.getContext('2d')
+      ctx.drawImage(img,
+        0, 0, imgWidth, imgHeight, 0, 0,
+        imgWidth * ratio, imgHeight * ratio)
 
-        callBack(canvas.toDataURL())
-      })
+      callBack(canvas.toDataURL())
+
+      /*  EXIF.getData(img, function () {
+          const orientation = EXIF.getTag(this, 'Orientation')
+          const ctx = canvas.getContext('2d')
+          let rotate = false
+          if (orientation === 6) {
+            rotate = true
+            ctx.translate(275, 382)
+            ctx.rotate(Math.PI / 2)
+          }
+          if (orientation === 8) {
+            rotate = true
+            ctx.translate(275, 382)
+            ctx.rotate(-Math.PI / 2)
+          }
+          ctx.drawImage(img,
+            rotate ? -imgWidth / 2 : 0,
+            rotate ? -imgHeight / 2 : 0,
+            imgWidth, imgHeight, 0, 0,
+            imgWidth * ratio, imgHeight * ratio)
+
+          callBack(canvas.toDataURL())
+        })*/
     }
   }, false)
 }
