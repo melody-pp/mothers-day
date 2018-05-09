@@ -22,6 +22,7 @@ export const parseFile = (file, callBack) => {
       const ratio = zoom * scale
 
       const ctx = canvas.getContext('2d')
+      ctx.filter = 'saturate(70%) grayscale(70%)'
       ctx.drawImage(img,
         0, 0, imgWidth,
         imgHeight, 0, 0,

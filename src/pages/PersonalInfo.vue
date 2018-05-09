@@ -66,7 +66,10 @@
 
         //  这里是发请求到后端，参数他会直接从store里面取，可以看postPersonalInfo这个方法里面
         //  postPersonalInfo 返回了一个promise, 可以用.then回调
-        this.postPersonalInfo().then(this.moveTo(6, true))
+        this.postPersonalInfo().then(() => {
+          this.getPerson()
+          this.moveTo(6, true)
+        })
       },
       queren () {
         this.moveDown()
