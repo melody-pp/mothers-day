@@ -1,5 +1,4 @@
 import EXIF from 'exif-js'
-import AlloyImage from '../AlloyImage'
 
 export const parseFile = (file, callBack) => {
   if (!file) {

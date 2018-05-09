@@ -3785,5 +3785,3 @@ window.AlloyImage = window.$AI = window.psLib
   })
 
 })('psLib')
-
-export default AlloyImage
