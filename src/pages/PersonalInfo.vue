@@ -69,7 +69,7 @@
         this.postPersonalInfo().then(() => {
           this.getPerson()
           this.setSuccflag(true)
-          this.moveTo(6, true)
+          this.moveTo(6)
         })
       },
       queren () {

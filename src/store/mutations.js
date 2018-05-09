@@ -28,19 +28,17 @@ export default {
       state.useAnimate = !(disableAnimate === true)
     }
   },
-  moveBack (state, disableAnimate) {
+  moveBack (state) {
     if (!state.isMoving) {
       state.pageIndex = lastIndex
-      state.isMoving = !(disableAnimate === true)
-      state.useAnimate = !(disableAnimate === true)
+      state.useAnimate = false
     }
   },
-  moveTo (state, index, disableAnimate) {
+  moveTo (state, index) {
     if (!state.isMoving) {
       lastIndex = state.pageIndex
       state.pageIndex = index
-      state.isMoving = !(disableAnimate === true)
-      state.useAnimate = !(disableAnimate === true)
+      state.useAnimate = false
     }
   },
   saveMotherPic (state, motherPic) {
@@ -48,9 +46,6 @@ export default {
   },
   saveSelfPic (state, selfPic) {
     state.selfPic = selfPic
-  },
-  setUserGender (state, userGender) {
-    state.userGender = userGender
   },
   setPicResult (state, picResult) {
     state.picResult = picResult

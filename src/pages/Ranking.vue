@@ -8,8 +8,8 @@
     <div class="rankingBox center">
       <RankItem v-for="item of rankList" :item="item" :key="item.openid" class="rankItem" @holdback="showModal=true"/>
     </div>
-    <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8, true)">
-    <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7, true)">
+    <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8)">
+    <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7)">
     <div class="waringModal" v-show="showModal" @click="showModal=false">
       <div class="contentBox">
         <img src="../assets/ranking/wenzi.png" class="wenzi center">

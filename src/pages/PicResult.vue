@@ -7,7 +7,7 @@
     <img src="../assets/picResult/pic_06.png" class="onceMore" @click="reTake">
 
     <img src="../assets/picResult/pic_04.png" class="enterBtn" @click="confirm">
-    <img src="../assets/picResult/pic_05.png" class="myHome" @click="moveTo(8, true)">
+    <img src="../assets/picResult/pic_05.png" class="myHome" @click="moveTo(8)">
 
     <img hidden src="../assets/picResult/pic_07.png" ref="base">
     <img hidden :src="motherPic" ref="mother">

@@ -28,11 +28,11 @@
 
       if (+urlParams.photoflag === 1) {
         this.getPerson()
-        this.moveTo(8, true)
+        this.moveTo(8)
       }
 
       if (urlParams.openid !== urlParams.voteopenid) {
-        this.moveTo(8, true)
+        this.moveTo(8)
       }
 
       this.getSignPackage().then(({data}) => {

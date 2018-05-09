@@ -6,7 +6,7 @@
     <img class="tips" src="../assets/homePage/pic_01.png">
     <img v-if="+urlParams.self===1&&+urlParams.succflag===0"
          src="../assets/homePage/cansaiyouka.png"
-         class="youkaBtn" @click="moveTo(5, true)">
+         class="youkaBtn" @click="moveTo(5)">
     <div class="voteBox" v-else>
       <span class="nickName">{{person.username}}</span>
       <img :src="medalSrc" v-if="person.rank<4">
@@ -31,8 +31,8 @@
               v1.28C-23.552,104.61-25.6,106.562-28.128,106.562z"/>
           </svg>
     </div>
-    <img src="../assets/picResult/rulesBtn.png" class="rulesBtn" @click="moveTo(7, true)">
-    <img src="../assets/picResult/prizeBtn.png" class="prizeBtn" @click="moveTo(6, true)">
+    <img src="../assets/picResult/rulesBtn.png" class="rulesBtn" @click="moveTo(7)">
+    <img src="../assets/picResult/prizeBtn.png" class="prizeBtn" @click="moveTo(6)">
   </div>
 </template>
 
