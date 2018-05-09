@@ -55,8 +55,24 @@
         parseFile(this.$refs.self.files[0], this.saveSelfPic)
       },
       pressMove (evt) {
+        const selfImg = this.$refs.selfImg
+        const zoom = window.innerWidth / 790
         this.deltaX += evt.deltaX
         this.deltaY += evt.deltaY
+
+        if (this.deltaX > 0) {
+          this.deltaX = 0
+        }
+        if (this.deltaX < 549 * zoom - selfImg.width) {
+          this.deltaX = 549 * zoom - selfImg.width
+        }
+
+        if (this.deltaY > 0) {
+          this.deltaY = 0
+        }
+        if (this.deltaY < 764 * zoom - selfImg.height) {
+          this.deltaY = 764 * zoom - selfImg.height
+        }
       },
     },
     watch: {
@@ -119,8 +135,6 @@
       right: 15vw;
     }
   }
-
-
 
   .reTake {
     top: 140vw;

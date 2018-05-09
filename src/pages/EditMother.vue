@@ -62,24 +62,24 @@
         parseFile(this.$refs.mother.files[0], this.saveMotherPic)
       },
       pressMove (evt) {
+        const motherImg = this.$refs.motherImg
+        const zoom = window.innerWidth / 790
         this.deltaX += evt.deltaX
         this.deltaY += evt.deltaY
-        console.log(evt);
-        if(this.deltaX > 0){
-          this.deltaX = 0;
-        }
-       // alert(this.width + "    " + this.height);
-        // if(this.deltaX + this.width < 789){
-        //   this.deltaX = 789 - this.width;
-        // }
 
-
-        if(this.deltaY > 0){
-          this.deltaY = 0;
+        if (this.deltaX > 0) {
+          this.deltaX = 0
         }
-        // if(this.deltaY+this.height < 764){
-        //   this.deltaY = 764 - this.height;
-        // }
+        if (this.deltaX < 549 * zoom - motherImg.width) {
+          this.deltaX = 549 * zoom - motherImg.width
+        }
+
+        if (this.deltaY > 0) {
+          this.deltaY = 0
+        }
+        if (this.deltaY < 764 * zoom - motherImg.height) {
+          this.deltaY = 764 * zoom - motherImg.height
+        }
       }
       // pressUp (evt) {
       //   alert('test')
@@ -110,7 +110,7 @@
 
         afInstance = new AlloyFinger(this.$refs.mask, {
           pressMove: this.pressMove.bind(this)
-         // pressUp: this.pressUp.bind(this)
+          // pressUp: this.pressUp.bind(this)
         })
       }
     }

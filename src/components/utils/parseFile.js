@@ -5,8 +5,6 @@ export const parseFile = (file, callBack) => {
     return
   }
   const canvas = document.createElement('canvas')
-  canvas.width = 549
-  canvas.height = 764
 
   const reader = new FileReader()
   reader.readAsDataURL(file)
@@ -20,6 +18,8 @@ export const parseFile = (file, callBack) => {
       const zoom = window.innerWidth / 790
       const scale = Math.max(549 / imgWidth, 764 / imgHeight)
       const ratio = zoom * scale
+      canvas.width = imgWidth * ratio
+      canvas.height = imgHeight * ratio
 
       const ctx = canvas.getContext('2d')
       ctx.drawImage(img,
