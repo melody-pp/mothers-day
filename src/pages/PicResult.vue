@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <img src="../assets/picResult/pic_01.jpg" class="page-bg">
-    <img ref="result" :src="picResult" class="picResult center">
+    <img id="picResult" ref="result" :src="picResult" class="picResult center">
 
     <img src="../assets/picResult/pic_01.png" class="tips center">
     <img src="../assets/picResult/pic_06.png" class="onceMore" @click="reTake">
@@ -51,9 +51,17 @@
         ctx.drawImage(base, 0, 0, 645, 506, 0, 0, 974, 764)
 
         this.setPicResult(canvas.toDataURL())
-        result.loadOnce(() => {
-          this.setPicResult($AI(result).ps('lomo').canvas.toDataURL())
-        })
+        // result.loadOnce(() => {
+        //   this.setPicResult($AI(result).ps('lomo').canvas.toDataURL())
+        // })
+        const image = document.getElementById('picResult');
+        AlloyImage(image).act("灰度处理").add(
+          AlloyImage(image.width, image.height, "#a0a0a0")
+            .act("高斯模糊", 4)
+            .act("色相/饱和度调节", 25, 15, 0, true),
+          "叠加"
+        ).replace(image);
+
       },
       reTake () {
         this.moveTo(1)
