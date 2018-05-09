@@ -27,7 +27,7 @@
 
   .guize {
     top: 37vw;
-    width: 77vw;
+    width: 80vw;
   }
 
   .fanhui {

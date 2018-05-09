@@ -13,7 +13,7 @@
     <img src="../assets/picResult/pic_06.png" class="onceMore" @click="reTake">
 
     <!--彈框-->
-    <div class="waringModal" v-show="showModal">
+    <div class="waringModal glass" v-show="showModal">
       <div class="contentBox">
         <img src="../assets/picResult/shuoming.png" class="center shuoming">
         <img src="../assets/picResult/queren.png" class="queren" @click="queren">
@@ -55,7 +55,7 @@
         this.setPicResult(canvas.toDataURL())
       },
       reTake () {
-        this.moveTo(1, true)
+        this.moveTo(1)
       },
       confirm () {
         this.showModal = true
