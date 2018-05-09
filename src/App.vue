@@ -26,12 +26,12 @@
       this.saveUrlParams(urlParams)
       this.getVoteperson()
 
-      if (+urlParams.photoflag === 1) {
+      if (+urlParams.succflag === 1) {
         this.getPerson()
         this.moveTo(8)
       }
 
-      if (urlParams.openid !== urlParams.voteopenid) {
+      if (+urlParams.self === 0) {
         this.moveTo(8)
       }
 
