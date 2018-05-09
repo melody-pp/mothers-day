@@ -58,6 +58,7 @@
       vote () {
         if (+this.votedInfo.flag === 1) {
           // 已经投过，弹窗告诉用户不可再投
+          this.$emit('holdback')
         } else {
           this.postVote(this.item.openid)
         }
