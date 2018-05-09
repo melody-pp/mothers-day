@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!--<img src="./assets/home/LOGO.png" class="logo" v-show="pageIndex!==4">-->
+    <img src="./assets/home/LOGO.png" class="logo" v-show="pageIndex!==4">
     <audio id="bgmusic" autoplay loop src="./assets/bgm.mp3"></audio>
     <MainView/>
   </div>
