@@ -52,7 +52,7 @@
 
         this.setPicResult(canvas.toDataURL())
         result.loadOnce(() => {
-          this.setPicResult($AI(result).ps('softenFace').canvas.toDataURL())
+          this.setPicResult($AI(result).ps('lomo').canvas.toDataURL())
         })
       },
       reTake () {
@@ -113,7 +113,7 @@
     position: absolute;
     top: 31vw;
     left: 0.5vw;
-    z-index: 1;
+    z-index: 1!important;
     width: 99vw;
     height: 71vw;
   }
