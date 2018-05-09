@@ -73,4 +73,10 @@ export default {
     const user = state.rankList.find(item => item.voteopenid === voteopenid)
     user.vote = Number(user.vote) + 1
   },
+  setPhotoflag (state, flag) {
+    state.urlParams.photoflag = flag
+  },
+  setSuccflag (state, flag) {
+    state.urlParams.succflag = flag
+  },
 }

@@ -28,13 +28,15 @@ export default {
     })
   },
   // 上传合照
-  postPicResult ({state}) {
-    return http.post('/uploadthumb', {
+  postPicResult ({state, commit}) {
+    http.post('/uploadthumb', {
       // openid: state.urlParams.openid,
       openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
       motherthumb: state.motherPic,
       childthumb: state.selfPic,
       tothumb: state.picResult,
+    }).then(res => {
+      commit('setPhotoflag', true)
     })
   },
   // 上传个人信息

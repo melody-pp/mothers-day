@@ -7,18 +7,10 @@
       <img ref="selfImg" :src="selfPic" class="selfPic" :style="imgStyle">
     </div>
     <img src="../assets/editSelf/pic_04.png" class="tips center">
-    <div class="center genderBox clearfix">
-      <label class="fl">
-        <input type="radio" name="gender" :value="0" v-model="gender">先生
-      </label>
-      <label class="fr">
-        <input type="radio" name="gender" :value="1" v-model="gender">女士
-      </label>
-    </div>
     <img src="../assets/editSelf/compoundBtn.png" class="next center" @click="next">
     <img src="../assets/editSelf/pic_03.png" class="reTake center">
     <input class="reTake center" type="file" ref="self" @change="takeSelf">
-    <canvas hidden ref="canvas" width="320" height="400"/>
+    <canvas hidden ref="canvas" width="549" height="764"/>
   </div>
 </template>
 
@@ -35,7 +27,6 @@
     data: () => ({
       deltaX: 0,  // 图片移动横坐标
       deltaY: 0,  // 图片移动纵坐标
-      gender: 0,
     }),
     computed: {
       imgStyle () {
@@ -52,15 +43,14 @@
         const screenRatio = window.innerWidth * 0.695 / 549
         ctx.drawImage(
           selfImg,
-          115 * screenRatio - this.deltaX,
-          120 * screenRatio - this.deltaY,
-          320 * screenRatio,
-          400 * screenRatio,
-          0, 0, 320, 400)
+          -this.deltaX,
+          -this.deltaY,
+          549 * screenRatio,
+          764 * screenRatio,
+          0, 0, 549, 764)
 
         this.saveSelfPic(canvas.toDataURL())
         this.moveDown()
-        this.setUserGender(this.gender)
       },
       takeSelf () {
         parseFile(this.$refs.self.files[0], this.saveSelfPic)
@@ -73,8 +63,6 @@
     watch: {
       selfPic () {
         try {
-          this.deltaX = 0
-          this.deltaY = 0
           afInstance.destroy()
         } catch (e) {}
 

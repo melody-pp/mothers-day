@@ -68,6 +68,7 @@
         //  postPersonalInfo 返回了一个promise, 可以用.then回调
         this.postPersonalInfo().then(() => {
           this.getPerson()
+          this.setSuccflag(true)
           this.moveTo(6, true)
         })
       },

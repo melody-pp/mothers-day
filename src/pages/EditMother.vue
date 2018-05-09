@@ -2,8 +2,7 @@
   <div class="page">
     <img src="../assets/editMother/pic_01.jpg" class="page-bg">
     <img src="../assets/editMother/pic_04.png" class="pic-frame center">
-    <img ref="mask" src="../assets/editMother/pic_06.png" class="mask center">
-    <div class="img-container center">
+    <div ref="mask" class="img-container center">
       <img ref="motherImg" :src="motherPic" class="motherPic" :style="imgStyle">
     </div>
     <img src="../assets/editMother/pic_01.png" class="tips center">
@@ -11,7 +10,7 @@
     <input class="next center" type="file" ref="self" @change="takeSelf">
     <img src="../assets/editMother/pic_03.png" class="reTake center">
     <input class="reTake center" type="file" ref="mother" @change="takeMother">
-    <canvas hidden ref="canvas" width="320" height="400"/>
+    <canvas hidden ref="canvas" width="549" height="764"/>
   </div>
 </template>
 
@@ -47,11 +46,11 @@
 
         ctx.drawImage(
           motherImg,
-          115 * screenRatio - this.deltaX,
-          120 * screenRatio - this.deltaY,
-          320 * screenRatio,
-          400 * screenRatio,
-          0, 0, 320, 400)
+          -this.deltaX,
+          -this.deltaY,
+          549 * screenRatio,
+          764 * screenRatio,
+          0, 0, 549, 764)
 
         this.saveMotherPic(canvas.toDataURL())
         parseFile(self.files[0], result => {
@@ -70,8 +69,6 @@
     watch: {
       motherPic () {
         try {
-          this.deltaX = 0
-          this.deltaY = 0
           afInstance.destroy()
         } catch (e) {}
 
