@@ -29,7 +29,23 @@ export const parseFile = (file, callBack) => {
         imgWidth * ratio,
         imgHeight * ratio)
 
-      callBack(canvas.toDataURL())
+      EXIF.getData(img, function () {
+        const orientation = EXIF.getTag(this, 'Orientation')
+        const ctx = canvas.getContext('2d')
+        if (orientation === 6) {
+          ctx.rotate(Math.PI / 2)
+        }
+        if (orientation === 8) {
+          ctx.rotate(-Math.PI / 2)
+        }
+        ctx.drawImage(img,
+          0, 0, imgWidth,
+          imgHeight, 0, 0,
+          imgWidth * ratio,
+          imgHeight * ratio)
+
+        callBack(canvas.toDataURL())
+      })
     }
   }, false)
 }
