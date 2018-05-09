@@ -10,7 +10,7 @@
     <img src="../assets/picResult/pic_05.png" class="myHome" @click="moveTo(8, true)">
     <img src="../assets/picResult/xiangkuangBG.png" class="xiangkuangBG">
 
-    <img hidden src="../assets/picResult/pic_07.png" ref="base">
+    <img hidden src="../assets/picResult/pic_05(2).png" ref="base">
     <img hidden :src="motherPic" ref="mother">
     <img hidden :src="selfPic" ref="self">
     <canvas hidden width="1098" height="764" ref="canvas"/>
@@ -74,46 +74,46 @@
 
 <style scoped lang="scss">
   img {
-    z-index: 10;
+    z-index: 2;
   }
 
   .picResult {
-    top: 34vw;
+    top: 38vw;
     width: 94vw;
   }
 
   .tips {
-    top: 106vw;
+    top: 110vw;
     width: 48vw;
     left: 32vw;
   }
 
   .onceMore {
     position: absolute;
-    top: 104vw;
+    top: 108vw;
     right: 10vw;
     width: 34vw;
   }
 
   .enterBtn, .rulesBtn {
     position: absolute;
-    top: 124vw;
+    top: 128vw;
     left: 10vw;
     width: 34vw;
   }
 
   .myHome {
     position: absolute;
-    top: 124vw;
+    top: 128vw;
     right: 10vw;
     width: 34vw;
   }
 
   .xiangkuangBG {
     position: absolute;
-    top: 31vw;
+    top: 35vw;
     left: 0.5vw;
-    z-index: 1!important;
+    z-index: 1 !important;
     width: 99vw;
     height: 71vw;
   }

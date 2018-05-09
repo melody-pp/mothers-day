@@ -5,7 +5,7 @@
     <div ref="mask" class="img-container center">
       <img ref="selfImg" :src="selfPic" class="selfPic" :style="imgStyle">
     </div>
-    <img src="../assets/editSelf/pic_04.png" class="tips center">
+    <!--<img src="../assets/editSelf/pic_04.png" class="tips center">-->
     <img src="../assets/editSelf/compoundBtn.png" class="next center" @click="next">
     <img src="../assets/editSelf/pic_03.png" class="reTake center">
     <input class="reTake center" type="file" ref="self" @change="takeSelf">
@@ -110,7 +110,7 @@
 
   .next {
     top: 127vw;
-    width: 30vw;
+    width: 45vw;
     position: absolute;
     &.male {
       left: 15vw;
@@ -120,13 +120,10 @@
     }
   }
 
-  .next {
-    top: 140vw;
-    width: 36vw;
-  }
+
 
   .reTake {
-    top: 150vw;
+    top: 140vw;
     width: 36vw;
   }
 

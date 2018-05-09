@@ -5,7 +5,7 @@
     <div ref="mask" class="img-container center">
       <img ref="motherImg" :src="motherPic" class="motherPic" :style="imgStyle">
     </div>
-    <img src="../assets/editMother/pic_01.png" class="tips center">
+    <!--<img src="../assets/editMother/pic_01.png" class="tips center">-->
     <img src="../assets/editMother/pic_02.png" class="next center">
     <input class="next center" type="file" ref="self" @change="takeSelf">
     <img src="../assets/editMother/pic_03.png" class="reTake center">
