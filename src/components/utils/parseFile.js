@@ -5,7 +5,6 @@ export const parseFile = (file, callBack) => {
   if (!file) {
     return
   }
-
   const canvas = document.createElement('canvas')
   canvas.width = 549
   canvas.height = 764
@@ -23,28 +22,14 @@ export const parseFile = (file, callBack) => {
       const scale = Math.max(549 / imgWidth, 764 / imgHeight)
       const ratio = zoom * scale
 
-      EXIF.getData(img, function () {
-        const ctx = canvas.getContext('2d')
-        const orientation = EXIF.getTag(this, 'Orientation')
+      const ctx = canvas.getContext('2d')
+      ctx.drawImage(img,
+        0, 0, imgWidth,
+        imgHeight, 0, 0,
+        imgWidth * ratio,
+        imgHeight * ratio)
 
-        // 在这里，用ctx.filter改变图片的饱和度、灰度等
-        ctx.filter = 'saturate(30%)'
-
-        // 修正图片方向
-        if (orientation === 6) {
-          ctx.rotate(Math.PI / 2)
-        }
-        if (orientation === 8) {
-          ctx.rotate(-Math.PI / 2)
-        }
-
-        ctx.drawImage(img,
-          0, 0, imgWidth,
-          imgHeight, 0, 0,
-          imgWidth * ratio,
-          imgHeight * ratio)
-        callBack(canvas.toDataURL())
-      })
+      callBack(canvas.toDataURL())
     }
   }, false)
 }
