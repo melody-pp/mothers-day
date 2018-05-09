@@ -1,8 +1,8 @@
 <template>
-  <div ref="page" class="page">
+  <div class="page">
     <img src="../assets/editMother/pic_01.jpg" class="page-bg">
     <img src="../assets/editMother/pic_04.png" class="pic-frame center">
-    <img src="../assets/editMother/pic_06.png" class="mask center">
+    <img ref="mask" src="../assets/editMother/pic_06.png" class="mask center">
     <div class="img-container center">
       <img ref="motherImg" :src="motherPic" class="motherPic" :style="imgStyle">
     </div>
@@ -75,7 +75,7 @@
           afInstance.destroy()
         } catch (e) {}
 
-        afInstance = new AlloyFinger(this.$refs.page, {
+        afInstance = new AlloyFinger(this.$refs.mask, {
           pressMove: this.pressMove.bind(this)
         })
       }

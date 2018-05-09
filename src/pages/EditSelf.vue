@@ -79,9 +79,9 @@
         } catch (e) {}
 
         afInstance = new AlloyFinger(this.$refs.mask, {
-          pressMove: this.pressMove.bind(this),
+          pressMove: this.pressMove.bind(this)
         })
-      }
+      },
     }
   }
 </script>

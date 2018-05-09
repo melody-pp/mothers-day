@@ -19,7 +19,7 @@ export const parseFile = (file, callBack) => {
       const imgWidth = this.width
       const imgHeight = this.height
       const zoom = window.innerWidth / 790
-      const scale = Math.min(549 / imgWidth, 764 / imgHeight)
+      const scale = Math.max(549 / imgWidth, 764 / imgHeight)
       const ratio = zoom * scale
 
       EXIF.getData(img, function () {
@@ -27,14 +27,14 @@ export const parseFile = (file, callBack) => {
         const orientation = EXIF.getTag(this, 'Orientation')
 
         // 在这里，用ctx.filter改变图片的饱和度、灰度等
-        ctx.filter = 'saturate(70%) grayscale(70%)'
+        ctx.filter = 'saturate(30%)'
 
         // 修正图片方向
         if (orientation === 6) {
-          ctx.rotate(Math.PI / 4)
+          ctx.rotate(Math.PI / 2)
         }
         if (orientation === 8) {
-          ctx.rotate(-Math.PI / 4)
+          ctx.rotate(-Math.PI / 2)
         }
 
         ctx.drawImage(img,
