@@ -39,7 +39,7 @@
     },
     methods: {
       generateRes () {
-        const {base, mother, self, canvas} = this.$refs
+        const {base, mother, self, canvas, result} = this.$refs
         const ctx = canvas.getContext('2d')
         const imgXYWH = [0, 0, 549, 764]
         const motherXYWH = [549, 0, 549, 764]
@@ -50,6 +50,9 @@
         ctx.drawImage(base, 0, 0, 645, 506, 0, 0, 974, 764)
 
         this.setPicResult(canvas.toDataURL())
+        result.loadOnce(() => {
+          this.setPicResult($AI(result).ps('softenFace').canvas.toDataURL())
+        })
       },
       reTake () {
         this.moveTo(1)
