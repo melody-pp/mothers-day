@@ -117,4 +117,8 @@
     position: absolute;
     transform: translateX(-50%);
   }
+
+  .glass {
+    filter: blur(5px);
+  }
 </style>

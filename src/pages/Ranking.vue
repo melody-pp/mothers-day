@@ -10,7 +10,7 @@
     </div>
     <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8, true)">
     <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7, true)">
-    <div class="waringModal">
+    <div class="waringModal" v-show="showModal">
       <div class="contentBox">
         <img src="../assets/ranking/wenzi.png" class="wenzi center">
       </div>
@@ -27,7 +27,8 @@
     mixins: [vuexMixin],
     components: {RankItem},
     data: () => ({
-      searchText: ''
+      searchText: '',
+      showModal: false
     }),
     mounted () {
       this.getRankList()
