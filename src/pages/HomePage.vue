@@ -82,7 +82,7 @@
   .picBG {
     position: absolute;
     top: 6vw;
-    left: 17vw;
+    left: 13vw;
     width: 72vw;
   }
 
