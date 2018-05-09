@@ -4,8 +4,10 @@
     <img class="title" src="../assets/copywriting/pic_01.png">
     <img class="picBG" src="../assets/homePage/pic_03.png">
     <img class="tips" src="../assets/homePage/pic_01.png">
-    <!--<img src="../assets/homePage/cansaiyouka.png" class="youkaBtn">-->
-    <div class="voteBox">
+    <img v-if="+urlParams.self===1&&+urlParams.succflag===0"
+         src="../assets/homePage/cansaiyouka.png"
+         class="youkaBtn" @click="moveTo(5, true)">
+    <div class="voteBox" v-else>
       <span class="nickName">{{person.username}}</span>
       <img :src="medalSrc" v-if="person.rank<4">
       <span v-else class="rankingNum">No.{{person.rank}}</span>

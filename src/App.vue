@@ -31,6 +31,10 @@
         this.moveTo(8, true)
       }
 
+      if (urlParams.openid !== urlParams.voteopenid) {
+        this.moveTo(8, true)
+      }
+
       this.getSignPackage().then(({data}) => {
         this.configWX(data)
       })
