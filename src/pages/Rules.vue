@@ -3,7 +3,7 @@
     <img src="../assets/rules/beijing.jpg" class="page-bg">
     <img src="../assets/personalInfo/pic_01.png" class="title">
     <img src="../assets/rules/guize.png" class="guize center">
-    <img src="../assets/rules/fanhui.png" class="fanhui center" @click="moveTo(6, true)">
+    <img src="../assets/rules/fanhui.png" class="fanhui center" @click="moveBack(true)">
     <img src="../assets/rules/shiquan.png" class="shiquan center">
   </div>
 </template>

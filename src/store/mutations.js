@@ -1,4 +1,5 @@
 const MAX_PAGE_INDEX = 10
+let lastIndex = 0
 
 export default {
   saveUrlParams (state, urlParams) {
@@ -12,6 +13,7 @@ export default {
   moveUp (state, disableAnimate) {
     // 翻页中或者已翻到顶，不再触发
     if (!state.isMoving && state.pageIndex) {
+      lastIndex = state.pageIndex
       state.pageIndex--
       state.isMoving = !(disableAnimate === true)
       state.useAnimate = !(disableAnimate === true)
@@ -20,13 +22,22 @@ export default {
   moveDown (state, disableAnimate) {
     // 翻页中或者已翻到底，不再触发
     if (!state.isMoving && state.pageIndex < MAX_PAGE_INDEX) {
+      lastIndex = state.pageIndex
       state.pageIndex++
+      state.isMoving = !(disableAnimate === true)
+      state.useAnimate = !(disableAnimate === true)
+    }
+  },
+  moveBack (state, disableAnimate) {
+    if (!state.isMoving) {
+      state.pageIndex = lastIndex
       state.isMoving = !(disableAnimate === true)
       state.useAnimate = !(disableAnimate === true)
     }
   },
   moveTo (state, index, disableAnimate) {
     if (!state.isMoving) {
+      lastIndex = state.pageIndex
       state.pageIndex = index
       state.isMoving = !(disableAnimate === true)
       state.useAnimate = !(disableAnimate === true)

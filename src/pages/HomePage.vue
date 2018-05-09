@@ -29,8 +29,8 @@
               v1.28C-23.552,104.61-25.6,106.562-28.128,106.562z"/>
           </svg>
     </div>
-    <img src="../assets/picResult/rulesBtn.png" class="rulesBtn">
-    <img src="../assets/picResult/prizeBtn.png" class="prizeBtn">
+    <img src="../assets/picResult/rulesBtn.png" class="rulesBtn" @click="moveTo(7, true)">
+    <img src="../assets/picResult/prizeBtn.png" class="prizeBtn" @click="moveTo(6, true)">
   </div>
 </template>
 
