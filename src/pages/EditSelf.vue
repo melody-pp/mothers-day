@@ -2,8 +2,7 @@
   <div class="page">
     <img src="../assets/editSelf/pic_01.jpg" class="page-bg">
     <img src="../assets/editSelf/pic_05.png" class="pic-frame center">
-    <img ref="mask" src="../assets/editSelf/pic_06.png" class="mask center">
-    <div class="img-container center">
+    <div ref="mask" class="img-container center">
       <img ref="selfImg" :src="selfPic" class="selfPic" :style="imgStyle">
     </div>
     <img src="../assets/editSelf/pic_04.png" class="tips center">
