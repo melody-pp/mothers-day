@@ -21,11 +21,11 @@
       </div>
     </div>
     <img src="../assets/personalInfo/pic_02.png" class="infoBtn" @click="submitInfo">
-    <div class="warningBox">
+    <div class="warningBox" v-show="showModal">
       <div class="bgBox center">
         <img src="../assets/personalInfo/tishi.png" class="tishi center">
-        <img src="../assets/personalInfo/queren.png" class="queren">
-        <img src="../assets/personalInfo/quxiao.png" class="quxiao">
+        <img src="../assets/personalInfo/queren.png" class="queren" @click="queren">
+        <img src="../assets/personalInfo/quxiao.png" class="quxiao" @click="quxiao">
       </div>
     </div>
   </div>
@@ -39,6 +39,7 @@
     mixins: [vuexMixin],
     data () {
       return {
+        showModal: false,
         xingming: '',
         dianhua: '',
         chengshi: '',
@@ -66,7 +67,13 @@
         //  这里是发请求到后端，参数他会直接从store里面取，可以看postPersonalInfo这个方法里面
         //  postPersonalInfo 返回了一个promise, 可以用.then回调
         this.postPersonalInfo().then(this.moveTo(6, true))
-      }
+      },
+      queren () {
+        this.moveDown()
+      },
+      quxiao () {
+        this.showModal = false
+      },
     }
   }
 </script>

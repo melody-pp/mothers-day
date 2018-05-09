@@ -58,7 +58,7 @@
       getShareConfig () {
         const title = '你陪我长大，我陪你变老#致敬母爱，小伙伴们快来帮我最美的妈妈投票吧'
         const link = location.origin + '/mother/index.php/index/index/person_index?openid=' + this.urlParams.openid
-        const imgUrl = location.origin + require('./assets/copywriting/pic_01.png')
+        const imgUrl = location.origin + require('./assets/WeChat.jpg')
         // const desc = '这里是一些描述文案'
 
         return {title, link, imgUrl}

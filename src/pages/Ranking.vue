@@ -10,6 +10,11 @@
     </div>
     <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8, true)">
     <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7, true)">
+    <div class="waringModal">
+      <div class="contentBox">
+        <img src="../assets/ranking/wenzi.png" class="wenzi center">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -79,5 +84,29 @@
 
   .mine {
     bottom: 24vw;
+  }
+
+  .waringModal {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    position: absolute;
+    background: rgba(0, 0, 0, .6);
+    .contentBox {
+      background: url("../assets/picResult/beijing.png") no-repeat;
+      background-size: cover;
+      width: 86vw;
+      height: 22vw;
+      top: 77vw;
+      left: 7vw;
+      position: absolute;
+      .wenzi {
+        width: 74vw;
+        top: 9vw;
+      }
+
+    }
   }
 </style>
