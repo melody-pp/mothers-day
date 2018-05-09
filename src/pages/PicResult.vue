@@ -37,11 +37,10 @@
         const {woman, man, mother, self, canvas} = this.$refs
         const ctx = canvas.getContext('2d')
         const imgXYWH = [0, 0, 320, 400]
-        const canvasWH = [160, 200]
-        const womanMotherXYWH = [180, 190].concat(canvasWH)
-        const womanSelfXYWH = [345, 210].concat(canvasWH)
-        const manMotherXYWH = [145, 370].concat(canvasWH)
-        const manSelfXYWH = [365, 250].concat(canvasWH)
+        const womanMotherXYWH = [180, 190, 160, 210]
+        const womanSelfXYWH = [345, 210, 160, 200]
+        const manMotherXYWH = [145, 370, 180, 220]
+        const manSelfXYWH = [365, 250, 180, 230]
 
         if (this.userGender) {
           ctx.drawImage(mother, ...imgXYWH, ...womanMotherXYWH)
