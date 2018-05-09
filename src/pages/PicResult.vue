@@ -54,13 +54,13 @@
         // result.loadOnce(() => {
         //   this.setPicResult($AI(result).ps('lomo').canvas.toDataURL())
         // })
-        const image = document.getElementById('picResult');
-        AlloyImage(image).act("灰度处理").add(
-          AlloyImage(image.width, image.height, "#a0a0a0")
-            .act("高斯模糊", 4)
-            .act("色相/饱和度调节", 25, 15, 0, true),
-          "叠加"
-        ).replace(image);
+        const image = document.getElementById('picResult')
+        $AI(image).act('灰度处理').add(
+          $AI(image.width, image.height, '#a0a0a0')
+            .act('高斯模糊', 4)
+            .act('色相/饱和度调节', 25, 15, 0, true),
+          '叠加'
+        ).replace(image)
 
       },
       reTake () {

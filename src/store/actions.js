@@ -31,10 +31,11 @@ export default {
   postPicResult ({state, commit}) {
     http.post('/uploadthumb', {
       // openid: state.urlParams.openid,
-      openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
-      motherthumb: state.motherPic,
-      childthumb: state.selfPic,
+      openid: state.urlParams.openid,
+      // motherthumb: state.motherPic,
+      // childthumb: state.selfPic,
       tothumb: state.picResult,
+
     }).then(res => {
       commit('setPhotoflag', true)
     })
@@ -43,7 +44,7 @@ export default {
   postPersonalInfo ({state}) {
     return http.post('/add_person', {
       // openid: state.urlParams.openid,
-      openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
+      openid: state.urlParams.openid,
       ...state.personalInfo,
     })
   },
@@ -51,7 +52,7 @@ export default {
   postVote ({state, commit}, voteopenid) {
     http.post('/add_vote', {
       // openid: state.urlParams.openid,
-      openid: 'oGgAGv_ndEDNb2E3-ryRgMG1z3JY',
+      openid: state.urlParams.openid,
       voteopenid,
     }).then(() => {
       commit('addVote', voteopenid)

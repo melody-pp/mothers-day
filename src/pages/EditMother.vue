@@ -107,10 +107,37 @@
         try {
           afInstance.destroy()
         } catch (e) {}
-
-        afInstance = new AlloyFinger(this.$refs.mask, {
-          pressMove: this.pressMove.bind(this)
-          // pressUp: this.pressUp.bind(this)
+        const el = this.$refs.mask
+        // Transform(el)
+        // var initScale = 1
+        afInstance = new AlloyFinger(el, {
+          pressMove: this.pressMove.bind(this),
+          // multipointStart: function () {
+          //   To.stopAll()
+          //   initScale = el.scaleX
+          // },
+          // pinch: function (evt) {
+          //   el.scaleX = el.scaleY = initScale * evt.zoom
+          //   // alert(111)
+          // },
+          // rotate: function (evt) {
+          //   el.rotateZ += evt.angle
+          // },
+          // multipointEnd: function () {
+          //   To.stopAll()
+          //   if (el.scaleX < 1) {
+          //     new To(el, 'scaleX', 1, 500, ease)
+          //     new To(el, 'scaleY', 1, 500, ease)
+          //   }
+          //   if (el.scaleX > 2) {
+          //     new To(el, 'scaleX', 2, 500, ease)
+          //     new To(el, 'scaleY', 2, 500, ease)
+          //   }
+          //   var rotation = el.rotateZ % 360
+          //   if (rotation < 0) rotation = 360 + rotation
+          //   el.rotateZ = rotation
+          //   if (rotation > 0 && rotation < 45) { new To(el, 'rotateZ', 0, 500, ease) } else if (rotation >= 315) { new To(el, 'rotateZ', 360, 500, ease) } else if (rotation >= 45 && rotation < 135) { new To(el, 'rotateZ', 90, 500, ease) } else if (rotation >= 135 && rotation < 225) { new To(el, 'rotateZ', 180, 500, ease) } else if (rotation >= 225 && rotation < 315) { new To(el, 'rotateZ', 270, 500, ease) }
+          // },
         })
       }
     }
