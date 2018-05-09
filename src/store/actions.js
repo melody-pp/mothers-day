@@ -29,14 +29,10 @@ export default {
   },
   // 上传合照
   postPicResult ({state, commit}) {
-    http.post('/uploadthumb', {
-      // openid: state.urlParams.openid,
-      openid: state.urlParams.openid,
-      // motherthumb: state.motherPic,
-      // childthumb: state.selfPic,
-      tothumb: state.picResult,
-
-    }).then(res => {
+    const data = new FormData
+    data.append('openid', state.urlParams.openid)
+    data.append('tothumb', state.picResult)
+    http.post('/uploadthumb', data).then(res => {
       commit('setPhotoflag', true)
     })
   },
