@@ -8,6 +8,7 @@
 
     <img src="../assets/picResult/pic_04.png" class="enterBtn" @click="confirm">
     <img src="../assets/picResult/pic_05.png" class="myHome" @click="moveTo(8)">
+    <img src="../assets/picResult/xiangkuangBG.png" class="xiangkuangBG">
 
     <img hidden src="../assets/picResult/pic_07.png" ref="base">
     <img hidden :src="motherPic" ref="mother">
@@ -51,7 +52,7 @@
 
         this.setPicResult(canvas.toDataURL())
         result.loadOnce(() => {
-          this.setPicResult($AI(result).ps('softenFace').canvas.toDataURL())
+          this.setPicResult($AI(result).ps('lomo').canvas.toDataURL())
         })
       },
       reTake () {
@@ -72,36 +73,49 @@
 </script>
 
 <style scoped lang="scss">
+  img {
+    z-index: 10;
+  }
+
   .picResult {
-    top: 30vw;
+    top: 34vw;
     width: 94vw;
   }
 
   .tips {
-    top: 102vw;
+    top: 106vw;
     width: 48vw;
     left: 32vw;
   }
 
   .onceMore {
     position: absolute;
-    top: 100vw;
+    top: 104vw;
     right: 10vw;
     width: 34vw;
   }
 
   .enterBtn, .rulesBtn {
     position: absolute;
-    top: 120vw;
+    top: 124vw;
     left: 10vw;
     width: 34vw;
   }
 
   .myHome {
     position: absolute;
-    top: 120vw;
+    top: 124vw;
     right: 10vw;
     width: 34vw;
+  }
+
+  .xiangkuangBG {
+    position: absolute;
+    top: 31vw;
+    left: 0.5vw;
+    z-index: 1!important;
+    width: 99vw;
+    height: 71vw;
   }
 
   .waringModal {
