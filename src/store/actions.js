@@ -14,7 +14,7 @@ export default {
   // 获取个人主页展示信息
   getPerson ({state, commit}) {
     http.post('/get_person', {
-      openid: state.urlParams.shareOpenid
+      openid: state.urlParams.shareOpenId
     }).then(res => {
       commit('setPerson', res.data)
     })
