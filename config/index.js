@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/': {
-        target: 'http://www.pview-ad.com/',
+        target: 'http://www.2048j.com/',
         changeOrigin: true
       }
     },
