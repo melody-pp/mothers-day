@@ -35,7 +35,7 @@
       </div>
     </div>
     <!--二维码弹框-->
-    <div class="warningBox" v-show="true">
+    <div class="warningBox" v-show="ewmShowModal">
       <div class="ewmBox">
         <img src="../assets/personalInfo/ewm.png" class="ewm">
         <img src="../assets/personalInfo/ewmTxt.png" class="ewmTxt">
