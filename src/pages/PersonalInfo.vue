@@ -63,7 +63,7 @@
           return alert('电话格式错误！')
         }
 
-        showModal = true
+        this.showModal = true
         this.setPersonalInfo({
           username: this.xingming,
           phone: this.dianhua,
@@ -77,7 +77,6 @@
           this.setSuccflag(true)
           this.moveDown()
         })
-        this.showModal = true
       },
       quxiao () {
         this.showModal = false
