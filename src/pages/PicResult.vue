@@ -10,7 +10,7 @@
     <img src="../assets/picResult/pic_05.png" class="myHome" @click="toMyHome">
     <img src="../assets/picResult/xiangkuangBG.png" class="xiangkuangBG">
 
-    <img hidden src="../assets/picResult/pic_05(2).png" ref="base">
+    <img hidden src="../assets/picResult/pic_05(2).png" ref="base" class="base">
     <img hidden :src="motherPic" ref="mother">
     <img hidden :src="selfPic" ref="self">
     <canvas hidden width="1098" height="764" ref="canvas"/>
@@ -131,6 +131,10 @@
     z-index: 1 !important;
     width: 99vw;
     height: 71vw;
+  }
+
+  .base {
+    width: 94vw;
   }
 
   .waringModal {
