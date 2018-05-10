@@ -10,7 +10,7 @@
     <img src="../assets/picResult/pic_05.png" class="myHome" @click="toMyHome">
     <img src="../assets/picResult/xiangkuangBG.png" class="xiangkuangBG">
 
-    <img hidden src="../assets/picResult/pic_05(2).png" ref="base" class="base">
+    <img hidden src="../assets/picResult/pic_07.png" ref="base" class="base">
     <img hidden :src="motherPic" ref="mother">
     <img hidden :src="selfPic" ref="self">
     <canvas hidden width="1098" height="764" ref="canvas"/>
@@ -50,7 +50,7 @@
 
         ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
         ctx.drawImage(self, ...imgXYWH, ...selfXYWH)
-        ctx.drawImage(base, 0, 0, 645, 506, 0, 0, 974, 764)
+        ctx.drawImage(base, 0, 0, 726, 505, 0, 0, 1098, 764)
         ctx.filter = 'saturate(60%) grayscale(50%) brightness(120%)'
         this.setPicResult(canvas.toDataURL())
         // result.loadOnce(() => {
