@@ -26,7 +26,7 @@
       this.saveUrlParams(urlParams)
       this.getVoteperson()
 
-      if (+urlParams.succflag === 1 || +urlParams.self === 0) {
+      if (+urlParams.photoflag === 1 || +urlParams.self === 0) {
         this.getPerson()
         this.moveTo(8)
       }
