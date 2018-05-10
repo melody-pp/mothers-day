@@ -94,6 +94,7 @@
       pageIndex (index) {
         if (index === 6) {
           this.pageNo = 1
+          this.pushRankList([])
           this.getRankData()
         }
       }
