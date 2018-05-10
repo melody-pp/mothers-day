@@ -77,6 +77,7 @@
           this.setSuccflag(true)
           this.moveDown()
         })
+        this.showModal = true
       },
       quxiao () {
         this.showModal = false
