@@ -22,7 +22,7 @@
 
         return params
       }, {})
-      alert(urlParams.openid)
+      // alert(urlParams.openid)
       this.saveUrlParams(urlParams)
       this.getVoteperson()
 
