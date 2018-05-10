@@ -172,13 +172,13 @@
       background: url("../assets/picResult/beijing.png") no-repeat;
       background-size: cover;
       width: 86vw;
-      height: 22vw;
+      height: 27vw;
       top: 77vw;
       left: 7vw;
       position: absolute;
       .wenzi {
         width: 74vw;
-        top: 9vw;
+        top: 7vw;
       }
 
     }

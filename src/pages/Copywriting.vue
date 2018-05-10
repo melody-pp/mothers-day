@@ -63,7 +63,7 @@
   }
 
   .tips {
-    top: 125vw;
+    top: 110vw;
     width: 70vw;
   }
 </style>
