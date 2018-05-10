@@ -73,6 +73,10 @@
 </script>
 
 <style>
+  /* zzh */
+  .page-bg{
+    pointer-events: none;
+  }
   #app {
     width: 100vw;
     height: 100vh;

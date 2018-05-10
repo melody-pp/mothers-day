@@ -2,7 +2,9 @@
   <div class="page" @touchstart="touchstart" @touchend="touchend">
     <img class="page-bg" src="../assets/copywriting/pic_01.jpg">
     <img class="title" src="../assets/copywriting/pic_01.png">
-    <img class="text center" src="../assets/copywriting/pic_02.png">
+    <!-- zzh -->
+    <!-- <img class="text center" src="../assets/copywriting/pic_02.png"> -->
+    <div class="text center"></div>
     <img class="button center" src="../assets/copywriting/pic_03.png">
     <img class="tips center" src="../assets/copywriting/pic_04.png">
     <input class="button center" type="file" ref="mother" @change="takeMother">
@@ -47,9 +49,13 @@
     position: absolute;
   }
 
+  /* zzh */
   .text {
     top: 43vw;
     width: 70vw;
+    height: 45.8vw;
+    background: url(../assets/copywriting/pic_02.png) no-repeat center;
+    background-size: contain;
   }
 
   .button {

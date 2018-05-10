@@ -6,7 +6,9 @@
       <img ref="selfImg" :src="selfPic" class="selfPic" :style="imgStyle">
     </div>
     <!--<img src="../assets/editSelf/pic_04.png" class="tips center">-->
-    <img src="../assets/editSelf/compoundBtn.png" class="next center" @click="next">
+    <!-- zzh -->
+    <!-- <img src="../assets/editSelf/compoundBtn.png" class="next center" @click="next"> -->
+    <div class="next center" @click="next"></div>
     <img src="../assets/editSelf/pic_03.png" class="reTake center">
     <input class="reTake center" type="file" ref="self" @change="takeSelf">
     <canvas hidden ref="canvas" width="549" height="764"/>
@@ -124,9 +126,11 @@
     width: 65vw;
   }
 
+  // zzh
   .next {
     top: 127vw;
     width: 45vw;
+    height: 11.85vw;
     position: absolute;
     &.male {
       left: 15vw;
@@ -134,6 +138,8 @@
     &.female {
       right: 15vw;
     }
+    background: url(../assets/editSelf/compoundBtn.png) no-repeat center;
+    background-size: contain;
   }
 
   .reTake {

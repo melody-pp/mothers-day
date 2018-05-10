@@ -2,7 +2,9 @@
   <div class="page">
     <img src="../assets/personalInfo/pic_01.jpg" class="page-bg">
     <img src="../assets/personalInfo/pic_01.png" class="title">
-    <img src="../assets/personalInfo/pic_03.png" class="text-title center">
+    <!-- zzh -->
+    <!-- <img src="../assets/personalInfo/pic_03.png" class="text-title center"> -->
+    <div class="text-title center"></div>
     <div class="inforInput">
       <div class="xingming">
         <input type="text" v-model="xingming">
@@ -20,20 +22,29 @@
         </select>
       </div>
     </div>
-    <img src="../assets/personalInfo/pic_02.png" class="infoBtn" @click="submitInfo">
+    <!-- zzh -->
+    <!-- <img src="../assets/personalInfo/pic_02.png" class="infoBtn" @click="submitInfo"> -->
+    <div class="infoBtn" @click="submitInfo"></div>
     <div class="warningBox" v-show="showModal">
       <div class="bgBox center">
-        <img src="../assets/personalInfo/tishi.png" class="tishi center">
+        <!-- zzh -->
+        <!-- <img src="../assets/personalInfo/tishi.png" class="tishi center"> -->
+        <div class="tishi center"></div>
         <img src="../assets/personalInfo/queren.png" class="queren" @click="queren">
         <img src="../assets/personalInfo/quxiao.png" class="quxiao" @click="quxiao">
       </div>
     </div>
     <!--二维码弹框-->
-    <div class="warningBox" v-show="ewmShowModal">
-      <img src="../assets/personalInfo/ewm.png" class="ewm">
-      <img src="../assets/personalInfo/ewmTxt.png" class="ewmTxt">
-      <img src="../assets/personalInfo/followBtn.png" class="followBtn" @click="followBtn">
-      <img src="../assets/personalInfo/text.png" class="text">
+    <div class="warningBox" v-show="true">
+      <div class="ewmBox">
+        <img src="../assets/personalInfo/ewm.png" class="ewm">
+        <img src="../assets/personalInfo/ewmTxt.png" class="ewmTxt">
+        <!-- zzh -->
+        <img src="../assets/personalInfo/followBtn.png" class="followBtn" @click="followBtn">
+        <div class="followBtn" @click="followBtn"></div>
+        <img src="../assets/personalInfo/text.png" class="text">
+      </div>
+
     </div>
   </div>
 </template>
@@ -108,17 +119,25 @@
     position: absolute;
   }
 
+  // zzh
   .text-title {
     top: 15vw;
     width: 40vw;
+    height: 5.85vw;
+    background: url(../assets/personalInfo/pic_03.png) no-repeat center;
+    background-size: contain;
   }
 
+  // zzh
   .infoBtn {
     position: absolute;
     top: 69%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40vw;
+    height: 13.75vw;
+    background: url(../assets/personalInfo/pic_02.png) no-repeat center;
+    background-size: contain;
   }
 
   .inforInput {
@@ -179,6 +198,14 @@
     left: 0;
     right: 0;
     bottom: 0;
+    .ewmBox {
+      background-color: #fff;
+      width: 90vw;
+      height: 129vw;
+      position: absolute;
+      top: 20vw;
+      left: 5vw;
+    }
     .bgBox {
       background: url("../assets/personalInfo/beijing.png") no-repeat;
       background-size: cover;
@@ -186,11 +213,14 @@
       height: 60vw;
       top: 50vw;
     }
+    // zzh
     .tishi {
       width: 60vw;
+      height: 20.7vw;
       position: absolute;
       top: 18vw;
-
+      background: url(../assets/personalInfo/tishi.png) no-repeat center;
+      background-size: contain;
     }
     .queren {
       width: 23vw;
@@ -207,29 +237,35 @@
 
     .ewm {
       width: 70vw;
-      top: 26vw;
-      left: 15vw;
+      top: 12vw;
+      left: 11vw;
       position: absolute;
     }
 
     .ewmTxt {
-      width: 60vw;
-      top: 100vw;
-      left: 20vw;
+      width: 56vw;
+      top: 86vw;
+      left: 19vw;
       position: absolute;
     }
+
+    // zzh
     .followBtn {
       width: 50vw;
-      top: 115vw;
-      left: 25vw;
+      height: 13.8vw;
+      top: 97vw;
+      left: 22vw;
       position: absolute;
+      background: url(../assets/personalInfo/followBtn.png) no-repeat center;
+      background-size: contain;
     }
 
     .text {
       position: absolute;
-      width: 79vw;
-      top: 132vw;
-      left: 12vw;
+      width: 74vw;
+      top: 115vw;
+      left: 8vw;
+
     }
 
   }

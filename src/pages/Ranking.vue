@@ -16,9 +16,9 @@
     <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8)">
     <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7)">
     <div class="waringModal" v-show="showModal" @click="showModal=false">
-      <div class="contentBox">
-        <img src="../assets/ranking/wenzi.png" class="wenzi center">
-      </div>
+
+      <img src="../assets/ranking/beijing.png" class="wenzi center">
+
     </div>
   </div>
 </template>
@@ -168,19 +168,11 @@
     z-index: 2;
     position: absolute;
     background: rgba(0, 0, 0, .6);
-    .contentBox {
-      background: url("../assets/picResult/beijing.png") no-repeat;
-      background-size: cover;
-      width: 86vw;
-      height: 27vw;
-      top: 77vw;
-      left: 7vw;
-      position: absolute;
-      .wenzi {
-        width: 74vw;
-        top: 7vw;
-      }
 
+    .wenzi {
+      width: 100vw;
+      top: 63vw;
     }
+
   }
 </style>

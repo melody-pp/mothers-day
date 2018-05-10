@@ -18,7 +18,9 @@
     <!--彈框-->
     <div class="waringModal" v-show="showModal">
       <div class="contentBox">
-        <img src="../assets/picResult/shuoming.png" class="center shuoming">
+        <!-- zzh -->
+        <!-- <img src="../assets/picResult/shuoming.png" class="center shuoming"> -->
+        <div class="center shuoming"></div>
         <img src="../assets/picResult/queren.png" class="queren" @click="queren">
         <img src="../assets/picResult/quxiao.png" class="quxiao" @click="quxiao">
       </div>
@@ -154,9 +156,13 @@
       top: 58vw;
       left: 9vw;
       position: absolute;
+      // zzh
       .shuoming {
         width: 67vw;
+        height: 15vw;
         top: 9vw;
+        background: url(../assets/picResult/shuoming.png) no-repeat center;
+        background-size: contain;
       }
       .queren {
         width: 23vw;
