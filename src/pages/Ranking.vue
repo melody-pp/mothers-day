@@ -31,9 +31,6 @@
       searchText: '',
       showModal: false
     }),
-    mounted () {
-      this.getRankList()
-    },
     watch: {
       pageIndex (index) {
         if (index === 6) {
