@@ -100,11 +100,10 @@
 
   .tothumb {
     position: absolute;
-    top: 40vw;
-    left: 14vw;
-    width: 72vw;
-    /*height: 56vw;*/
-
+    top: 29vw;
+    left: 6vw;
+    width: 88vw;
+    height: 68vw;
   }
 
   .prizeBtn {

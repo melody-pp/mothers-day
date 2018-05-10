@@ -48,12 +48,12 @@
   }
 
   .text {
-    top: 45vw;
+    top: 43vw;
     width: 70vw;
   }
 
   .button {
-    top: 97vw;
+    top: 95vw;
     width: 35vw;
   }
 
