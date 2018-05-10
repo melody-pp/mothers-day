@@ -86,40 +86,40 @@
   }
 
   .picResult {
-    top: 38vw;
+    top: 37vw;
     width: 94vw;
   }
 
   .tips {
-    top: 110vw;
+    top: 112vw;
     width: 48vw;
     left: 32vw;
   }
 
   .onceMore {
     position: absolute;
-    top: 108vw;
+    top: 110vw;
     right: 10vw;
     width: 34vw;
   }
 
   .enterBtn, .rulesBtn {
     position: absolute;
-    top: 128vw;
+    top: 130vw;
     left: 10vw;
     width: 34vw;
   }
 
   .myHome {
     position: absolute;
-    top: 128vw;
+    top: 130vw;
     right: 10vw;
     width: 34vw;
   }
 
   .xiangkuangBG {
     position: absolute;
-    top: 35vw;
+    top: 34vw;
     left: 0.5vw;
     z-index: 1 !important;
     width: 99vw;
