@@ -4,7 +4,6 @@ export const parseFile = (file, callBack) => {
   if (!file) {
     return
   }
-  const canvas = document.createElement('canvas')
 
   const reader = new FileReader()
   reader.readAsDataURL(file)
@@ -16,38 +15,36 @@ export const parseFile = (file, callBack) => {
       const imgWidth = this.width
       const imgHeight = this.height
       const zoom = window.innerWidth / 790
-      const scale = Math.max(549 / imgWidth, 764 / imgHeight)
-      const ratio = zoom * scale
-      canvas.width = imgWidth * ratio
-      canvas.height = imgHeight * ratio
-
-      const ctx = canvas.getContext('2d')
-      ctx.drawImage(img,
-        0, 0, imgWidth, imgHeight, 0, 0,
-        imgWidth * ratio, imgHeight * ratio)
-
-      callBack(canvas.toDataURL())
 
       EXIF.getData(img, function () {
         const orientation = EXIF.getTag(this, 'Orientation')
+        const canvas = document.createElement('canvas')
         const ctx = canvas.getContext('2d')
-        let rotate = false
-        if (orientation === 6) {
-          rotate = true
-          ctx.translate(275, 382)
-          ctx.rotate(Math.PI / 2)
-        }
-        if (orientation === 8) {
-          rotate = true
-          ctx.translate(275, 382)
-          ctx.rotate(-Math.PI / 2)
-        }
-        ctx.drawImage(img,
-          rotate ? -imgWidth / 2 : 0,
-          rotate ? -imgHeight / 2 : 0,
-          imgWidth, imgHeight, 0, 0,
-          imgWidth * ratio, imgHeight * ratio)
 
+        let scale = Math.max(549 / imgWidth, 764 / imgHeight)
+        canvas.width = imgWidth * scale * zoom
+        canvas.height = imgHeight * scale * zoom
+
+        ctx.save()
+
+        let rotate = false
+        if (orientation === 6 || orientation === 8) {
+          rotate = true
+
+          scale = Math.max(549 / imgHeight, 764 / imgWidth)
+          canvas.width = imgHeight * scale * zoom
+          canvas.height = imgWidth * scale * zoom
+          ctx.translate(canvas.width / 2, canvas.height / 2)
+          ctx.rotate(Math.PI / 2 * (orientation === 6 ? 1 : -1))
+        }
+
+        ctx.drawImage(img,
+          0, 0, imgWidth, imgHeight,
+          rotate ? -canvas.width / 2 : 0,
+          rotate ? -canvas.height / 2 : 0,
+          canvas.width, canvas.height)
+
+        ctx.restore()
         callBack(canvas.toDataURL())
       })
     }
