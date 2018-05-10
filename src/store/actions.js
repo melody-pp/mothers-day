@@ -16,7 +16,7 @@ export default {
     http.post('/get_person', {
       openid: state.urlParams.shareOpenId
     }).then(res => {
-      commit('setPerson', res.data)
+      commit('setPerson', res.data[0])
     })
   },
   // 获取用户点赞信息
