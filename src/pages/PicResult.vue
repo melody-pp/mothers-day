@@ -79,6 +79,7 @@
       },
       toMyHome () {
         this.postPicResult(() => {
+          alert(this.urlParams.openid)
           this.moveTo(8)
         })
       }
