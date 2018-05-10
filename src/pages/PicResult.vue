@@ -70,8 +70,9 @@
         this.showModal = true
       },
       queren () {
-        this.moveDown()
-        this.postPicResult()
+        this.postPicResult(() => {
+          this.moveDown()
+        })
       },
       quxiao () {
         this.showModal = false
