@@ -31,12 +31,12 @@
   }
 
   .fanhui {
-    top: 138vw;
+    top: 134vw;
     width: 30vw;
   }
 
   .shiquan {
-    bottom: 10vw;
+    top: 145vw;
     width: 50vw;
   }
 </style>

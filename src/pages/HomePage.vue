@@ -2,7 +2,7 @@
   <div class="page">
     <img class="page-bg" src="../assets/copywriting/pic_01.jpg">
     <img class="title" src="../assets/copywriting/pic_01.png">
-    <img class="picBG" src="../assets/homePage/pic_03.png">
+    <img class="picBG" src="../assets/homePage/homePagexk.png">
     <img :src="person.tothumb" class="tothumb">
     <img class="tips" src="../assets/homePage/pic_01.png">
     <img v-if="+urlParams.self===1&&+urlParams.succflag===0"
@@ -93,17 +93,18 @@
 
   .picBG {
     position: absolute;
-    top: 6vw;
-    left: 13vw;
-    width: 72vw;
+    top: 26vw;
+    left: 3vw;
+    width: 94vw;
   }
 
   .tothumb {
     position: absolute;
-    top: 10vw;
-    left: 16vw;
-    width: 66vw;
-    height: 86vw;
+    top: 40vw;
+    left: 14vw;
+    width: 72vw;
+    /*height: 56vw;*/
+
   }
 
   .prizeBtn {
