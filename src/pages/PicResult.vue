@@ -7,7 +7,7 @@
     <img src="../assets/picResult/pic_06.png" class="onceMore" @click="reTake">
 
     <img src="../assets/picResult/pic_04.png" class="enterBtn" @click="confirm">
-    <img src="../assets/picResult/pic_05.png" class="myHome" @click="moveTo(8)">
+    <img src="../assets/picResult/pic_05.png" class="myHome" @click="toMyHome">
     <img src="../assets/picResult/xiangkuangBG.png" class="xiangkuangBG">
 
     <img hidden src="../assets/picResult/pic_05(2).png" ref="base">
@@ -76,6 +76,11 @@
       quxiao () {
         this.showModal = false
       },
+      toMyHome () {
+        this.postPicResult(() => {
+          this.moveTo(8)
+        })
+      }
     },
   }
 </script>
