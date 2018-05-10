@@ -51,19 +51,8 @@
         ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
         ctx.drawImage(self, ...imgXYWH, ...selfXYWH)
         ctx.drawImage(base, 0, 0, 726, 505, 0, 0, 1098, 764)
-        ctx.filter = 'saturate(60%) grayscale(50%) brightness(120%)'
+        ctx.filter = 'sepia(40%)'
         this.setPicResult(canvas.toDataURL())
-        // result.loadOnce(() => {
-        //   this.setPicResult($AI(result).ps('lomo').canvas.toDataURL())
-        // })
-        // const image = document.getElementById('picResult')
-        // $AI(image).act('灰度处理').add(
-        //   $AI(image.width, image.height, '#a0a0a0')
-        //     .act('高斯模糊', 4)
-        //     .act('色相/饱和度调节', 25, 15, 0, true),
-        //   '叠加'
-        // ).replace(image)
-
       },
       reTake () {
         this.moveTo(1)

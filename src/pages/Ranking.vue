@@ -86,7 +86,7 @@
         }
 
         this.pageNo = 1
-        this.isSearch = false
+        this.resetRankList()
         this.getRankData()
       }
     },
