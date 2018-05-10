@@ -28,12 +28,13 @@ export default {
     })
   },
   // 上传合照
-  postPicResult ({state, commit}) {
+  postPicResult ({state, commit}, callback) {
     const data = new FormData
     data.append('openid', state.urlParams.openid)
     data.append('tothumb', state.picResult)
     http.post('/uploadthumb', data).then(res => {
       commit('setPhotoflag', true)
+      callback && callback()
     })
   },
   // 上传个人信息
@@ -57,13 +58,13 @@ export default {
   // 查询
   postSearch ({commit}, nickname) {
     http.post('/search_message', {nickname}).then(res => {
-      commit('setRankList', res.data)
+      commit('setRankList', res.data.sort((a, b) => a.rank - b.rank))
     })
   },
   // 获取排行榜信息
   getRankList ({commit}) {
     http.post('/ranking').then(res => {
-      commit('setRankList', res.data)
+      commit('setRankList', res.data.sort((a, b) => a.rank - b.rank))
     })
   },
 }
