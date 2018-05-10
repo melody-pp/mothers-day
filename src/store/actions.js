@@ -57,14 +57,18 @@ export default {
   },
   // 查询
   postSearch ({commit}, nickname) {
+    commit('setLoading', true)
     http.post('/search_message', {nickname}).then(res => {
-      commit('setRankList', res.data.sort((a, b) => a.rank - b.rank))
+      commit('setRankList', res.data)
+      commit('setLoading', false)
     })
   },
   // 获取排行榜信息
-  getRankList ({commit}) {
-    http.post('/ranking').then(res => {
-      commit('setRankList', res.data.sort((a, b) => a.rank - b.rank))
+  getRankList ({commit}, pageNo) {
+    commit('setLoading', true)
+    http.post('/ranking', {pageNo}).then(res => {
+      commit('pushRankList', res.data)
+      commit('setLoading', false)
     })
   },
 }
