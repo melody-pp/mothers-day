@@ -28,6 +28,13 @@
         <img src="../assets/personalInfo/quxiao.png" class="quxiao" @click="quxiao">
       </div>
     </div>
+    <!--二维码弹框-->
+    <div class="warningBox" v-show="ewmShowModal">
+      <img src="../assets/personalInfo/ewm.png" class="ewm">
+      <img src="../assets/personalInfo/ewmTxt.png" class="ewmTxt">
+      <img src="../assets/personalInfo/followBtn.png" class="followBtn" @click="followBtn">
+      <img src="../assets/personalInfo/text.png" class="text">
+    </div>
   </div>
 </template>
 
@@ -40,6 +47,7 @@
     data () {
       return {
         showModal: false,
+        ewmShowModal: false,
         xingming: '',
         dianhua: '',
         chengshi: '',
@@ -59,7 +67,7 @@
         if (!this.xingming || !this.dianhua || !this.chengshi || !this.chexing) {
           return alert('请将信息填写完整！')
         }
-        
+
         if (!/^((1[3-8][0-9])+\d{8})$/.test(this.dianhua)) {
           return alert('手机号格式错误！')
         }
@@ -73,15 +81,21 @@
         })
       },
       queren () {
+        this.ewmShowModal = true
+        this.showModal = false
         this.postPersonalInfo().then(() => {
           this.getPerson()
           this.setSuccflag(true)
-          this.moveDown()
+
         })
       },
       quxiao () {
         this.showModal = false
       },
+      followBtn () {
+        this.moveDown()
+
+      }
     }
   }
 </script>
@@ -190,5 +204,33 @@
       top: 42vw;
       right: 19vw;
     }
+
+    .ewm {
+      width: 70vw;
+      top: 26vw;
+      left: 15vw;
+      position: absolute;
+    }
+
+    .ewmTxt {
+      width: 60vw;
+      top: 100vw;
+      left: 20vw;
+      position: absolute;
+    }
+    .followBtn {
+      width: 50vw;
+      top: 115vw;
+      left: 25vw;
+      position: absolute;
+    }
+
+    .text {
+      position: absolute;
+      width: 79vw;
+      top: 132vw;
+      left: 12vw;
+    }
+
   }
 </style>
