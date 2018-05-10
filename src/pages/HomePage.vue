@@ -36,9 +36,7 @@
     <img src="../assets/picResult/rulesBtn.png" class="rulesBtn" @click="moveTo(7)">
     <img src="../assets/picResult/prizeBtn.png" class="prizeBtn" @click="moveTo(6)">
     <div class="waringModal" v-show="showModal" @click="showModal=false">
-      <div class="contentBox">
-        <img src="../assets/ranking/wenzi.png" class="wenzi center">
-      </div>
+      <img src="../assets/ranking/beijing.png" class="wenzi center">
     </div>
   </div>
 </template>
@@ -144,7 +142,7 @@
 
   .voteBox {
     position: absolute;
-    top: 123vw;
+    top: 116vw;
     left: 15vw;
     img {
       vertical-align: middle;
@@ -186,19 +184,11 @@
     z-index: 2;
     position: absolute;
     background: rgba(0, 0, 0, .6);
-    .contentBox {
-      background: url("../assets/picResult/beijing.png") no-repeat;
-      background-size: cover;
-      width: 86vw;
-      height: 22vw;
-      top: 77vw;
-      left: 7vw;
-      position: absolute;
-      .wenzi {
-        width: 74vw;
-        top: 9vw;
-      }
 
+    .wenzi {
+      width: 100vw;
+      top: 63vw;
     }
+
   }
 </style>
