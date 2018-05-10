@@ -2,13 +2,17 @@
   <div class="page">
     <img class="page-bg" src="../assets/copywriting/pic_01.jpg">
     <div class="searchBox center">
-      <input class="searchInput" placeholder="请输入关键字" v-model="searchText" @keydown.enter="postSearch(searchText)">
-      <img src="../assets/ranking/sousuo1.png" class="searchIcon" @click="postSearch(searchText)">
+      <input class="searchInput" placeholder="请输入关键字" v-model="searchText" @keydown.enter="getSearchData">
+      <img src="../assets/ranking/sousuo1.png" class="searchIcon" @click="getSearchData">
     </div>
-    <div class="rankingBox center">
-      <RankItem v-for="item of rankList" :item="item" :key="item.voteopenid" class="rankItem"
-                @holdback="showModal=true"/>
+
+    <img src="../assets/loading.gif" class="loading" v-show="isLoading">
+    <div ref="rankingBox" class="rankingBox center" v-show="!isLoading"
+         @touchstart="touchstart" @touchmove="touchmove">
+      <RankItem class="rankItem" v-for="item of rankList" :item="item"
+                :key="item.voteopenid" @holdback="showModal=true"/>
     </div>
+
     <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8)">
     <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7)">
     <div class="waringModal" v-show="showModal" @click="showModal=false">
@@ -29,12 +33,68 @@
     components: {RankItem},
     data: () => ({
       searchText: '',
-      showModal: false
+      showModal: false,
+      pageNo: 1,
+      clientY: null,
+      isSearch: false,
     }),
+    methods: {
+      touchstart (event) {
+        this.clientY = this.getClientY(event)
+      },
+      touchmove (event) {
+        if (this.isLoading || this.isSearch) {
+          return
+        }
+
+        const rankingBox = this.$refs.rankingBox
+        const scrollTop = ul.scrollTop
+        const maxScroll = this.getMaxScroll(rankingBox)
+        const clientY = this.getClientY(event)
+        const deltaY = this.clientY - clientY
+        if (deltaY < 0 && scrollTop === 0) {
+          this.pageNo = 1
+          this.pushRankList([])
+          this.getRankData()
+        }
+        if (deltaY > 0 && maxScroll === scrollTop) {
+          this.getRankData()
+        }
+
+        this.clientY += deltaY
+      },
+      getClientY (event) {
+        return event.touches[0].clientY
+      },
+      getMaxScroll (el) {
+        return el.scrollHeight - el.offsetHeight
+      },
+      getRankData () {
+        if (!this.isLoading) {
+          this.isSearch = false
+          this.getRankList(this.pageNo++)
+        }
+      },
+      getSearchData () {
+        if (this.isLoading) {
+          return
+        }
+
+        if (this.searchText) {
+          this.isSearch = true
+          return this.postSearch(this.searchText)
+        }
+
+        this.pageNo = 1
+        this.isSearch = false
+        this.getRankData()
+      }
+    },
     watch: {
       pageIndex (index) {
         if (index === 6) {
-          this.getRankList()
+          this.pageNo = 1
+          this.getRankData()
         }
       }
     }
@@ -65,6 +125,14 @@
       right: 0vw;
       width: 6.5vw;
     }
+  }
+
+  .loading {
+    width: 30px;
+    top: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
   }
 
   .rankingBox {

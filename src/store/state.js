@@ -9,5 +9,6 @@ export default {
   personalInfo: '',  // 用户个人信息
   rankList: [],      // 排行榜信息
   votedInfo: {},     // 当前用户的点赞信息
-  person: {},        //个人主页展示信息
+  person: {},        // 个人主页展示信息
+  isLoading: false,  // 正在获取排行榜数据，
 }

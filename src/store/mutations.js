@@ -1,6 +1,6 @@
 const MAX_PAGE_INDEX = 10
 let lastIndex = 0
-
+let searched = false
 export default {
   saveUrlParams (state, urlParams) {
     state.urlParams = urlParams
@@ -58,6 +58,20 @@ export default {
   },
   setRankList (state, rankList) {
     state.rankList = rankList
+
+    searched = true
+  },
+  pushRankList (state, rankList) {
+    if (searched) {
+      state.rankList = rankList
+    } else {
+      state.rankList.push(...rankList)
+    }
+
+    searched = false
+  },
+  setLoading (state, loading) {
+    state.isLoading = loading
   },
   setVoted (state, votedInfo) {
     state.votedInfo = votedInfo
