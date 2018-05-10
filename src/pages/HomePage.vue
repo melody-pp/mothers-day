@@ -5,7 +5,7 @@
     <img class="picBG" src="../assets/homePage/homePagexk.png">
     <img :src="person.tothumb" class="tothumb">
     <img class="tips" src="../assets/homePage/pic_01.png">
-    <img v-if="+urlParams.self===1&&+urlParams.succflag===0"
+    <img v-if="+urlParams.self!==0&&+urlParams.succflag!==1"
          src="../assets/homePage/cansaiyouka.png"
          class="youkaBtn" @click="moveTo(5)">
     <div class="voteBox" v-else>
