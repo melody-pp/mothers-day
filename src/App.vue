@@ -26,12 +26,8 @@
       this.saveUrlParams(urlParams)
       this.getVoteperson()
 
-      if (+urlParams.succflag === 1) {
+      if (+urlParams.succflag === 1 || +urlParams.self === 0) {
         this.getPerson()
-        this.moveTo(8)
-      }
-
-      if (+urlParams.self === 0) {
         this.moveTo(8)
       }
 
@@ -74,9 +70,10 @@
 
 <style>
   /* zzh */
-  .page-bg{
+  .page-bg {
     pointer-events: none;
   }
+
   #app {
     width: 100vw;
     height: 100vh;
