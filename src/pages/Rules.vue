@@ -31,7 +31,7 @@
   }
 
   .fanhui {
-    top: 150vw;
+    top: 142vw;
     width: 30vw;
   }
 
