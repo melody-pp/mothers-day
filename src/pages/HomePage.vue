@@ -10,7 +10,7 @@
          class="youkaBtn" @click="moveTo(5)">
     <div class="voteBox" v-else>
       <span class="nickName">{{person.nickname}}</span>
-      <img :src="medalSrc" v-if="person.rank<4">
+      <img :src="medalSrc" v-if="person.rank<4" class="jiangpai">
       <span v-else class="rankingNum">No.{{person.rank}}</span>
       <span class="voteNum">{{person.vote}}</span><span>票</span>
       <svg @click="vote" class="voteIcon" :class="{voted}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -34,6 +34,11 @@
     </div>
     <img src="../assets/picResult/rulesBtn.png" class="rulesBtn" @click="moveTo(7)">
     <img src="../assets/picResult/prizeBtn.png" class="prizeBtn" @click="moveTo(6)">
+    <div class="waringModal" v-show="showModal" @click="showModal=false">
+      <div class="contentBox">
+        <img src="../assets/ranking/wenzi.png" class="wenzi center">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -42,6 +47,11 @@
 
   export default {
     name: 'HomePage',
+    data () {
+      return {
+        showModal: false
+      }
+    },
     mixins: [vuexMixin],
     computed: {
       medalSrc () {
@@ -113,7 +123,7 @@
     position: absolute;
     width: 40vw;
     top: 106vw;
-    left: 34vw;
+    left: 30vw;
   }
 
   .youkaBtn {
@@ -126,9 +136,12 @@
   .voteBox {
     position: absolute;
     top: 123vw;
-    left: 18vw;
+    left: 15vw;
+    img {
+      vertical-align: middle;
+    }
     .nickName {
-      margin-right: 10vw;
+      margin-right: 11vw;
       font-weight: 800;
     }
     .voteNum {
@@ -139,6 +152,10 @@
     .rankingNum {
       font-style: italic;
     }
+    .jiangpai {
+      vertical-align: middle;
+      width: 6vw;
+    }
     .voteIcon {
       width: 5.5vw;
       fill: #b5b6b6;
@@ -147,6 +164,30 @@
       left: 2vw;
       &.voted {
         fill: #dc403f;
+      }
+
+    }
+  }
+
+  .waringModal {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    position: absolute;
+    background: rgba(0, 0, 0, .6);
+    .contentBox {
+      background: url("../assets/picResult/beijing.png") no-repeat;
+      background-size: cover;
+      width: 86vw;
+      height: 22vw;
+      top: 77vw;
+      left: 7vw;
+      position: absolute;
+      .wenzi {
+        width: 74vw;
+        top: 9vw;
       }
 
     }
