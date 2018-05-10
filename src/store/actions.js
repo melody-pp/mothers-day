@@ -60,7 +60,9 @@ export default {
     commit('setLoading', true)
     http.post('/search_message', {nickname}).then(res => {
       commit('setRankList', res.data)
-      commit('setLoading', false)
+      setTimeout(() => {
+        commit('setLoading', false)
+      }, 1000)
     })
   },
   // 获取排行榜信息
@@ -68,7 +70,9 @@ export default {
     commit('setLoading', true)
     http.post('/ranking', {pageNo}).then(res => {
       commit('pushRankList', res.data)
-      commit('setLoading', false)
+      setTimeout(() => {
+        commit('setLoading', false)
+      }, 1000)
     })
   },
 }
