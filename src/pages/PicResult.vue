@@ -71,6 +71,7 @@
       },
       queren () {
         this.postPicResult(() => {
+          this.getPerson()
           this.moveDown()
         })
       },
@@ -79,7 +80,7 @@
       },
       toMyHome () {
         this.postPicResult(() => {
-          alert(this.urlParams.openid)
+          this.getPerson()
           this.moveTo(8)
         })
       }
