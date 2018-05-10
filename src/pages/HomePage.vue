@@ -86,22 +86,23 @@
   .title {
     top: 5vw;
     left: 5vw;
-    width: 14vw;
+    width: 17vw;
     position: absolute;
   }
 
   .picBG {
     position: absolute;
-    top: 26vw;
+    top: 36vw;
     left: 3vw;
     width: 94vw;
   }
 
   .tothumb {
     position: absolute;
-    top: 29vw;
-    left: 6vw;
-    width: 88vw;
+    position: absolute;
+    top: 37.8vw;
+    left: 4.7vw;
+    width: 90.5vw;
   }
 
   .prizeBtn {
