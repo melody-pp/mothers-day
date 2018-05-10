@@ -78,6 +78,7 @@
           this.setSuccflag(true)
           this.moveTo(6)
         })
+        this.showModal = true
       },
       queren () {
         this.moveDown()
