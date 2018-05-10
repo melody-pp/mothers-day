@@ -3,7 +3,7 @@
     <img class="page-bg" src="../assets/copywriting/pic_01.jpg">
     <img class="title" src="../assets/copywriting/pic_01.png">
     <img class="picBG" src="../assets/homePage/pic_03.png">
-    <img :src="person.tothumb" class="picBG">
+    <img :src="person.tothumb" class="tothumb">
     <img class="tips" src="../assets/homePage/pic_01.png">
     <img v-if="+urlParams.self===1&&+urlParams.succflag===0"
          src="../assets/homePage/cansaiyouka.png"
@@ -85,6 +85,14 @@
     top: 6vw;
     left: 13vw;
     width: 72vw;
+  }
+
+  .tothumb {
+    position: absolute;
+    top: 10vw;
+    left: 16vw;
+    width: 66vw;
+    height: 86vw;
   }
 
   .prizeBtn {
