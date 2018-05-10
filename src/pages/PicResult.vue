@@ -91,19 +91,19 @@
   }
 
   .picResult {
-    top: 37vw;
+    top: 34vw;
     width: 94vw;
   }
 
   .tips {
-    top: 112vw;
+    top: 109vw;
     width: 48vw;
     left: 32vw;
   }
 
   .onceMore {
     position: absolute;
-    top: 110vw;
+    top: 107vw;
     right: 10vw;
     width: 34vw;
   }
@@ -124,7 +124,7 @@
 
   .xiangkuangBG {
     position: absolute;
-    top: 34vw;
+    top: 31vw;
     left: 0.5vw;
     z-index: 1 !important;
     width: 99vw;
