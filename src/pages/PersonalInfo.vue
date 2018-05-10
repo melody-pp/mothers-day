@@ -59,8 +59,9 @@
         if (!this.xingming || !this.dianhua || !this.chengshi || !this.chexing) {
           return alert('请将信息填写完整！')
         }
-        if (!/^\d+$/.test(this.dianhua)) {
-          return alert('电话格式错误！')
+        
+        if (!/^((1[3-8][0-9])+\d{8})$/.test(this.dianhua)) {
+          return alert('手机号格式错误！')
         }
 
         this.showModal = true
