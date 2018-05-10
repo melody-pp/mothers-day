@@ -51,7 +51,7 @@
         ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
         ctx.drawImage(self, ...imgXYWH, ...selfXYWH)
         ctx.drawImage(base, 0, 0, 726, 505, 0, 0, 1098, 764)
-        ctx.filter = 'sepia(80%)'
+        ctx.filter = 'saturate(2)'
         this.setPicResult(canvas.toDataURL())
       },
       reTake () {
