@@ -86,7 +86,7 @@
   .title {
     top: 5vw;
     left: 5vw;
-    width: 17vw;
+    width: 14vw;
     position: absolute;
   }
 
@@ -102,7 +102,6 @@
     top: 29vw;
     left: 6vw;
     width: 88vw;
-    height: 68vw;
   }
 
   .prizeBtn {
