@@ -1,6 +1,5 @@
 <template>
-  <div class="fp-wrapper" :class="{useAnimate}"
-       @touchmove="touchmove" @transitionend="moveEnd"
+  <div class="fp-wrapper" :class="{useAnimate}" @transitionend="moveEnd"
        :style="{transform: `translate3d(0,-${pageIndex*100}vh,0)`}">
     <Home/>
     <Copywriting/>
@@ -34,11 +33,6 @@
       EditSelf, PicResult, PersonalInfo,
       Rules, Ranking, HomePage
     },
-    methods: {
-      touchmove (event) {
-        event.preventDefault()
-      },
-    }
   }
 </script>
 

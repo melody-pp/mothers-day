@@ -56,6 +56,9 @@ export default {
   setPerson (state, person) {
     state.person = person
   },
+  resetRankList (state) {
+    state.rankList = []
+  },
   setRankList (state, rankList) {
     state.rankList = rankList
 

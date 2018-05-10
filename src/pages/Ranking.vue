@@ -10,7 +10,7 @@
     <div ref="rankingBox" class="rankingBox center" v-show="!isLoading"
          @touchstart="touchstart" @touchmove="touchmove">
       <RankItem class="rankItem" v-for="item of rankList" :item="item"
-                :key="item.voteopenid" @holdback="showModal=true"/>
+                :key="item.id" @holdback="showModal=true"/>
     </div>
 
     <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8)">
@@ -48,13 +48,13 @@
         }
 
         const rankingBox = this.$refs.rankingBox
-        const scrollTop = ul.scrollTop
+        const scrollTop = rankingBox.scrollTop
         const maxScroll = this.getMaxScroll(rankingBox)
         const clientY = this.getClientY(event)
         const deltaY = this.clientY - clientY
         if (deltaY < 0 && scrollTop === 0) {
           this.pageNo = 1
-          this.pushRankList([])
+          this.resetRankList()
           this.getRankData()
         }
         if (deltaY > 0 && maxScroll === scrollTop) {
@@ -94,7 +94,7 @@
       pageIndex (index) {
         if (index === 6) {
           this.pageNo = 1
-          this.pushRankList([])
+          this.resetRankList()
           this.getRankData()
         }
       }
