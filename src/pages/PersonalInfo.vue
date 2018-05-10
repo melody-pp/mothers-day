@@ -63,25 +63,21 @@
           return alert('电话格式错误！')
         }
 
-        // 这里是把PersonalInfo存到store里面
+        showModal = true
         this.setPersonalInfo({
           username: this.xingming,
           phone: this.dianhua,
           address: this.chengshi,
           cartype: this.chexing
         })
-
-        //  这里是发请求到后端，参数他会直接从store里面取，可以看postPersonalInfo这个方法里面
-        //  postPersonalInfo 返回了一个promise, 可以用.then回调
+      },
+      queren () {
         this.postPersonalInfo().then(() => {
           this.getPerson()
           this.setSuccflag(true)
-          this.moveTo(6)
+          this.moveDown()
         })
         this.showModal = true
-      },
-      queren () {
-        this.moveDown()
       },
       quxiao () {
         this.showModal = false
