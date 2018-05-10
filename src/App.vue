@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{width: winWidth+'px', height: winHeight+'px'}">
     <img src="./assets/home/LOGO.png" class="logo" v-show="pageIndex!==4 && pageIndex!==6">
     <audio id="bgmusic" autoplay loop src="./assets/bgm.mp3"></audio>
     <MainView/>
@@ -22,7 +22,7 @@
 
         return params
       }, {})
-      // alert(urlParams.openid)
+
       this.saveUrlParams(urlParams)
       this.getVoteperson()
 
@@ -70,14 +70,7 @@
 </script>
 
 <style>
-  /* zzh */
-  .page-bg {
-    pointer-events: none;
-  }
-
   #app {
-    width: 100vw;
-    height: 100vh;
     overflow: hidden;
     position: relative;
     -moz-osx-font-smoothing: grayscale;
@@ -115,8 +108,9 @@
   }
 
   .page-bg {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
   }
 
   .center {

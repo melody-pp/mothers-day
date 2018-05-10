@@ -11,4 +11,6 @@ export default {
   votedInfo: {},     // 当前用户的点赞信息
   person: {},        // 个人主页展示信息
   isLoading: false,  // 正在获取排行榜数据，
+  winWidth: window.innerWidth,
+  winHeight: window.innerHeight
 }
