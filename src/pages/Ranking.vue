@@ -137,7 +137,7 @@
   }
 
   .rankingBox {
-    top: 10vh;
+    top: 65px;
     width: 96vw;
     overflow: auto;
     height: 85vh;
