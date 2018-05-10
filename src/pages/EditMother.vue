@@ -29,12 +29,14 @@
     data: () => ({
       deltaX: 0,  // 图片移动横坐标
       deltaY: 0,  // 图片移动纵坐标
+      zoom: 1,
     }),
     computed: {
       imgStyle () {
         return {
           top: this.deltaY + 'px',
           left: this.deltaX + 'px',
+          transform: `scale(${this.zoom})`
         }
       }
     },
@@ -80,6 +82,9 @@
         if (this.deltaY < 764 * zoom - motherImg.height) {
           this.deltaY = 764 * zoom - motherImg.height
         }
+      },
+      pinch (evt) {
+        this.zoom = evt.zoom
       }
       // pressUp (evt) {
       //   alert('test')
@@ -112,6 +117,7 @@
         // var initScale = 1
         afInstance = new AlloyFinger(el, {
           pressMove: this.pressMove.bind(this),
+          pinch: this.pinch.bind(this),
           // multipointStart: function () {
           //   To.stopAll()
           //   initScale = el.scaleX
