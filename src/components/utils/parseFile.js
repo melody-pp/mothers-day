@@ -26,7 +26,7 @@ export const parseFile = (file, callBack) => {
         canvas.height = imgHeight * scale * zoom
 
         ctx.save()
-
+        
         let rotate = false
         if (orientation === 6 || orientation === 8) {
           rotate = true
@@ -40,9 +40,10 @@ export const parseFile = (file, callBack) => {
 
         ctx.drawImage(img,
           0, 0, imgWidth, imgHeight,
-          rotate ? -canvas.width / 2 : 0,
           rotate ? -canvas.height / 2 : 0,
-          canvas.width, canvas.height)
+          rotate ? -canvas.width / 2 : 0,
+          rotate ? canvas.height : canvas.width,
+          rotate ? canvas.width : canvas.height)
 
         ctx.restore()
         callBack(canvas.toDataURL())
