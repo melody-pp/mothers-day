@@ -60,6 +60,10 @@ export default {
     state.rankList = rankList
 
     searched = true
+
+    if (!rankList || !rankList.length) {
+      alert('无此用户信息！')
+    }
   },
   pushRankList (state, rankList) {
     if (searched) {
