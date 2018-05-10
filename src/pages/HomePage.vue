@@ -74,6 +74,7 @@
       vote () {
         if (+this.votedInfo.flag === 1) {
           // 已经投过，弹窗告诉用户不可再投
+          this.showModal = true
         } else {
           this.postVote(this.person.openid)
         }
