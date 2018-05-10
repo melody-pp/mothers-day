@@ -6,7 +6,8 @@
       <img src="../assets/ranking/sousuo1.png" class="searchIcon" @click="postSearch(searchText)">
     </div>
     <div class="rankingBox center">
-      <RankItem v-for="item of rankList" :item="item" :key="item.voteopenid" class="rankItem" @holdback="showModal=true"/>
+      <RankItem v-for="item of rankList" :item="item" :key="item.voteopenid" class="rankItem"
+                @holdback="showModal=true"/>
     </div>
     <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8)">
     <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7)">
@@ -33,6 +34,13 @@
     mounted () {
       this.getRankList()
     },
+    watch: {
+      pageIndex (index) {
+        if (index === 6) {
+          this.getRankList()
+        }
+      }
+    }
   }
 </script>
 
