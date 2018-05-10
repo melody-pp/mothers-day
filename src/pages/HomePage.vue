@@ -142,7 +142,7 @@
 
   .voteBox {
     position: absolute;
-    top: 116vw;
+    top: 110vw;
     left: 15vw;
     img {
       vertical-align: middle;
