@@ -4,8 +4,8 @@
     <img class="title" src="../assets/copywriting/pic_01.png">
     <img class="picBG" src="../assets/homePage/homePagexk.png">
     <img :src="person.tothumb" class="tothumb">
-    <img hidden class="tips" src="../assets/homePage/pic_01.png">
-    <img class="qiuzanTxt" src="../assets/homePage/qiuzanTxt.png">
+    <!--<img hidden class="tips" src="../assets/homePage/pic_01.png">-->
+    <!--<img class="qiuzanTxt" src="../assets/homePage/qiuzanTxt.png">-->
     <img v-if="+urlParams.self!==0&&+urlParams.succflag!==1"
          src="../assets/homePage/cansaiyouka.png"
          class="youkaBtn" @click="moveTo(5)">
