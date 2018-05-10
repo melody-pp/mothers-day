@@ -51,7 +51,7 @@
         }
       },
       voted () {
-        return this.votedInfo.voteopenid === this.item.openid
+        return this.votedInfo.voteopenid === this.item.voteopenid
       }
     },
     methods: {
@@ -60,7 +60,7 @@
           // 已经投过，弹窗告诉用户不可再投
           this.$emit('holdback')
         } else {
-          this.postVote(this.item.openid)
+          this.postVote(this.item.voteopenid)
         }
       }
     }

@@ -56,6 +56,13 @@
     },
     methods: {
       submitInfo () {
+        if (!this.xingming || !this.dianhua || !this.chengshi || !this.chexing) {
+          return alert('请将信息填写完整！')
+        }
+        if (!/^\d+$/.test(this.dianhua)) {
+          return alert('电话格式错误！')
+        }
+
         // 这里是把PersonalInfo存到store里面
         this.setPersonalInfo({
           username: this.xingming,
