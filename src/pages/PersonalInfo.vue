@@ -105,7 +105,6 @@
       },
       followBtn () {
         this.moveDown()
-
       }
     }
   }
@@ -265,8 +264,6 @@
       width: 74vw;
       top: 115vw;
       left: 8vw;
-
     }
-
   }
 </style>

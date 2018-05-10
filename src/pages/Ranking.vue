@@ -174,6 +174,5 @@
       width: 100vw;
       top: 63vw;
     }
-
   }
 </style>

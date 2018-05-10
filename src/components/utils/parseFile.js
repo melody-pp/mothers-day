@@ -26,7 +26,7 @@ export const parseFile = (file, callBack) => {
         canvas.height = imgHeight * scale * zoom
 
         ctx.save()
-        
+
         let rotate = false
         if (orientation === 6 || orientation === 8) {
           rotate = true
