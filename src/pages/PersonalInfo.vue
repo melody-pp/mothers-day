@@ -215,7 +215,6 @@
       background-size: contain;
       top: 50%;
     }
-
   }
 
   .warningBox {

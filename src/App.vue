@@ -6,6 +6,18 @@
     <div class="ajaxloader" v-show="ajaxLoading">
       <img src="./assets/loading.gif" class="loading">
     </div>
+
+    <div hidden class="for background img">
+      <img src="./assets/editSelf/compoundBtn.png">
+      <img src="./assets/picResult/beijing.png">
+      <img src="./assets/picResult/shuoming.png">
+      <img src="./assets/copywriting/pic_02.png">
+      <img src="./assets/personalInfo/pic_03.png">
+      <img src="./assets/personalInfo/pic_02.png">
+      <img src="./assets/personalInfo/beijing.png">
+      <img src="./assets/personalInfo/tishi.png">
+      <img src="./assets/personalInfo/followBtn.png">
+    </div>
   </div>
 </template>
 
@@ -53,17 +65,23 @@
           ]
         })
         wx.ready(() => {
-          wx.onMenuShareTimeline(this.getShareConfig())
-          wx.onMenuShareAppMessage(this.getShareConfig())
+          wx.onMenuShareTimeline(this.getShareConfig(1))
+          wx.onMenuShareAppMessage(this.getShareConfig(0))
           document.getElementById('bgmusic').play()
         })
         wx.error(err => console.log(err))
       },
-      getShareConfig () {
-        const title = +this.urlParams.succflag === 1 ? '#你陪我长大，我陪你变老# 奇瑞车主俱乐部致敬母亲节，小伙伴们快来帮我最美的妈妈投票吧' : '奇瑞车主俱乐部，礼献母亲节，快来参与互动赢取精美大奖！'
+      getShareConfig (type) {
         const link = location.origin + '/mother/index.php/index/index/person_index?openid=' + this.urlParams.openid
         const imgUrl = location.origin + require('./assets/WeChat.jpg')
-        const desc = ' '
+
+        const title = +this.urlParams.succflag === 1
+          ? `#你陪我长大，我陪你变老# ${type ? '奇瑞车主俱乐部致敬母亲节，晒合影，赢油卡' : ''}`
+          : (type ? '奇瑞车主俱乐部，礼献母亲节，快来参与互动赢取精美大奖!' : '珍藏你的美')
+
+        const desc = +this.urlParams.succflag === 1
+          ? '奇瑞车主俱乐部致敬母亲节，晒合影，赢油卡'
+          : '奇瑞车主俱乐部，礼献母亲节，快来参与互动赢取精美大奖!'
 
         return {title, link, imgUrl, desc}
       },
@@ -71,8 +89,8 @@
     watch: {
       urlParams () {
         const wx = require('weixin-js-sdk')
-        wx.onMenuShareTimeline(this.getShareConfig())
-        wx.onMenuShareAppMessage(this.getShareConfig())
+        wx.onMenuShareTimeline(this.getShareConfig(1))
+        wx.onMenuShareAppMessage(this.getShareConfig(0))
       }
     }
   }
