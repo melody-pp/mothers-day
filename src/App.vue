@@ -60,7 +60,7 @@
         const title = type ? '奇瑞车主俱乐部，礼献母亲节，快来参与互动赢取精美大奖！' : '#你陪我长大，我陪你变老# 奇瑞车主俱乐部致敬母亲节，小伙伴们快来帮我最美的妈妈投票吧'
         const link = location.origin + '/mother/index.php/index/index/person_index?openid=' + this.urlParams.openid
         const imgUrl = location.origin + require('./assets/WeChat.jpg')
-        const desc = '活动时间：2018-05-18'
+        const desc = '截止至：2018-05-18'
 
         return {title, link, imgUrl, desc}
       },

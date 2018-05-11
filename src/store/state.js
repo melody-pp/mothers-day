@@ -1,7 +1,7 @@
 export default {
   urlParams: {},     // 进入页面时url中带的参数，包括：succflag、photoflag、openid、shareOpenId
 
-  pageIndex: 0,      // 当前显示页面index
+  pageIndex: 6,      // 当前显示页面index
   isMoving: false,   // 页面翻页中标识，翻页中不再触发翻页
   useAnimate: true,  // 翻页是否有动画效果
 

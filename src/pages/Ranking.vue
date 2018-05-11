@@ -174,7 +174,7 @@
 
   .mine, .rules {
     position: absolute;
-    right: 1vw;
+    left: 1vw;
     bottom: 30vw;
     width: 12vw;
   }

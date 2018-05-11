@@ -65,7 +65,7 @@ export default {
     user.vote = Number(user.vote) + 1
 
     if (voteopenid === state.person.openid) {
-      state.person.vote = Number(state.person.vote) + 1
+      state.person = Object.assign(state.person, {vote: Number(state.person.vote) + 1})
     }
   },
   setPhotoflag (state, flag) {
