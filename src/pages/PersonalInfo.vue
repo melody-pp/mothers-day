@@ -29,13 +29,12 @@
     <!-- <img src="../assets/personalInfo/pic_02.png" class="infoBtn" @click="submitInfo"> -->
     <div class="infoBtn" @click="submitInfo"></div>
     <div class="warningBox" v-show="showModal">
-      <div class="bgBox center">
-        <!-- zzh -->
-        <!-- <img src="../assets/personalInfo/tishi.png" class="tishi center"> -->
-        <div class="tishi center"></div>
-        <img src="../assets/personalInfo/queren.png" class="queren" @click="queren">
-        <img src="../assets/personalInfo/quxiao.png" class="quxiao" @click="quxiao">
-      </div>
+      <img src="../assets/personalInfo/beijing.png" class="bgBox center">
+      <!-- zzh -->
+      <img src="../assets/personalInfo/tishi.png" class="tishi center">
+      <!--<div class="tishi center"></div>-->
+      <img src="../assets/personalInfo/queren.png" class="queren" @click="queren">
+      <img src="../assets/personalInfo/quxiao.png" class="quxiao" @click="quxiao">
     </div>
 
     <!--二维码弹框-->
@@ -233,8 +232,6 @@
       left: 5vw;
     }
     .bgBox {
-      background: url("../assets/personalInfo/beijing.png") no-repeat;
-      background-size: cover;
       width: 96vw;
       height: 60vw;
       top: 50vw;
@@ -244,20 +241,18 @@
       width: 60vw;
       height: 20.7vw;
       position: absolute;
-      top: 18vw;
-      background: url(../assets/personalInfo/tishi.png) no-repeat center;
-      background-size: contain;
+      top: 65vw;
     }
     .queren {
       width: 23vw;
       position: absolute;
-      top: 42vw;
+      top: 88vw;
       left: 19vw;
     }
     .quxiao {
       width: 23vw;
       position: absolute;
-      top: 42vw;
+      top: 88vw;
       right: 19vw;
     }
 

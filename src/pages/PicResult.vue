@@ -23,14 +23,15 @@
 
     <!--彈框-->
     <div class="waringModal" v-show="showModal">
-      <div class="contentBox">
-        <!-- zzh -->
-        <!-- <img src="../assets/picResult/shuoming.png" class="center shuoming"> -->
-        <div class="center shuoming"></div>
-        <img src="../assets/picResult/queren.png" class="queren" @click="queren" v-show="!showUpdate">
-        <img src="../assets/picResult/updating.png" class="updating" v-show="showUpdate">
-        <img src="../assets/picResult/quxiao.png" class="quxiao" @click="quxiao">
-      </div>
+      <!--<div class="contentBox">-->
+      <!-- zzh -->
+      <img src="../assets/picResult/beijing.png" class="contentBox">
+      <img src="../assets/picResult/shuoming.png" class="center shuoming">
+      <!--<div class="center shuoming"></div>-->
+      <img src="../assets/picResult/queren.png" class="queren" @click="queren" v-show="!showUpdate">
+      <img src="../assets/picResult/updating.png" class="updating" v-show="showUpdate">
+      <img src="../assets/picResult/quxiao.png" class="quxiao" @click="quxiao">
+      <!--</div>-->
     </div>
   </div>
 </template>
@@ -153,42 +154,39 @@
     position: absolute;
     background: rgba(0, 0, 0, .6);
     .contentBox {
-      background: url("../assets/picResult/beijing.png") no-repeat;
-      background-size: cover;
       width: 84vw;
       height: 42vw;
       top: 58vw;
       left: 9vw;
       position: absolute;
-      // zzh
-      .shuoming {
-        width: 67vw;
-        height: 15vw;
-        top: 9vw;
-        background: url(../assets/picResult/shuoming.png) no-repeat center;
-        background-size: contain;
-      }
-      .queren {
-        width: 23vw;
-        position: absolute;
-        top: 27vw;
-        left: 14vw;
-        display: block;
-      }
-      .quxiao {
-        width: 23vw;
-        position: absolute;
-        top: 27vw;
-        right: 14vw;
-      }
-      .updating {
-        width: 27vw;
-        position: absolute;
-        top: 30vw;
-        left: 14vw;
-        opacity: 0.5;
-      }
     }
+    // zzh
+    .shuoming {
+      width: 67vw;
+      height: 15vw;
+      top: 65vw;
+    }
+    .queren {
+      width: 23vw;
+      position: absolute;
+      top: 84vw;
+      left: 14vw;
+      display: block;
+    }
+    .quxiao {
+      width: 23vw;
+      position: absolute;
+      top: 84vw;
+      right: 14vw;
+    }
+    .updating {
+      width: 27vw;
+      position: absolute;
+      top: 30vw;
+      left: 14vw;
+      opacity: 0.5;
+    }
+
   }
 
   .fade-enter-active, .fade-leave-active {
