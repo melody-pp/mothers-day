@@ -39,7 +39,7 @@ export default {
     data.append('openid', state.urlParams.openid)
     data.append('tothumb', state.picResult)
     http.post('/uploadthumb', data).then(res => {
-      commit('setPhotoflag', true)
+      commit('setPhotoflag', 1)
       callback && callback()
     })
   },

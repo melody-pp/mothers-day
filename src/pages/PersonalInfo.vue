@@ -108,7 +108,7 @@
         this.showModal = false
         this.postPersonalInfo().then(() => {
           this.getPerson()
-          this.setSuccflag(true)
+          this.setSuccflag(1)
         })
       },
       quxiao () {
