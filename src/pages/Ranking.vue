@@ -6,8 +6,8 @@
       <img src="../assets/ranking/sousuo1.png" class="searchIcon" @click="getSearchData">
     </div>
 
-    <img src="../assets/loading.gif" class="loading" v-show="isLoading">
-    <div ref="rankingBox" class="rankingBox center" v-show="!isLoading"
+    <img src="../assets/loading.gif" class="loading" :class="{pullUp, pullDown}" v-show="isLoading">
+    <div ref="rankingBox" class="rankingBox center" :class="{pullUp, pullDown}"
          @touchstart="touchstart" @touchmove="touchmove">
       <RankItem class="rankItem" v-for="item of rankList" :item="item"
                 :key="item.id" @holdback="showModal=true"/>
@@ -37,7 +37,16 @@
       pageNo: 1,
       clientY: null,
       isSearch: false,
+      direction: 0 // 0下拉刷新   1上拉加载更多
     }),
+    computed: {
+      pullUp () {
+        return this.isLoading && this.direction === 0
+      },
+      pullDown () {
+        return this.isLoading && this.direction === 1
+      }
+    },
     methods: {
       touchstart (event) {
         this.clientY = this.getClientY(event)
@@ -52,12 +61,14 @@
         const maxScroll = this.getMaxScroll(rankingBox)
         const clientY = this.getClientY(event)
         const deltaY = this.clientY - clientY
-        if (deltaY < 0 && scrollTop === 0) {
+        if (deltaY < -10 && scrollTop === 0) {
           this.pageNo = 1
+          this.direction = 1
           this.resetRankList()
           this.getRankData()
         }
-        if (deltaY > 0 && maxScroll === scrollTop) {
+        if (deltaY > 10 && maxScroll === scrollTop) {
+          this.direction = 0
           this.getRankData()
         }
 
@@ -130,10 +141,15 @@
 
   .loading {
     width: 30px;
-    top: 15vh;
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
+    &.pullUp {
+      bottom: 2vh;
+    }
+    &.pullDown {
+      top: 65px;
+    }
   }
 
   .rankingBox {
@@ -141,6 +157,9 @@
     width: 96vw;
     overflow: auto;
     height: 85vh;
+    &.pullDown {
+      top: 105px;
+    }
   }
 
   .rankItem {
