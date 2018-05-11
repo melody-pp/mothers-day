@@ -57,10 +57,15 @@
         parseFile(self.files[0], result => {
           this.moveDown()
           this.saveSelfPic(result)
+          self.value = null
         })
       },
       takeMother () {
-        parseFile(this.$refs.mother.files[0], this.saveMotherPic)
+        const mother = this.$refs.mother
+        parseFile(mother.files[0], result => {
+          this.saveMotherPic(result)
+          mother.value = null
+        })
       },
       pressMove (evt) {
         const motherImg = this.$refs.motherImg

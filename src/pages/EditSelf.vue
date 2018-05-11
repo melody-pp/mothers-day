@@ -54,7 +54,11 @@
         this.moveDown()
       },
       takeSelf () {
-        parseFile(this.$refs.self.files[0], this.saveSelfPic)
+        const self = this.$refs.self
+        parseFile(self.files[0], result => {
+          this.saveSelfPic(result)
+          self.value = null
+        })
       },
       pressMove (evt) {
         const selfImg = this.$refs.selfImg
