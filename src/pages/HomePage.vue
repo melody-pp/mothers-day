@@ -101,7 +101,7 @@
 
   .tothumb {
     position: absolute;
-    top: 37.8vw;
+    top: 37.1vw;
     left: 4.7vw;
     width: 90.5vw;
   }

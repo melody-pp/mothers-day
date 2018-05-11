@@ -81,7 +81,7 @@
     }
 
     > p {
-      margin: 1vw 0;
+      margin: 2vw 0;
       font-size: 4vw;
       font-weight: 800;
     }
