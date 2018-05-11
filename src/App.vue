@@ -57,7 +57,7 @@
         wx.error(err => console.log(err))
       },
       getShareConfig () {
-        const title = '我正在参加奇瑞车主俱乐部母亲节活动，快来给我投票\n'
+        const title = '#你陪我长大，我陪你变老#致敬母爱，小伙伴们快来帮我最美的妈妈投票吧'
         const link = location.origin + '/mother/index.php/index/index/person_index?openid=' + this.urlParams.openid
         // const imgUrl = location.origin + require('./assets/WeChat.jpg')
         const imgUrl = require('./assets/WeChat.jpg')
