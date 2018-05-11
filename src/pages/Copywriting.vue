@@ -33,10 +33,10 @@
       },
       takeMother () {
         const mother = this.$refs.mother
-        parseFile(mother.files[0], result => {
-          this.moveDown()
-          this.saveMotherPic(result)
+        parseFile(mother.files[0], motherPic => {
           mother.value = ''
+          this.moveDown()
+          this.setState({motherPic})
         })
       },
     },

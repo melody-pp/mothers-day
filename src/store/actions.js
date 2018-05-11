@@ -18,7 +18,7 @@ export default {
     http.post('/get_person', {
       openid: state.urlParams.shareOpenId
     }).then(res => {
-      commit('setPerson', res.data[0])
+      commit('setState', {person: res.data[0]})
     })
   },
   // 获取用户点赞信息
@@ -26,7 +26,7 @@ export default {
     http.post('/get_voteperson', {
       openid: state.urlParams.openid
     }).then(res => {
-      commit('setVoted', res.data)
+      commit('setState', {votedInfo: res.data})
     })
   },
   // 上传合照
@@ -57,21 +57,23 @@ export default {
   },
   // 查询
   postSearch ({commit}, nickname) {
-    commit('setLoading', true)
+
+    commit('setState', {isLoading: true})
     http.post('/search_message', {nickname}).then(res => {
       commit('setRankList', res.data)
       setTimeout(() => {
-        commit('setLoading', false)
+        commit('setState', {isLoading: false})
       }, 200)
     })
   },
   // 获取排行榜信息
   getRankList ({commit}, pageNo) {
-    commit('setLoading', true)
+    commit('setState', {isLoading: true})
+
     http.post('/ranking', {pageNo}).then(res => {
       commit('pushRankList', res.data)
       setTimeout(() => {
-        commit('setLoading', false)
+        commit('setState', {isLoading: false})
       }, 200)
     })
   },

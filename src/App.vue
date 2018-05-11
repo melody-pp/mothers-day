@@ -23,7 +23,7 @@
         return params
       }, {})
 
-      this.saveUrlParams(urlParams)
+      this.setState({urlParams})
       this.getVoteperson()
 
       if (+urlParams.photoflag === 1 || +urlParams.self === 0) {

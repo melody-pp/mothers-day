@@ -51,14 +51,14 @@
           764 * screenRatio,
           0, 0, 549, 764)
 
-        this.saveSelfPic(canvas.toDataURL())
         this.moveDown()
+        this.setState({selfPic: canvas.toDataURL()})
       },
       takeSelf () {
         const self = this.$refs.self
-        parseFile(self.files[0], result => {
-          this.saveSelfPic(result)
+        parseFile(self.files[0], selfPic => {
           self.value = ''
+          this.setState({selfPic})
         })
       },
       pressMove (evt) {

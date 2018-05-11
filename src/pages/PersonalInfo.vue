@@ -93,12 +93,14 @@
         }
 
         this.showModal = true
-        this.setPersonalInfo({
-          username: this.xingming,
-          phone: this.dianhua,
-          address: this.chengshi,
-          cartype: this.chexing,
-          shengfen: this.shengfen
+        this.setState({
+          personalInfo: {
+            username: this.xingming,
+            phone: this.dianhua,
+            address: this.chengshi,
+            cartype: this.chexing,
+            shengfen: this.shengfen
+          }
         })
       },
       queren () {

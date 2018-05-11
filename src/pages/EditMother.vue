@@ -56,18 +56,19 @@
           764 * screenRatio,
           0, 0, 549, 764)
 
-        this.saveMotherPic(canvas.toDataURL())
-        parseFile(self.files[0], result => {
-          this.moveDown()
-          this.saveSelfPic(result)
+        this.setState({motherPic: canvas.toDataURL()})
+
+        parseFile(self.files[0], selfPic => {
           self.value = ''
+          this.moveDown()
+          this.setState({selfPic})
         })
       },
       takeMother () {
         const mother = this.$refs.mother
-        parseFile(mother.files[0], result => {
-          this.saveMotherPic(result)
+        parseFile(mother.files[0], motherPic => {
           mother.value = ''
+          this.setState({motherPic})
         })
       },
       pressMove (evt) {
