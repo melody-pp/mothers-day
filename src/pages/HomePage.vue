@@ -9,9 +9,6 @@
          src="../assets/homePage/cansaiyouka.png" class="youkaBtn" @click="moveTo(5)">
     <div class="voteBox" v-else>
       <span class="nickName">{{person.nickname}}</span>
-      <img :src="medalSrc" v-if="person.rank<4" class="jiangpai">
-      <span v-else class="rankingNum">No.{{person.rank}}</span>
-      <span class="voteNum">{{person.vote}}</span><span>票</span>
       <svg @click="vote" class="voteIcon" :class="{voted}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
            x="0px" y="0px" viewBox="-60 61.25 64 64" style="enable-background:new -60 61.25 64 64;" xml:space="preserve">
             <path d="M-27.968,120.29c-1.312,0-2.688-0.576-4.064-1.696c-0.032-0.032-0.096-0.064-0.128-0.128l-20.096-20.128
@@ -30,6 +27,9 @@
               c0,0.352,0.416,0.672,0.928,0.672c0.48,0,0.928-0.32,0.928-0.672v-1.28c0-1.024,0.832-1.824,1.824-1.824s1.824,0.832,1.824,1.824
               v1.28C-23.552,104.61-25.6,106.562-28.128,106.562z"/>
           </svg>
+      <span class="voteNum">{{person.vote+'票'}}</span>
+      <img :src="medalSrc" v-if="person.rank<4" class="jiangpai">
+      <span v-else class="rankingNum">No.{{person.rank}}</span>
     </div>
     <img src="../assets/picResult/rulesBtn.png" class="rulesBtn" @click="moveTo(7)">
     <img src="../assets/picResult/prizeBtn.png" class="prizeBtn" @click="moveTo(6)">
@@ -144,32 +144,40 @@
   .voteBox {
     position: absolute;
     top: 110vw;
-    left: 15vw;
+    left: 50%;
+    width: 80vw;
+    height: 30px;
+    line-height: 30px;
+    transform: translateX(-50%);
     img {
       vertical-align: middle;
     }
     .nickName {
-      margin-right: 11vw;
+      margin-right: 6vw;
       font-weight: 800;
     }
     .voteNum {
-      width: 15vw;
       display: inline-block;
       text-align: right;
+      float: right;
+      margin-right: 2vw;
     }
     .rankingNum {
       font-style: italic;
+      margin-right: 5vw;
+      float: right;
     }
     .jiangpai {
       vertical-align: middle;
+      margin-right: 5vw;
       width: 6vw;
     }
     .voteIcon {
       width: 5.5vw;
       fill: #b5b6b6;
+      float: right;
       position: relative;
-      top: 1.2vw;
-      left: 2vw;
+      top: 4px;
       &.voted {
         fill: #dc403f;
       }

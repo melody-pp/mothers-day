@@ -28,6 +28,7 @@
 
       if (+urlParams.photoflag === 1 || +urlParams.self === 0) {
         this.moveTo(8)
+        this.getPerson()
       }
 
       this.getSignPackage().then(({data}) => {
