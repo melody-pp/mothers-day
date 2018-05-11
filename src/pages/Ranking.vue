@@ -9,16 +9,17 @@
     <img src="../assets/loading.gif" class="loading" :class="{pullUp, pullDown}" v-show="isLoading">
     <div ref="rankingBox" class="rankingBox center" :class="{pullUp, pullDown}"
          @touchstart="touchstart" @touchmove="touchmove">
-      <RankItem class="rankItem" v-for="item of rankList" :item="item"
-                :key="item.id" @holdback="showModal=true"/>
+      <RankItem class="rankItem"
+                v-for="item of rankList"
+                :item="item" :key="item.id"
+                @holdback="showModal=true"/>
     </div>
 
     <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8)">
     <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7)">
+
     <div class="waringModal" v-show="showModal" @click="showModal=false">
-
       <img src="../assets/ranking/beijing.png" class="wenzi center">
-
     </div>
   </div>
 </template>
@@ -32,11 +33,11 @@
     mixins: [vuexMixin],
     components: {RankItem},
     data: () => ({
-      searchText: '',
-      showModal: false,
       pageNo: 1,
       clientY: null,
+      searchText: '',
       isSearch: false,
+      showModal: false,
       direction: 0 // 0下拉刷新   1上拉加载更多
     }),
     computed: {
@@ -61,12 +62,14 @@
         const maxScroll = this.getMaxScroll(rankingBox)
         const clientY = this.getClientY(event)
         const deltaY = this.clientY - clientY
+
         if (deltaY < -10 && scrollTop === 0) {
           this.pageNo = 1
           this.direction = 1
           this.resetRankList()
           this.getRankData()
         }
+
         if (deltaY > 10 && maxScroll === scrollTop) {
           this.direction = 0
           this.getRankData()

@@ -4,11 +4,9 @@
     <img class="title" src="../assets/copywriting/pic_01.png">
     <img class="picBG" src="../assets/homePage/homePagexk.png">
     <img :src="person.tothumb" class="tothumb">
-    <!--<img hidden class="tips" src="../assets/homePage/pic_01.png">-->
-    <!--<img class="qiuzanTxt" src="../assets/homePage/qiuzanTxt.png">-->
+
     <img v-if="urlParams.openid===urlParams.shareOpenId&&+urlParams.succflag!==1"
-         src="../assets/homePage/cansaiyouka.png"
-         class="youkaBtn" @click="moveTo(5)">
+         src="../assets/homePage/cansaiyouka.png" class="youkaBtn" @click="moveTo(5)">
     <div class="voteBox" v-else>
       <span class="nickName">{{person.nickname}}</span>
       <img :src="medalSrc" v-if="person.rank<4" class="jiangpai">
@@ -46,11 +44,9 @@
 
   export default {
     name: 'HomePage',
-    data () {
-      return {
-        showModal: false
-      }
-    },
+    data: () => ({
+      showModal: false
+    }),
     mixins: [vuexMixin],
     computed: {
       medalSrc () {
@@ -72,10 +68,8 @@
     methods: {
       vote () {
         if (+this.votedInfo.flag === 1) {
-          // 已经投过，弹窗告诉用户不可再投
           this.showModal = true
         } else {
-          this.person.vote++
           this.postVote(this.person.openid)
         }
       }
@@ -99,7 +93,6 @@
   }
 
   .tothumb {
-    position: absolute;
     position: absolute;
     top: 37.8vw;
     left: 4.7vw;
@@ -173,7 +166,6 @@
       &.voted {
         fill: #dc403f;
       }
-
     }
   }
 
@@ -190,6 +182,5 @@
       width: 100vw;
       top: 63vw;
     }
-
   }
 </style>
