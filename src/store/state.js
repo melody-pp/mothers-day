@@ -8,6 +8,7 @@ export default {
   selfPic: '',       // 自己头像
   motherPic: '',     // 母亲头像
   picResult: '',     // 最终生成图片dataURL
+  processing: false,  // 是否正在生成合照
 
   person: {},        // 个人主页展示信息
   votedInfo: {},     // 当前用户的点赞信息

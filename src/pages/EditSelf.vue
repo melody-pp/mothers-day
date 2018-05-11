@@ -52,7 +52,10 @@
           0, 0, 549, 764)
 
         this.moveDown()
-        this.setState({selfPic: canvas.toDataURL()})
+        this.setState({processing: true})
+        setTimeout(() => {
+          this.setState({selfPic: canvas.toDataURL()})
+        }, 500)
       },
       takeSelf () {
         const self = this.$refs.self

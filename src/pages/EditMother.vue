@@ -56,12 +56,13 @@
           764 * screenRatio,
           0, 0, 549, 764)
 
-        this.setState({motherPic: canvas.toDataURL()})
-
         parseFile(self.files[0], selfPic => {
           self.value = ''
           this.moveDown()
           this.setState({selfPic})
+          setTimeout(() => {
+            this.setState({motherPic: canvas.toDataURL()})
+          }, 500)
         })
       },
       takeMother () {
