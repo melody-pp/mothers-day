@@ -12,6 +12,7 @@
     <img src="../assets/editSelf/pic_03.png" class="reTake center">
     <input class="reTake center" type="file" ref="self" @change="takeSelf">
     <canvas hidden ref="canvas" width="549" height="764"/>
+    <img src="../assets/editMother/editpic_07.png" class="tipsTxt">
   </div>
 </template>
 
@@ -154,5 +155,12 @@
   input.reTake {
     height: 12vw;
     opacity: 0;
+  }
+
+  .tipsTxt {
+    position: absolute;
+    top: 117vw;
+    left: 36vw;
+    width: 30vw;
   }
 </style>

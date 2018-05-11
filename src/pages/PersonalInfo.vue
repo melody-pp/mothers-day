@@ -159,7 +159,7 @@
       left: 50%;
       transform: translate(-50%, -92%);
       > input {
-        margin-left: 21vw;
+        margin-left: 27.5vw;
         margin-top: 1.6vh;
         height: 6vw;
         width: 51vw;
@@ -169,7 +169,7 @@
         background-color: transparent;
       }
       > select {
-        margin-left: 20vw;
+        margin-left: 26.5vw;
         margin-top: 1.3vh;
         height: 7vw;
         width: 51vw;
