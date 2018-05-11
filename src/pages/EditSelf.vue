@@ -25,24 +25,11 @@
     mixins: [vuexMixin, editImgMixin],
     methods: {
       next () {
-        const screenRatio = window.innerWidth * 0.695 / 549
-        const {editImg, canvas} = this.$refs
-        const ctx = canvas.getContext('2d')
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        ctx.drawImage(
-          editImg,
-          -this.deltaX,
-          -this.deltaY,
-          549 * screenRatio,
-          764 * screenRatio,
-          0, 0, 549, 764)
-
         this.moveDown()
         this.setState({processing: true})
 
         setTimeout(() => {
-          this.setState({selfPic: canvas.toDataURL()})
+          this.setState({selfPic: this.getEditedURL()})
         }, 500)
       },
       takeSelf () {

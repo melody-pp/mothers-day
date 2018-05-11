@@ -27,26 +27,14 @@
     mixins: [vuexMixin, editImgMixin],
     methods: {
       takeSelf () {
-        const screenRatio = window.innerWidth * 0.695 / 549
-        const {self, canvas, editImg} = this.$refs
-        const ctx = canvas.getContext('2d')
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        ctx.drawImage(
-          editImg,
-          -this.deltaX,
-          -this.deltaY,
-          549 * screenRatio,
-          764 * screenRatio,
-          0, 0, 549, 764)
-
+        const self = this.$refs.self
         parseFile(self.files[0], selfPic => {
           self.value = ''
           this.moveDown()
           this.setState({selfPic})
 
           setTimeout(() => {
-            this.setState({motherPic: canvas.toDataURL()})
+            this.setState({motherPic: this.getEditedURL()})
           }, 500)
         })
       },

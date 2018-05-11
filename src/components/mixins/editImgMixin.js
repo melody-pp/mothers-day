@@ -1,5 +1,5 @@
-import { getValidNum } from '../utils'
 import AlloyFinger from '../AlloyFinger'
+import { getValidNum } from '../utils'
 
 export const editImgMixin = {
   data: () => ({
@@ -28,6 +28,22 @@ export const editImgMixin = {
 
       this.deltaX = getValidNum(this.deltaX + evt.deltaX, frameWidth - motherImg.width, 0)
       this.deltaY = getValidNum(this.deltaY + evt.deltaY, frameHeight - motherImg.height, 0)
+    },
+    getEditedURL () {
+      const screenRatio = window.innerWidth * 0.695 / 549
+      const {canvas, editImg} = this.$refs
+      const ctx = canvas.getContext('2d')
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.drawImage(
+        editImg,
+        -this.deltaX,
+        -this.deltaY,
+        549 * screenRatio,
+        764 * screenRatio,
+        0, 0, 549, 764)
+
+      return canvas.toDataURL()
     },
     initAF () {
       try {
