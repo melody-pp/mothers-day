@@ -47,12 +47,12 @@
         const {base, mother, self, canvas} = this.$refs
         const ctx = canvas.getContext('2d')
         const imgXYWH = [0, 0, 549, 764]
-        const motherXYWH = [549, 0, 549, 764]
-        const selfXYWH = [0, 0, 549, 764]
+        const selfXYWH = [549, 0, 549, 764]
+        const motherXYWH = [0, 0, 549, 764]
 
-        ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
         ctx.drawImage(self, ...imgXYWH, ...selfXYWH)
-        ctx.drawImage(base, 0, 0, 726, 505, 0, 0, 1098, 764)
+        ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
+        ctx.drawImage(base, 0, 0, 726, 533, 0, 0, 1098, 764)
         ctx.filter = 'saturate(200%) '
 
         this.setPicResult(canvas.toDataURL())

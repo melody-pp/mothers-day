@@ -42,17 +42,15 @@ export default {
   // 上传个人信息
   postPersonalInfo ({state}) {
     return http.post('/add_person', {
-      // openid: state.urlParams.openid,
-      openid: state.urlParams.openid,
       ...state.personalInfo,
+      openid: state.urlParams.openid,
     })
   },
   // 投票
   postVote ({state, commit}, voteopenid) {
     http.post('/add_vote', {
-      // openid: state.urlParams.openid,
-      openid: state.urlParams.openid,
       voteopenid,
+      openid: state.urlParams.openid,
     }).then(() => {
       commit('addVote', voteopenid)
     })
