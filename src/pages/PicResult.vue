@@ -50,6 +50,7 @@
         const selfXYWH = [549, 0, 549, 764]
         const motherXYWH = [0, 0, 549, 764]
 
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.drawImage(self, ...imgXYWH, ...selfXYWH)
         ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
         ctx.drawImage(base, 0, 0, 726, 533, 0, 0, 1098, 764)
