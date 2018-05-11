@@ -22,6 +22,7 @@
         <!-- <img src="../assets/picResult/shuoming.png" class="center shuoming"> -->
         <div class="center shuoming"></div>
         <img src="../assets/picResult/queren.png" class="queren" @click="queren">
+        <img src="../assets/picResult/updating.png" class="updating" alt="">
         <img src="../assets/picResult/quxiao.png" class="quxiao" @click="quxiao">
       </div>
     </div>
@@ -61,13 +62,21 @@
         this.showModal = true
       },
       queren () {
+        var queren = document.getElementsByClassName("queren")[0];
+        var updating = document.getElementsByClassName("updating")[0];
+        queren.style.display="none";
+        updating.style.display="block";
         this.postPicResult(() => {
           this.getPerson()
           this.moveDown()
         })
       },
       quxiao () {
-        this.showModal = false
+        this.showModal = false;
+        var queren = document.getElementsByClassName("queren")[0];
+        var updating = document.getElementsByClassName("updating")[0];
+        queren.style.display="block";
+        updating.style.display="none";
       },
       toMyHome () {
         this.postPicResult(() => {
@@ -158,12 +167,21 @@
         position: absolute;
         top: 27vw;
         left: 14vw;
+        display: block;
       }
       .quxiao {
         width: 23vw;
         position: absolute;
         top: 27vw;
         right: 14vw;
+      }
+      .updating{
+        width: 27vw;
+        position: absolute;
+        top: 30vw;
+        left: 14vw;
+        opacity: 0.5;
+        display: none;
       }
     }
   }
