@@ -64,7 +64,7 @@ export default {
       commit('setRankList', res.data)
       setTimeout(() => {
         commit('setLoading', false)
-      }, 1000)
+      }, 200)
     })
   },
   // 获取排行榜信息
@@ -74,7 +74,7 @@ export default {
       commit('pushRankList', res.data)
       setTimeout(() => {
         commit('setLoading', false)
-      }, 1000)
+      }, 200)
     })
   },
 }
