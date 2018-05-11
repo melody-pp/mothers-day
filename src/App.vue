@@ -57,13 +57,12 @@
         wx.error(err => console.log(err))
       },
       getShareConfig () {
-        const title = '#你陪我长大，我陪你变老#致敬母爱，小伙伴们快来帮我最美的妈妈投票吧'
+        const title = '礼献母亲节，快来参与互动赢取精美大奖！'
         const link = location.origin + '/mother/index.php/index/index/person_index?openid=' + this.urlParams.openid
-        // const imgUrl = location.origin + require('./assets/WeChat.jpg')
-        const imgUrl = require('./assets/WeChat.jpg')
-        // const desc = '这里是一些描述文案'
+        const imgUrl = location.origin + require('./assets/WeChat.jpg')
+        const desc = '#你陪我长大，我陪你变老#致敬母爱，小伙伴们快来帮我最美的妈妈投票吧！'
 
-        return {title, link, imgUrl}
+        return {title, link, imgUrl, desc}
       },
     },
   }
