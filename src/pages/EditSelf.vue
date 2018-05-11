@@ -58,7 +58,7 @@
         const self = this.$refs.self
         parseFile(self.files[0], result => {
           this.saveSelfPic(result)
-          self.value = null
+          self.value = ''
         })
       },
       pressMove (evt) {
