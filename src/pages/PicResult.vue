@@ -4,9 +4,9 @@
     <img id="picResult" ref="result" :src="picResult" class="picResult center">
 
     <img src="../assets/picResult/pic_01.png" class="tips center">
-    <img src="../assets/picResult/pic_06.png" class="onceMore" @click="reTake">
+    <img src="../assets/picResult/pic_06.png" class="onceMore" @click="moveTo(1)">
 
-    <img src="../assets/picResult/pic_04.png" class="enterBtn" @click="confirm">
+    <img src="../assets/picResult/pic_04.png" class="enterBtn" @click="showModal=true">
     <img src="../assets/picResult/pic_05.png" class="myHome" @click="toMyHome">
     <img src="../assets/picResult/xiangkuangBG2.png" class="xiangkuangBG">
 
@@ -21,8 +21,8 @@
         <!-- zzh -->
         <!-- <img src="../assets/picResult/shuoming.png" class="center shuoming"> -->
         <div class="center shuoming"></div>
-        <img src="../assets/picResult/queren.png" class="queren" @click="queren">
-        <img src="../assets/picResult/updating.png" class="updating" alt="">
+        <img src="../assets/picResult/queren.png" class="queren" @click="queren" v-show="!showUpdate">
+        <img src="../assets/picResult/updating.png" class="updating" v-show="showUpdate">
         <img src="../assets/picResult/quxiao.png" class="quxiao" @click="quxiao">
       </div>
     </div>
@@ -37,13 +37,14 @@
     mixins: [vuexMixin],
     data: () => ({
       showModal: false,  // 是否显示遮罩
+      showUpdate: false,  // 是否显示上传中
     }),
     mounted () {
       this.$refs.self.onload = this.generateRes.bind(this)
     },
     methods: {
       generateRes () {
-        const {base, mother, self, canvas, result} = this.$refs
+        const {base, mother, self, canvas} = this.$refs
         const ctx = canvas.getContext('2d')
         const imgXYWH = [0, 0, 549, 764]
         const motherXYWH = [549, 0, 549, 764]
@@ -53,30 +54,19 @@
         ctx.drawImage(self, ...imgXYWH, ...selfXYWH)
         ctx.drawImage(base, 0, 0, 726, 505, 0, 0, 1098, 764)
         ctx.filter = 'saturate(200%) '
+
         this.setPicResult(canvas.toDataURL())
       },
-      reTake () {
-        this.moveTo(1)
-      },
-      confirm () {
-        this.showModal = true
-      },
       queren () {
-        var queren = document.getElementsByClassName("queren")[0];
-        var updating = document.getElementsByClassName("updating")[0];
-        queren.style.display="none";
-        updating.style.display="block";
+        this.showUpdate = true
         this.postPicResult(() => {
           this.getPerson()
           this.moveDown()
         })
       },
       quxiao () {
-        this.showModal = false;
-        var queren = document.getElementsByClassName("queren")[0];
-        var updating = document.getElementsByClassName("updating")[0];
-        queren.style.display="block";
-        updating.style.display="none";
+        this.showModal = false
+        this.showUpdate = false
       },
       toMyHome () {
         this.postPicResult(() => {
@@ -175,7 +165,7 @@
         top: 27vw;
         right: 14vw;
       }
-      .updating{
+      .updating {
         width: 27vw;
         position: absolute;
         top: 30vw;
