@@ -15,7 +15,7 @@
                 @holdback="showModal=true"/>
     </div>
 
-    <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8)">
+    <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="toMine">
     <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7)">
 
     <div class="waringModal" v-show="showModal" @click="showModal=false">
@@ -103,6 +103,9 @@
         this.setState({rankList: []})
         this.getRankData()
       },
+      toMine () {
+        this.moveTo(8)
+      }
     },
     watch: {
       pageIndex (index) {

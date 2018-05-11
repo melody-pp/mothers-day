@@ -73,6 +73,13 @@
           this.postVote(this.person.openid)
         }
       }
+    },
+    watch: {
+      pageIndex (index) {
+        if (index === 8) {
+          this.getPerson()
+        }
+      }
     }
   }
 </script>

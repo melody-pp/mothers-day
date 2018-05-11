@@ -27,7 +27,6 @@
       this.getVoteperson()
 
       if (+urlParams.photoflag === 1 || +urlParams.self === 0) {
-        this.getPerson()
         this.moveTo(8)
       }
 

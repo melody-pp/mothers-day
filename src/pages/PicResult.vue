@@ -80,7 +80,6 @@
       },
       toMyHome () {
         this.postPicResult(() => {
-          this.getPerson()
           this.moveTo(8)
         })
       }
