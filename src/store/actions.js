@@ -4,7 +4,7 @@ const http = axios.create({
   baseURL: '/mother/index.php/index/index/',
 })
 http.interceptors.response.use(response => response,
-  ({config, response}) => alert(`${config.url.split('/').pop()} ${response.status} ${response.statusText}`))
+  ({config, response}) => alert(`系统错误：${config.url.split('/').pop()} ${response.status} ${response.statusText}`))
 
 export default {
   // 获取微信签名
