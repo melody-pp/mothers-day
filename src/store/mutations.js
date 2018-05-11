@@ -1,11 +1,9 @@
-const MAX_PAGE_INDEX = 10
 let lastIndex = 0
 let searched = false
+
 export default {
   setState (state, data) {
-    Object.keys(data).forEach(key => {
-      state[key] = data[key]
-    })
+    Object.keys(data).forEach(key => state[key] = data[key])
   },
   moveEnd (state) {
     // 翻页完成回调
@@ -13,18 +11,18 @@ export default {
     state.useAnimate = true
   },
   moveUp (state, disableAnimate) {
-    // 翻页中或者已翻到顶，不再触发
-    if (!state.isMoving && state.pageIndex) {
+    if (!state.isMoving) {
       lastIndex = state.pageIndex
+
       state.pageIndex--
       state.isMoving = !(disableAnimate === true)
       state.useAnimate = !(disableAnimate === true)
     }
   },
   moveDown (state, disableAnimate) {
-    // 翻页中或者已翻到底，不再触发
-    if (!state.isMoving && state.pageIndex < MAX_PAGE_INDEX) {
+    if (!state.isMoving) {
       lastIndex = state.pageIndex
+
       state.pageIndex++
       state.isMoving = !(disableAnimate === true)
       state.useAnimate = !(disableAnimate === true)
@@ -39,15 +37,14 @@ export default {
   moveTo (state, index) {
     if (!state.isMoving) {
       lastIndex = state.pageIndex
+
       state.pageIndex = index
       state.useAnimate = false
     }
   },
   setRankList (state, rankList) {
-    state.rankList = rankList
-
     searched = true
-
+    state.rankList = rankList
     if (!rankList || !rankList.length) {
       alert('无此用户信息！')
     }
@@ -63,8 +60,10 @@ export default {
   },
   addVote (state, voteopenid) {
     state.votedInfo = {flag: 1, voteopenid}
+
     const user = state.rankList.find(item => item.voteopenid === voteopenid)
     user.vote = Number(user.vote) + 1
+
     if (voteopenid === state.person.openid) {
       state.person.vote = Number(state.person.vote) + 1
     }

@@ -3,8 +3,12 @@ import axios from 'axios'
 const http = axios.create({
   baseURL: '/mother/index.php/index/index/',
 })
-http.interceptors.response.use(response => response,
-  ({config, response}) => alert(`系统错误：${config.url.split('/').pop()} ${response.status} ${response.statusText}`))
+http.interceptors.response.use(
+  response => response,
+  ({config, response}) => {
+    alert(`系统错误：${config.url.split('/').pop()} ${response.status} ${response.statusText}`)
+  }
+)
 
 export default {
   // 获取微信签名
@@ -57,24 +61,18 @@ export default {
   },
   // 查询
   postSearch ({commit}, nickname) {
-
     commit('setState', {isLoading: true})
     http.post('/search_message', {nickname}).then(res => {
       commit('setRankList', res.data)
-      setTimeout(() => {
-        commit('setState', {isLoading: false})
-      }, 200)
+      setTimeout(() => commit('setState', {isLoading: false}), 200)
     })
   },
   // 获取排行榜信息
   getRankList ({commit}, pageNo) {
     commit('setState', {isLoading: true})
-
     http.post('/ranking', {pageNo}).then(res => {
       commit('pushRankList', res.data)
-      setTimeout(() => {
-        commit('setState', {isLoading: false})
-      }, 200)
+      setTimeout(() => commit('setState', {isLoading: false}), 200)
     })
   },
 }
