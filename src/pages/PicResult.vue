@@ -188,7 +188,6 @@
         top: 30vw;
         left: 14vw;
         opacity: 0.5;
-        display: none;
       }
     }
   }
