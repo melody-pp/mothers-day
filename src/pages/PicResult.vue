@@ -8,7 +8,7 @@
 
     <img src="../assets/picResult/pic_04.png" class="enterBtn" @click="confirm">
     <img src="../assets/picResult/pic_05.png" class="myHome" @click="toMyHome">
-    <img src="../assets/picResult/xiangkuangBG.png" class="xiangkuangBG">
+    <img src="../assets/picResult/xiangkuangBG2.png" class="xiangkuangBG">
 
     <img hidden src="../assets/picResult/pic_055.png" ref="base" class="base">
     <img hidden :src="motherPic" ref="mother">
