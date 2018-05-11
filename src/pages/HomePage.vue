@@ -75,6 +75,7 @@
           // 已经投过，弹窗告诉用户不可再投
           this.showModal = true
         } else {
+          this.person.vote++
           this.postVote(this.person.openid)
         }
       }
