@@ -12,6 +12,12 @@
       <div class="dianhua">
         <input type="text" v-model="dianhua">
       </div>
+      <div class="shengfenOut">
+        <select name="" id="" v-model="shengfen">
+          <option disabled value="">请选择</option>
+          <option v-for="sheng in shengs" :value="sheng">{{sheng}}</option>
+        </select>
+      </div>
       <div class="chengshi">
         <input type="text" v-model="chengshi">
       </div>
@@ -66,12 +72,19 @@
         cartypes: [
           '艾瑞泽3', '艾瑞泽5', '艾瑞泽7', '艾瑞泽7e',
           '艾瑞泽M7', '瑞虎3', '瑞虎3X', '瑞虎5', '瑞虎5x', '瑞虎7', '瑞虎8'
+        ],
+        shengfen: '',
+        shengs: [
+          '北京市', '天津市', '上海市', '重庆市', '河北省', '山西省', '辽宁省', '吉林省', '黑龙江省', '江苏省',
+          '浙江省', '安徽省', '福建省', '江西省', '山东省', '河南省', '湖北省', '湖南省', '广东省', '海南省',
+          '四川省', '贵州省', '云南省', '甘肃省', '陕西省', '广西壮族自治区', '西藏自治区', '青海省', '宁夏回族自治区', '内蒙古自治区',
+          '新疆维吾尔自治区', '台湾省', '香港特别行政区', '澳门特别行政区'
         ]
       }
     },
     methods: {
       submitInfo () {
-        if (!this.xingming || !this.dianhua || !this.chengshi || !this.chexing) {
+        if (!this.xingming || !this.dianhua || !this.chengshi || !this.chexing || !this.shengfen) {
           return alert('请将信息填写完整！')
         }
 
@@ -84,7 +97,8 @@
           username: this.xingming,
           phone: this.dianhua,
           address: this.chengshi,
-          cartype: this.chexing
+          cartype: this.chexing,
+          shengfen: this.shengfen
         })
       },
       queren () {
@@ -126,7 +140,7 @@
   // zzh
   .infoBtn {
     position: absolute;
-    top: 69%;
+    top: 83%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40vw;
@@ -137,7 +151,7 @@
 
   .inforInput {
     > div {
-      width: 74vw;
+      width: 80vw;
       height: 12vw;
       background-size: 94vw;
       position: absolute;
@@ -146,6 +160,7 @@
       transform: translate(-50%, -92%);
       > input {
         margin-left: 22vw;
+        margin-top: 1.8vh;
         height: 6vw;
         width: 51vw;
         border: none;
@@ -155,6 +170,7 @@
       }
       > select {
         margin-left: 22vw;
+        margin-top: 1.5vh;
         height: 7vw;
         width: 51vw;
         border: none;
@@ -165,23 +181,29 @@
 
     }
     .xingming {
-      background-image: url("../assets/personalInfo/xingming.png");
-      background-repeat: no-repeat;
+      background: url("../assets/personalInfo/xingming.png") no-repeat center;
+      background-size: contain;
       top: 30%;
     }
     .dianhua {
-      background-image: url("../assets/personalInfo/dianhua.png");
-      background-repeat: no-repeat;
+      background: url("../assets/personalInfo/dianhua.png") no-repeat center;
+      background-size: contain;
       top: 40%;
     }
     .chengshi {
-      background-image: url("../assets/personalInfo/chengshi.png");
-      background-repeat: no-repeat;
+      background: url("../assets/personalInfo/chengshi.png") no-repeat center;
+      background-size: contain;
+      top: 60%;
     }
     .chexing {
-      background-image: url("../assets/personalInfo/chexing.png");
-      background-repeat: no-repeat;
-      top: 60%;
+      background: url("../assets/personalInfo/chexing.png") no-repeat center;
+      background-size: contain;
+      top: 70%;
+    }
+    .shengfenOut {
+      background: url("../assets/personalInfo/shengfen.png") no-repeat center;
+      background-size: contain;
+      top: 50%;
     }
 
   }
