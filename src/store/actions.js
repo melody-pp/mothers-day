@@ -19,10 +19,14 @@ export default {
   },
   // 获取个人主页展示信息
   getPerson ({state, commit}) {
+    commit('setState', {ajaxLoading: true})
     http.post('/get_person', {
       openid: state.urlParams.shareOpenId
     }).then(res => {
+      commit('setState', {ajaxLoading: false})
       commit('setState', {person: res.data[0]})
+    }, () => {
+      commit('setState', {ajaxLoading: false})
     })
   },
   // 获取用户点赞信息
@@ -38,16 +42,27 @@ export default {
     const data = new FormData
     data.append('openid', state.urlParams.openid)
     data.append('tothumb', state.picResult)
+
+    commit('setState', {ajaxLoading: true})
     http.post('/uploadthumb', data).then(res => {
       commit('setPhotoflag', 1)
+      commit('setState', {ajaxLoading: false})
       callback && callback()
+    }, () => {
+      commit('setState', {ajaxLoading: false})
     })
   },
   // 上传个人信息
-  postPersonalInfo ({state}) {
-    return http.post('/add_person', {
+  postPersonalInfo ({state, commit}, callback) {
+    commit('setState', {ajaxLoading: true})
+    http.post('/add_person', {
       ...state.personalInfo,
       openid: state.urlParams.openid,
+    }).then(() => {
+      commit('setState', {ajaxLoading: false})
+      callback && callback()
+    }, () => {
+      commit('setState', {ajaxLoading: false})
     })
   },
   // 投票

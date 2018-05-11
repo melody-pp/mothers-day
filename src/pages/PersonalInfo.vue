@@ -106,7 +106,7 @@
       queren () {
         this.ewmShowModal = true
         this.showModal = false
-        this.postPersonalInfo().then(() => {
+        this.postPersonalInfo(() => {
           this.getPerson()
           this.setSuccflag(1)
         })

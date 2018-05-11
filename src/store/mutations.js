@@ -69,9 +69,9 @@ export default {
     }
   },
   setPhotoflag (state, flag) {
-    state.urlParams.photoflag = flag
+    state.urlParams = Object.assign(state.urlParams, {photoflag: flag})
   },
   setSuccflag (state, flag) {
-    state.urlParams.succflag = flag
+    state.urlParams = Object.assign(state.urlParams, {succflag: flag})
   },
 }

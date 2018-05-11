@@ -3,6 +3,9 @@
     <img src="./assets/home/LOGO.png" class="logo" v-show="pageIndex!==4 && pageIndex!==6">
     <audio id="bgmusic" autoplay loop src="./assets/bgm.mp3"></audio>
     <MainView/>
+    <div class="ajaxloader" v-show="ajaxLoading">
+      <img src="./assets/loading.gif" class="loading">
+    </div>
   </div>
 </template>
 
@@ -57,11 +60,12 @@
         wx.error(err => console.log(err))
       },
       getShareConfig () {
-        const title = +this.urlParams.succflag === 1 ? '#你陪我长大，我陪你变老# 奇瑞车主俱乐部致敬母亲节，小伙伴们快来帮我最美的妈妈投票吧' : '奇瑞车主俱乐部，礼献母亲节，快来参与互动赢取精美大奖！'
+        const title = +this.urlParams.succflag === 1 ? '#你陪我长大，我陪你变老#' : '奇瑞车主俱乐部，礼献母亲节，快来参与互动赢取精美大奖！'
         const link = location.origin + '/mother/index.php/index/index/person_index?openid=' + this.urlParams.openid
         const imgUrl = location.origin + require('./assets/WeChat.jpg')
+        const desc = '奇瑞车主俱乐部致敬母亲节，小伙伴们快来帮我最美的妈妈投票吧'
 
-        return {title, link, imgUrl}
+        return {title, link, imgUrl, desc}
       },
     },
     watch: {
@@ -74,7 +78,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   #app {
     overflow: hidden;
     position: relative;
@@ -126,5 +130,21 @@
 
   .glass {
     filter: blur(5px);
+  }
+
+  .ajaxloader {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    .loading {
+      top: 50%;
+      left: 50%;
+      width: 15vw;
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
   }
 </style>

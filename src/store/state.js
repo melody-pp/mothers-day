@@ -17,6 +17,7 @@ export default {
   rankList: [],      // 排行榜信息
   isLoading: false,  // 正在获取排行榜数据，
 
+  ajaxLoading: false,// 全屏ajax loader
   winWidth: window.innerWidth,
   winHeight: window.innerHeight
 }
