@@ -102,7 +102,6 @@
         this.postPersonalInfo().then(() => {
           this.getPerson()
           this.setSuccflag(true)
-
         })
       },
       quxiao () {
