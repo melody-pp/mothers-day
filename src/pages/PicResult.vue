@@ -1,7 +1,13 @@
 <template>
   <div class="page">
     <img src="../assets/picResult/pic_01.jpg" class="page-bg">
-    <img id="picResult" ref="result" :src="picResult" class="picResult center">
+
+    <transition name="fade">
+      <img v-show="processing" src="../assets/processing.gif" class="processing center">
+    </transition>
+    <transition name="fade">
+      <img v-show="!processing" id="picResult" ref="result" :src="picResult" class="picResult center">
+    </transition>
 
     <img src="../assets/picResult/pic_01.png" class="tips center">
     <img src="../assets/picResult/pic_06.png" class="onceMore" @click="moveTo(1)">
@@ -57,6 +63,9 @@
         ctx.filter = 'saturate(200%) '
 
         this.setState({picResult: canvas.toDataURL()})
+        setTimeout(() => {
+          this.setState({processing: false})
+        }, 1000)
       },
       queren () {
         this.showUpdate = true
@@ -87,6 +96,13 @@
   .picResult {
     top: 34vw;
     width: 94vw;
+  }
+
+  .processing {
+    top: 30vw;
+    z-index: 3;
+    width: 100vw;
+    height: 75vw;
   }
 
   .tips {
@@ -175,5 +191,13 @@
         display: none;
       }
     }
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
   }
 </style>
