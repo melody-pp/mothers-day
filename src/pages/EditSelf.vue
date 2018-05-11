@@ -3,7 +3,7 @@
     <img src="../assets/editSelf/pic_01.jpg" class="page-bg">
     <img src="../assets/editSelf/pic_05.png" class="pic-frame center">
     <div ref="mask" class="img-container center">
-      <img ref="selfImg" :src="selfPic" class="selfPic" :style="imgStyle">
+      <img ref="editImg" :src="selfPic" class="selfPic" :style="imgStyle">
     </div>
     <!--<img src="../assets/editSelf/pic_04.png" class="tips center">-->
     <!-- zzh -->
@@ -17,44 +17,19 @@
 </template>
 
 <script>
-  import { vuexMixin } from '../components/mixins/index'
   import { parseFile } from '../components/utils'
-  /* for  AlloyFinger  start */
-  let afInstance
-  import AlloyFinger from '../components/AlloyFinger'
-  /* for  AlloyFinger   end  */
+  import { vuexMixin, editImgMixin } from '../components/mixins/index'
+
   export default {
     name: 'EditSelf',
-    mixins: [vuexMixin],
-    data: () => ({
-      deltaX: 0,  // 图片移动横坐标
-      deltaY: 0,  // 图片移动纵坐标
-    }),
-    computed: {
-      imgStyle () {
-        return {
-          top: this.deltaY + 'px',
-          left: this.deltaX + 'px',
-        }
-      }
-    },
+    mixins: [vuexMixin, editImgMixin],
     methods: {
       next () {
-        const {selfImg, canvas} = this.$refs
-        const ctx = canvas.getContext('2d')
-        const screenRatio = window.innerWidth * 0.695 / 549
-        ctx.drawImage(
-          selfImg,
-          -this.deltaX,
-          -this.deltaY,
-          549 * screenRatio,
-          764 * screenRatio,
-          0, 0, 549, 764)
-
         this.moveDown()
         this.setState({processing: true})
+
         setTimeout(() => {
-          this.setState({selfPic: canvas.toDataURL()})
+          this.setState({selfPic: this.getEditedURL()})
         }, 500)
       },
       takeSelf () {
@@ -64,36 +39,10 @@
           this.setState({selfPic})
         })
       },
-      pressMove (evt) {
-        const selfImg = this.$refs.selfImg
-        const zoom = window.innerWidth / 790
-        this.deltaX += evt.deltaX
-        this.deltaY += evt.deltaY
-
-        if (this.deltaX > 0) {
-          this.deltaX = 0
-        }
-        if (this.deltaX < 549 * zoom - selfImg.width) {
-          this.deltaX = 549 * zoom - selfImg.width
-        }
-
-        if (this.deltaY > 0) {
-          this.deltaY = 0
-        }
-        if (this.deltaY < 764 * zoom - selfImg.height) {
-          this.deltaY = 764 * zoom - selfImg.height
-        }
-      },
     },
     watch: {
       selfPic () {
-        try {
-          afInstance.destroy()
-        } catch (e) {}
-
-        afInstance = new AlloyFinger(this.$refs.mask, {
-          pressMove: this.pressMove.bind(this)
-        })
+        this.initAF()
       },
     }
   }
