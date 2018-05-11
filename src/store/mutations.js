@@ -84,8 +84,7 @@ export default {
     state.votedInfo = votedInfo
   },
   addVote (state, voteopenid) {
-    state.votedInfo.flag = 1
-    state.votedInfo.voteopenid = voteopenid
+    state.votedInfo = {flag: 1, voteopenid}
     const user = state.rankList.find(item => item.voteopenid === voteopenid)
     user.vote = Number(user.vote) + 1
   },
