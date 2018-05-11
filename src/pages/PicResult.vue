@@ -10,7 +10,7 @@
     <img src="../assets/picResult/pic_05.png" class="myHome" @click="toMyHome">
     <img src="../assets/picResult/xiangkuangBG.png" class="xiangkuangBG">
 
-    <img hidden src="../assets/picResult/pic_07.png" ref="base" class="base">
+    <img hidden src="../assets/picResult/pic_055.png" ref="base" class="base">
     <img hidden :src="motherPic" ref="mother">
     <img hidden :src="selfPic" ref="self">
     <canvas hidden width="1098" height="764" ref="canvas"/>

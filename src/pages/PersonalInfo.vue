@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <img src="../assets/personalInfo/pic_01.jpg" class="page-bg">
-    <img src="../assets/personalInfo/pic_01.png" class="title">
+    <img src="../assets/personalInfo/hint.png" class="words">
     <!-- zzh -->
     <!-- <img src="../assets/personalInfo/pic_03.png" class="text-title center"> -->
     <div class="text-title center"></div>
@@ -13,7 +13,7 @@
         <input type="text" v-model="dianhua">
       </div>
       <div class="shengfenOut">
-        <select name="" id="" v-model="shengfen">
+        <select name="" v-model="shengfen">
           <option disabled value="">请选择</option>
           <option v-for="sheng in shengs" :value="sheng">{{sheng}}</option>
         </select>
@@ -22,10 +22,7 @@
         <input type="text" v-model="chengshi">
       </div>
       <div class="chexing">
-        <select name="" id="" v-model="chexing">
-          <option disabled value="">请选择</option>
-          <option v-for="cartype in cartypes" :value="cartype">{{cartype}}</option>
-        </select>
+        <input type="text" v-model="chexing">
       </div>
     </div>
     <!-- zzh -->
@@ -69,9 +66,9 @@
         dianhua: '',
         chengshi: '',
         chexing: '',
-        cartypes: [
-          '艾瑞泽5', '艾瑞泽7', '瑞虎3', '瑞虎3X', '瑞虎5x', '瑞虎7', '瑞虎8', '其他'
-        ],
+        // cartypes: [
+        //   '艾瑞泽5', '艾瑞泽7', '瑞虎3', '瑞虎3X', '瑞虎5x', '瑞虎7', '瑞虎8', '其他'
+        // ],
         shengfen: '',
         shengs: [
           '北京市', '天津市', '上海市', '重庆市', '河北省', '山西省', '辽宁省', '吉林省', '黑龙江省', '江苏省',
@@ -123,6 +120,13 @@
     top: 5vw;
     left: 5vw;
     width: 17vw;
+    position: absolute;
+  }
+
+  .words {
+    top: 27vw;
+    left: 17vw;
+    width: 66vw;
     position: absolute;
   }
 

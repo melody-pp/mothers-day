@@ -13,7 +13,7 @@
                 :key="item.id" @holdback="showModal=true"/>
     </div>
 
-    <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="moveTo(8)">
+    <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="toHomePagemoveTo(8)">
     <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7)">
     <div class="waringModal" v-show="showModal" @click="showModal=false">
 
@@ -99,6 +99,11 @@
         this.pageNo = 1
         this.resetRankList()
         this.getRankData()
+      },
+      toHomePage () {
+        this.getPerson()
+        moveTo(8)
+
       }
     },
     watch: {

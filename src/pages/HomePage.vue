@@ -2,7 +2,7 @@
   <div class="page">
     <img class="page-bg" src="../assets/copywriting/pic_01.jpg">
     <img class="title" src="../assets/copywriting/pic_01.png">
-    <img class="picBG" src="../assets/homePage/homePagexk.png">
+    <img class="picBG" src="../assets/homePage/homePagexk3.png">
     <img :src="person.tothumb" class="tothumb">
     <!--<img hidden class="tips" src="../assets/homePage/pic_01.png">-->
     <!--<img class="qiuzanTxt" src="../assets/homePage/qiuzanTxt.png">-->
