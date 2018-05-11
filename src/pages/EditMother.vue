@@ -2,16 +2,19 @@
   <div class="page">
     <img src="../assets/editMother/pic_01.jpg" class="page-bg">
     <img src="../assets/editMother/pic_04.png" class="pic-frame center">
+
     <div ref="mask" class="img-container center">
       <img ref="motherImg" :src="motherPic" class="motherPic" :style="imgStyle">
     </div>
-    <!--<img src="../assets/editMother/pic_01.png" class="tips center">-->
+    <img src="../assets/editMother/editpic_07.png" class="tipsTxt">
+
     <img src="../assets/editMother/pic_02.png" class="next center">
     <input class="next center" type="file" ref="self" @change="takeSelf">
+
     <img src="../assets/editMother/pic_03.png" class="reTake center">
     <input class="reTake center" type="file" ref="mother" @change="takeMother">
+
     <canvas hidden ref="canvas" width="549" height="764"/>
-    <img src="../assets/editMother/editpic_07.png" class="tipsTxt">
   </div>
 </template>
 
@@ -107,12 +110,6 @@
     width: 75vw;
   }
 
-  .mask {
-    top: 17.5vw;
-    width: 69.5vw;
-    z-index: 10;
-  }
-
   .img-container {
     top: 17.5vw;
     width: 69.5vw;
@@ -122,11 +119,6 @@
 
   .motherPic {
     position: absolute;
-  }
-
-  .tips {
-    top: 119vw;
-    width: 75vw;
   }
 
   .next {
