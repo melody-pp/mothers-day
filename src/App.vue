@@ -7,7 +7,7 @@
       <img src="./assets/loading.gif" class="loading">
     </div>
 
-    <div hidden class="for background img">
+    <div class="for background img">
       <img src="./assets/editSelf/compoundBtn.png">
       <img src="./assets/picResult/beijing.png">
       <img src="./assets/picResult/shuoming.png">
@@ -164,5 +164,10 @@
       position: absolute;
       transform: translate(-50%, -50%);
     }
+  }
+
+  .for.background.img {
+    position: absolute;
+    left: -99999px;
   }
 </style>
