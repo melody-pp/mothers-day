@@ -2,8 +2,10 @@ const MAX_PAGE_INDEX = 10
 let lastIndex = 0
 let searched = false
 export default {
-  saveUrlParams (state, urlParams) {
-    state.urlParams = urlParams
+  setState (state, data) {
+    Object.keys(data).forEach(key => {
+      state[key] = data[key]
+    })
   },
   moveEnd (state) {
     // 翻页完成回调
@@ -41,24 +43,6 @@ export default {
       state.useAnimate = false
     }
   },
-  saveMotherPic (state, motherPic) {
-    state.motherPic = motherPic
-  },
-  saveSelfPic (state, selfPic) {
-    state.selfPic = selfPic
-  },
-  setPicResult (state, picResult) {
-    state.picResult = picResult
-  },
-  setPersonalInfo (state, personalInfo) {
-    state.personalInfo = personalInfo
-  },
-  setPerson (state, person) {
-    state.person = person
-  },
-  resetRankList (state) {
-    state.rankList = []
-  },
   setRankList (state, rankList) {
     state.rankList = rankList
 
@@ -76,12 +60,6 @@ export default {
     }
 
     searched = false
-  },
-  setLoading (state, loading) {
-    state.isLoading = loading
-  },
-  setVoted (state, votedInfo) {
-    state.votedInfo = votedInfo
   },
   addVote (state, voteopenid) {
     state.votedInfo = {flag: 1, voteopenid}

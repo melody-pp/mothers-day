@@ -55,7 +55,7 @@
         ctx.drawImage(base, 0, 0, 726, 533, 0, 0, 1098, 764)
         ctx.filter = 'saturate(200%) '
 
-        this.setPicResult(canvas.toDataURL())
+        this.setState({picResult: canvas.toDataURL()})
       },
       queren () {
         this.showUpdate = true

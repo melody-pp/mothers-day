@@ -66,7 +66,7 @@
         if (deltaY < -10 && scrollTop === 0) {
           this.pageNo = 1
           this.direction = 1
-          this.resetRankList()
+          this.setState({rankList: []})
           this.getRankData()
         }
 
@@ -100,7 +100,7 @@
         }
 
         this.pageNo = 1
-        this.resetRankList()
+        this.setState({rankList: []})
         this.getRankData()
       },
     },
@@ -108,7 +108,7 @@
       pageIndex (index) {
         if (index === 6) {
           this.pageNo = 1
-          this.resetRankList()
+          this.setState({rankList: []})
           this.getRankData()
         }
       }
