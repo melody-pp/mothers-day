@@ -174,13 +174,13 @@
 
   .mine, .rules {
     position: absolute;
-    right: 5vw;
-    bottom: 10vw;
+    right: 1vw;
+    bottom: 20vw;
     width: 12vw;
   }
 
   .mine {
-    bottom: 24vw;
+    bottom: 32vw;
   }
 
   .waringModal {

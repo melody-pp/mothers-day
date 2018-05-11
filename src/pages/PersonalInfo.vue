@@ -159,33 +159,33 @@
 
   .inforInput {
     > div {
-      width: 80vw;
-      height: 12vw;
+      width: 80%;
+      height: 10%;
       background-size: 94vw;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -92%);
       > input {
-        margin-left: 27.5vw;
-        margin-top: 1.6vh;
-        height: 6vw;
-        line-height: 6vw;
-        width: 51vw;
+        margin-left: 34%;
+        margin-top: 7%;
+        height: 36%;
+        line-height: 36%;
+        width: 64%;
         border: none;
         outline: none;
-        font-size: 4.8vw;
+        font-size: 16px;
         background-color: transparent;
       }
       > select {
-        margin-left: 26.5vw;
-        margin-top: 1.3vh;
-        height: 7vw;
-        line-height: 7vw;
-        width: 51vw;
+        margin-left: 34%;
+        margin-top: 7%;
+        height: 36%;
+        line-height: 36%;
+        width: 64%;
         border: none;
         outline: none;
-        font-size: 4.8vw;
+        font-size: 16px;
         background-color: transparent;
       }
 
