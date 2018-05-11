@@ -15,7 +15,7 @@
                 @holdback="showModal=true"/>
     </div>
 
-    <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="toHomePagemoveTo(8)">
+    <img src="../assets/ranking/gerenzhongxin.png" class="mine" @click="toHomePage">
     <img src="../assets/ranking/huodongguize.png" class="rules" @click="moveTo(7)">
 
     <div class="waringModal" v-show="showModal" @click="showModal=false">
@@ -179,13 +179,13 @@
 
   .mine, .rules {
     position: absolute;
-    right: 5vw;
-    bottom: 10vw;
+    right: 1vw;
+    bottom: 20vw;
     width: 12vw;
   }
 
   .mine {
-    bottom: 24vw;
+    bottom: 32vw;
   }
 
   .waringModal {
