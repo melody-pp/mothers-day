@@ -26,6 +26,7 @@
         }
       },
       go () {
+        this.moveDown()
         document.getElementById('bgmusic').play()
       }
     }
