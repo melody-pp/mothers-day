@@ -28,7 +28,7 @@
       <img src="../assets/picResult/beijing.png" class="contentBox">
       <img src="../assets/picResult/shuoming.png" class="center shuoming">
       <!--<div class="center shuoming"></div>-->
-      <img src="../assets/picResult/queren.png" class="queren" @click="queren">
+      <img src="../assets/picResult/queren.png" class="queren" @click="queren" >
       <img src="../assets/picResult/quxiao.png" class="quxiao" @click="quxiao">
       <!--</div>-->
     </div>
@@ -36,7 +36,6 @@
 </template>
 
 <script>
-  import { isLoaded } from '../components/utils'
   import { vuexMixin } from '../components/mixins/index'
 
   export default {
@@ -45,20 +44,12 @@
     data: () => ({
       showModal: false,  // 是否显示遮罩
     }),
-    created () {
-      this.generateRes = this.generateRes.bind(this)
-    },
     mounted () {
-      this.$refs.self.onload = this.generateRes
+      this.$refs.self.onload = this.generateRes.bind(this)
     },
     methods: {
       generateRes () {
         const {base, mother, self, canvas} = this.$refs
-
-        if (!isLoaded(self)) {
-          return setTimeout(this.generateRes, 100)
-        }
-
         const ctx = canvas.getContext('2d')
         const imgXYWH = [0, 0, 549, 764]
         const selfXYWH = [549, 0, 549, 764]
