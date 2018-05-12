@@ -59,7 +59,6 @@
         ctx.drawImage(self, ...imgXYWH, ...selfXYWH)
         ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
         ctx.drawImage(base, 0, 0, 726, 533, 0, 0, 1098, 764)
-        ctx.filter = 'saturate(200%) '
 
         this.setState({picResult: canvas.toDataURL()})
         setTimeout(() => {
