@@ -28,7 +28,7 @@
       <img src="../assets/picResult/beijing.png" class="contentBox">
       <img src="../assets/picResult/shuoming.png" class="center shuoming">
       <!--<div class="center shuoming"></div>-->
-      <img src="../assets/picResult/queren.png" class="queren" @click="queren" >
+      <img src="../assets/picResult/queren.png" class="queren" @click="queren">
       <img src="../assets/picResult/quxiao.png" class="quxiao" @click="quxiao">
       <!--</div>-->
     </div>
@@ -56,6 +56,9 @@
         const motherXYWH = [0, 0, 549, 764]
 
         ctx.clearRect(0, 0, canvas.width, canvas.height)
+        ctx.fillStyle = '#fff'
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+
         ctx.drawImage(self, ...imgXYWH, ...selfXYWH)
         ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
         ctx.drawImage(base, 0, 0, 726, 533, 0, 0, 1098, 764)
