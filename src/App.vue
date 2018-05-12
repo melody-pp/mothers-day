@@ -76,7 +76,7 @@
         const imgUrl = location.origin + require('./assets/WeChat.jpg')
 
         const title = +this.urlParams.succflag === 1
-          ? (type ? '#你陪我长大，我陪你变老#奇瑞车主俱乐部致敬母亲节，晒合影，赢油卡' : '珍藏你的美')
+          ? (type ? '#你陪我长大，我陪你变老# 奇瑞车主俱乐部致敬母亲节，晒合影，赢油卡' : '珍藏你的美')
           : (type ? '奇瑞车主俱乐部，礼献母亲节，快来参与互动赢取精美大奖!' : '珍藏你的美')
 
         const desc = +this.urlParams.succflag === 1

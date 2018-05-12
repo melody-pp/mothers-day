@@ -29,10 +29,11 @@
       <img :src="medalSrc" v-if="person.rank<4" class="jiangpai">
       <span v-else class="rankingNum">No.{{person.rank}}</span>
     </div>
-    <img v-show="!person.rank&&urlParams.openid===urlParams.shareOpenId" src="../assets/homePage/cansaiyouka.png" class="youkaBtn" @click="moveTo(5)">
+    <img v-show="!person.rank&&urlParams.openid===urlParams.shareOpenId" src="../assets/homePage/cansaiyouka.png"
+         class="youkaBtn" @click="moveTo(5)">
 
     <img src="../assets/picResult/rulesBtn.png" class="rulesBtn" @click="moveTo(7)">
-    <img src="../assets/picResult/prizeBtn.png" class="prizeBtn" @click="moveTo(6)">
+    <img src="../assets/picResult/prizeBtn.png" class="prizeBtn" @click="toRanking">
     <div class="waringModal" v-show="showModal" @click="showModal=false">
       <img src="../assets/ranking/beijing.png" class="wenzi center">
     </div>
@@ -72,6 +73,10 @@
         } else {
           this.postVote(this.person.openid)
         }
+      },
+      toRanking () {
+        this.moveTo(6)
+        document.getElementById('bgmusic').play()
       }
     },
     watch: {
