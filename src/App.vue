@@ -72,7 +72,7 @@
         wx.error(err => console.log(err))
       },
       getShareConfig (type, succflag) {
-        const link = location.origin + '/mother/index.php/index/index/person_index?openid=' + this.urlParams.openid
+        const link = location.origin + '/mother/index.php/index/index/person_index?openid=' + (this.urlParams.shareOpenId || this.urlParams.openid)
         const imgUrl = location.origin + require('./assets/WeChat.jpg')
 
         const title = +succflag === 1
