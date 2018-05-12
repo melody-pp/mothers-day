@@ -4,7 +4,7 @@
     <img src="../assets/personalInfo/hint.png" class="words">
     <!-- zzh -->
     <!-- <img src="../assets/personalInfo/pic_03.png" class="text-title center"> -->
-    <div class="text-title"></div>
+    <img class="text-title" src="../assets/personalInfo/pic_03.png" alt="">
     <div class="inforInput">
       <div class="xingming">
         <input type="text" v-model="xingming">
@@ -159,8 +159,6 @@
     top: 15vw;
     width: 40vw;
     height: 5.85vw;
-    background: url(../assets/personalInfo/pic_03.png) no-repeat center;
-    background-size: contain;
     position: absolute;
     left: 30vw;
   }
