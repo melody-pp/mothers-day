@@ -2,7 +2,7 @@
   <div class="perRankingBox">
     <img :src="item.tothumb">
     <img src="../assets/picResult/pic_055.png" class="base">
-    <p>{{item.nickname}}</p>
+    <p class="nickname">{{item.nickname}}</p>
     <div class="rankingInfo">
       <img :src="medalSrc" v-show="item.rank<4">
       <span class="noRank" v-show="item.rank>3">NO.{{item.rank}}</span>
@@ -81,6 +81,11 @@
       top: 0;
       left: 0;
       height: 62%;
+    }
+    .nickname {
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
     }
 
     > img {
