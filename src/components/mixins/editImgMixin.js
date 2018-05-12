@@ -42,6 +42,7 @@ export const editImgMixin = {
         549 * screenRatio,
         764 * screenRatio,
         0, 0, 549, 764)
+      ctx.save()
 
       return canvas.toDataURL()
     },
