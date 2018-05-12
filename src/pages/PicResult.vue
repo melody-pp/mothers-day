@@ -60,12 +60,14 @@
         ctx.fillRect(0, 0, canvas.width, canvas.height)
 
         ctx.drawImage(self, ...imgXYWH, ...selfXYWH)
-        ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
-        // ctx.drawImage(base, 0, 0, 726, 533, 0, 0, 1098, 764)
-
-        this.setState({picResult: canvas.toDataURL()})
         setTimeout(() => {
-          this.setState({processing: false})
+          ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
+          // ctx.drawImage(base, 0, 0, 726, 533, 0, 0, 1098, 764)
+
+          this.setState({picResult: canvas.toDataURL()})
+          setTimeout(() => {
+            this.setState({processing: false})
+          }, 2500)
         }, 1000)
       },
       queren () {
