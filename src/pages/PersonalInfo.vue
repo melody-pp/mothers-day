@@ -123,7 +123,7 @@
       },
       getShareConfig (type, succflag) {
         const link = location.origin + '/mother/index.php/index/index/person_index?openid=' + this.urlParams.openid
-        const imgUrl = location.origin + require('./assets/WeChat.jpg')
+        const imgUrl = location.origin + require('../assets/WeChat.jpg')
 
         const title = +succflag === 1
           ? (type ? '#你陪我长大，我陪你变老# 奇瑞车主俱乐部致敬母亲节，晒合影，赢油卡' : '珍藏你的美')
