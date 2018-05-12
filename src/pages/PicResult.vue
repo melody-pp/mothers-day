@@ -16,7 +16,7 @@
     <img src="../assets/picResult/pic_05.png" class="myHome" @click="toMyHome">
     <img src="../assets/picResult/xiangkuangBG2.png" class="xiangkuangBG">
 
-    <img src="../assets/picResult/pic_055.png" ref="base" class="base center">
+    <img hidden src="../assets/picResult/pic_055.png" ref="base">
     <img hidden :src="motherPic" ref="mother">
     <img hidden :src="selfPic" ref="self">
     <canvas hidden width="1098" height="764" ref="canvas"/>
@@ -60,15 +60,13 @@
         ctx.fillRect(0, 0, canvas.width, canvas.height)
 
         ctx.drawImage(self, ...imgXYWH, ...selfXYWH)
-        setTimeout(() => {
-          ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
-          // ctx.drawImage(base, 0, 0, 726, 533, 0, 0, 1098, 764)
+        ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
+        ctx.drawImage(base, 0, 0, 726, 533, 0, 0, 1098, 764)
 
-          this.setState({picResult: canvas.toDataURL()})
-          setTimeout(() => {
-            this.setState({processing: false})
-          }, 2500)
-        }, 1000)
+        this.setState({picResult: canvas.toDataURL()})
+        setTimeout(() => {
+          this.setState({processing: false})
+        }, 2500)
       },
       queren () {
         this.postPicResult(() => {

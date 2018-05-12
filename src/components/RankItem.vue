@@ -1,7 +1,6 @@
 <template>
   <div class="perRankingBox">
     <img :src="item.tothumb">
-    <img src="../assets/picResult/pic_055.png" class="base">
     <p class="nickname">{{item.nickname}}</p>
     <div class="rankingInfo">
       <img :src="medalSrc" v-show="item.rank<4">
@@ -76,16 +75,10 @@
     box-shadow: 0 0 5px #bbbaba;
     position: relative;
     transition: all 1s;
-    .base {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 62%;
-    }
     .nickname {
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     > img {
