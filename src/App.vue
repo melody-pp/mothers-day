@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :style="{width: winWidth+'px', height: winHeight+'px'}">
+  <div id="app" :style="{height: winHeight+'px'}">
     <img src="./assets/home/LOGO.png" class="logo" v-show="pageIndex!==4 && pageIndex!==6">
     <audio id="bgmusic" autoplay loop src="./assets/bgm.mp3"></audio>
     <MainView/>
@@ -141,9 +141,10 @@
   }
 
   .center {
-    left: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
     position: absolute;
-    transform: translateX(-50%);
   }
 
   .glass {

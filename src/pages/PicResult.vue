@@ -28,8 +28,7 @@
       <img src="../assets/picResult/beijing.png" class="contentBox">
       <img src="../assets/picResult/shuoming.png" class="center shuoming">
       <!--<div class="center shuoming"></div>-->
-      <img src="../assets/picResult/queren.png" class="queren" @click="queren" v-show="!showUpdate">
-      <img src="../assets/picResult/updating.png" class="updating" v-show="showUpdate">
+      <img src="../assets/picResult/queren.png" class="queren" @click="queren" >
       <img src="../assets/picResult/quxiao.png" class="quxiao" @click="quxiao">
       <!--</div>-->
     </div>
@@ -44,7 +43,6 @@
     mixins: [vuexMixin],
     data: () => ({
       showModal: false,  // 是否显示遮罩
-      showUpdate: false,  // 是否显示上传中
     }),
     mounted () {
       this.$refs.self.onload = this.generateRes.bind(this)
@@ -69,7 +67,6 @@
         }, 1000)
       },
       queren () {
-        this.showUpdate = true
         this.postPicResult(() => {
           this.getPerson()
           this.moveDown()
@@ -77,7 +74,6 @@
       },
       quxiao () {
         this.showModal = false
-        this.showUpdate = false
       },
       toMyHome () {
         this.postPicResult(() => {
@@ -108,7 +104,7 @@
   .tips {
     top: 109vw;
     width: 48vw;
-    left: 32vw;
+    left: -40vw;
   }
 
   .onceMore {
@@ -170,14 +166,14 @@
       width: 23vw;
       position: absolute;
       top: 84vw;
-      left: 14vw;
+      left: 20vw;
       display: block;
     }
     .quxiao {
       width: 23vw;
       position: absolute;
       top: 84vw;
-      right: 14vw;
+      right: 20vw;
     }
     .updating {
       width: 27vw;
