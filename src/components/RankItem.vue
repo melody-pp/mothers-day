@@ -1,6 +1,7 @@
 <template>
   <div class="perRankingBox">
     <img :src="item.tothumb">
+    <img src="../assets/picResult/pic_055.png" class="base">
     <p>{{item.nickname}}</p>
     <div class="rankingInfo">
       <img :src="medalSrc" v-show="item.rank<4">
@@ -73,7 +74,14 @@
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 5px #bbbaba;
+    position: relative;
     transition: all 1s;
+    .base {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 62%;
+    }
 
     > img {
       width: 100%;
