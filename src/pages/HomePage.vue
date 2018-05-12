@@ -7,7 +7,7 @@
 
     <img v-show="urlParams.openid===urlParams.shareOpenId&&+urlParams.succflag!==1"
          src="../assets/homePage/cansaiyouka.png" class="youkaBtn" @click="moveTo(5)">
-    <div class="voteBox" v-show="+urlParams.succflag===1">
+    <div class="voteBox" v-show="(urlParams.openid===urlParams.shareOpenId&&+urlParams.succflag===1)||(urlParams.openid!==urlParams.shareOpenId)&&person.rank">
       <span class="nickName">{{person.nickname}}</span>
       <svg @click="vote" class="voteIcon" :class="{voted}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
            x="0px" y="0px" viewBox="-60 61.25 64 64" style="enable-background:new -60 61.25 64 64;" xml:space="preserve">
