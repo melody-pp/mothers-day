@@ -5,7 +5,7 @@
     <img class="picBG" src="../assets/homePage/homePagexk3.png">
     <img :src="person.tothumb" class="tothumb">
 
-    <div class="voteBox" v-if="person.rank">
+    <div class="voteBox" v-show="person.rank">
       <span class="nickName">{{person.nickname}}</span>
       <svg @click="vote" class="voteIcon" :class="{voted}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
            x="0px" y="0px" viewBox="-60 61.25 64 64" style="enable-background:new -60 61.25 64 64;" xml:space="preserve">
@@ -29,7 +29,7 @@
       <img :src="medalSrc" v-if="person.rank<4" class="jiangpai">
       <span v-else class="rankingNum">No.{{person.rank}}</span>
     </div>
-    <img v-else src="../assets/homePage/cansaiyouka.png" class="youkaBtn" @click="moveTo(5)">
+    <img v-show="!person.rank&&urlParams.openid===urlParams.shareOpenId" src="../assets/homePage/cansaiyouka.png" class="youkaBtn" @click="moveTo(5)">
 
     <img src="../assets/picResult/rulesBtn.png" class="rulesBtn" @click="moveTo(7)">
     <img src="../assets/picResult/prizeBtn.png" class="prizeBtn" @click="moveTo(6)">
