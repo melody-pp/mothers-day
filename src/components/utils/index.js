@@ -9,3 +9,6 @@ export const getValidNum = (num, min, max) => {
   }
   return num
 }
+
+export const isLoaded = img => img.complete && img.naturalWidth
+
