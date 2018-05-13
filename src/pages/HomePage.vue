@@ -68,10 +68,15 @@
     },
     methods: {
       vote () {
-        if (+this.votedInfo.flag === 1) {
+        if (+this.votedInfo.flag === 0) {
           this.showModal = true
         } else {
-          this.postVote(this.person.openid)
+          this.postVote({
+            voteopenid: this.person.openid,
+            callback: () => {
+              this.$forceUpdate()
+            }
+          })
         }
       },
       toRanking () {

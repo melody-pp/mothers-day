@@ -66,12 +66,17 @@ export default {
     })
   },
   // 投票
-  postVote ({state, commit}, voteopenid) {
+  postVote ({state, commit}, {voteopenid, callback}) {
     http.post('/add_vote', {
       voteopenid,
       openid: state.urlParams.openid,
-    }).then(() => {
-      commit('addVote', voteopenid)
+    }).then(({data: {message, success}}) => {
+      if (success) {
+        commit('addVote', voteopenid)
+        callback && callback()
+      } else {
+        alert(message)
+      }
     })
   },
   // 查询

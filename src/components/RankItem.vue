@@ -60,7 +60,10 @@
           // 已经投过，弹窗告诉用户不可再投
           this.$emit('holdback')
         } else {
-          this.postVote(this.item.voteopenid)
+          this.postVote({
+            voteopenid: this.item.voteopenid,
+            callback: () => this.$forceUpdate()
+          })
         }
       }
     }

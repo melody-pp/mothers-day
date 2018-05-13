@@ -62,7 +62,9 @@ export default {
     state.votedInfo = {flag: 1, voteopenid}
 
     const user = state.rankList.find(item => item.voteopenid === voteopenid)
-    user.vote = Number(user.vote) + 1
+    if(user){
+      user.vote = Number(user.vote) + 1
+    }
 
     if (voteopenid === state.person.openid) {
       state.person = Object.assign(state.person, {vote: Number(state.person.vote) + 1})
