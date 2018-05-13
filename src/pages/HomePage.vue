@@ -68,7 +68,7 @@
     },
     methods: {
       vote () {
-        if (+this.votedInfo.flag === 0) {
+        if (+this.votedInfo.flag === 1) {
           this.showModal = true
         } else {
           this.postVote({
