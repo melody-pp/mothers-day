@@ -40,19 +40,19 @@ export default {
   // 上传合照
   postPic ({state, commit}, callback) {
     const data = new FormData
-    data.append('openid', state.urlParams.openid)
+    data.append('openid', 'owW8vs2JTZgGhCBUzij-ihItqh2w')
 
-    data.append('selfX', state.editedSelf.deltaX)
-    data.append('selfY', state.editedSelf.deltaY)
+    data.append('img2x', state.editedSelf.deltaX)
+    data.append('img2y', state.editedSelf.deltaY)
 
-    data.append('motherX', state.editedMother.deltaX)
-    data.append('motherY', state.editedMother.deltaY)
+    data.append('img1x', state.editedMother.deltaX)
+    data.append('img1y', state.editedMother.deltaY)
 
-    data.append('selfThumb', state.editedSelf.picData)
-    data.append('motherThumb', state.editedMother.picData)
+    data.append('tothumb2', state.editedSelf.picData)
+    data.append('tothumb1', state.editedMother.picData)
 
     commit('setState', {processing: true, ajaxLoading: true,})
-    http.post('/uploadthumb', data).then(res => {
+    http.post('/uploadimg', data).then(res => {
       commit('setPhotoflag', 1)
       commit('setState', {ajaxLoading: false, picResult: res.data})
       setTimeout(() => {commit('setState', {processing: false,})}, 2000)
