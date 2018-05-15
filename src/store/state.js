@@ -6,9 +6,8 @@ export default {
   useAnimate: true,  // 翻页是否有动画效果
 
   selfPic: '',       // 上传自己图片
-  editedSelf:{},     // 编辑后自己图片信息（img、x、y）
   motherPic: '',     // 上传母亲图片
-  editedMother:{},   // 编辑后母亲图片信息（img、x、y）
+  togetherPic: '',   // 拼成的图片
   picResult: '',     // 最终生成图片dataURL
   processing: true,  // 是否正在生成合照
 

@@ -9,6 +9,10 @@
       <img v-show="!processing" id="picResult" ref="result" :src="picResult" class="picResult center">
     </transition>
 
+    <img hidden src="../assets/picResult/pic_055.png" ref="base">
+    <img hidden :src="togetherPic" ref="togetherImg">
+    <canvas hidden width="1098" height="764" ref="canvas"></canvas>
+
     <img src="../assets/picResult/pic_01.png" class="tips center">
     <img src="../assets/picResult/pic_06.png" class="onceMore" @click="moveTo(1)">
 
@@ -39,7 +43,21 @@
     data: () => ({
       showModal: false,  // 是否显示遮罩
     }),
+    mounted () {
+      this.$refs.togetherImg.onload = this.generatePicResult.bind(this)
+    },
     methods: {
+      generatePicResult () {
+        const {canvas, base, togetherImg} = this.$refs
+        const ctx = canvas.getContext('2d')
+        ctx.drawImage(togetherImg, 0, 0, 1098, 764, 0, 0, 1098, 764)
+        ctx.drawImage(base, 0, 0, 726, 533, 0, 0, 1098, 764)
+
+        this.setState({picResult: canvas.toDataURL()})
+        setTimeout(() => {
+          this.setState({processing: false})
+        }, 600)
+      },
       enter () {
         if (this.processing) {
           return
@@ -47,14 +65,18 @@
         this.showModal = true
       },
       queren () {
-        this.getPerson()
-        this.moveDown()
+        this.postPicResult(() => {  
+          this.getPerson()
+          this.moveDown()
+        })
       },
       quxiao () {
         this.showModal = false
       },
       toMyHome () {
-        this.moveTo(8)
+        this.postPicResult(() => {
+          this.moveTo(8)
+        })
       }
     },
   }

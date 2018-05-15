@@ -37,21 +37,33 @@ export default {
       commit('setState', {votedInfo: res.data})
     })
   },
-  // 上传合照
+  // 上传两张照片
   postPic ({state, commit}, callback) {
     const data = new FormData
     data.append('openid', 'owW8vs2JTZgGhCBUzij-ihItqh2w')
     data.append('tothumb2', state.selfPic)
     data.append('tothumb1', state.motherPic)
 
-    commit('setState', {processing: true, ajaxLoading: true,})
+    commit('setState', {processing: true})
     http.post('/uploadimage', data).then(res => {
-      commit('setPhotoflag', 1)
-      commit('setState', {ajaxLoading: false, picResult: res.data})
-      setTimeout(() => {commit('setState', {processing: false})}, 1200)
+      commit('setState', {togetherPic: res.data.thumb})
       callback && callback()
     }, () => {
-      commit('setState', {processing: false, ajaxLoading: false,})
+      commit('setState', {processing: false})
+    })
+  },
+  // 上传合照
+  postPicResult ({state, commit}, callback) {
+    const data = new FormData
+    data.append('openid', 'owW8vs2JTZgGhCBUzij-ihItqh2w')
+    data.append('tothumb', state.picResult)
+    commit('setState', {ajaxLoading: true})
+    http.post('/uploadthumb', data).then(res => {
+      commit('setPhotoflag', 1)
+      commit('setState', {ajaxLoading: false})
+      callback && callback()
+    }, () => {
+      commit('setState', {ajaxLoading: false})
     })
   },
   // 上传个人信息

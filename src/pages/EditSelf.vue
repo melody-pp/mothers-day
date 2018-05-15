@@ -29,7 +29,7 @@
         setTimeout(() => {
           this.setState({selfPic: this.getEditedURL()})
           this.postPic()
-        })
+        }, 700)
       },
       takeSelf () {
         const self = this.$refs.self
