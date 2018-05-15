@@ -25,15 +25,11 @@
     mixins: [vuexMixin, editImgMixin],
     methods: {
       next () {
-        this.setState({
-          editedSelf: {
-            deltaX: this.deltaX,
-            deltaY: this.deltaY,
-            picData: this.selfPic,
-          }
+        this.moveDown()
+        setTimeout(() => {
+          this.setState({selfPic: this.getEditedURL()})
+          this.postPic()
         })
-
-        this.postPic()
       },
       takeSelf () {
         const self = this.$refs.self

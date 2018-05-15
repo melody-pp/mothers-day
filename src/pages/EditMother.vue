@@ -31,14 +31,11 @@
         parseFile(self.files[0], selfPic => {
           self.value = ''
           this.moveDown()
-          this.setState({
-            selfPic,
-            editedMother: {
-              deltaX: this.deltaX,
-              deltaY: this.deltaY,
-              picData: this.motherPic,
-            }
-          })
+          this.setState({selfPic})
+
+          setTimeout(() => {
+            this.setState({motherPic: this.getEditedURL()})
+          }, 700)
         })
       },
       takeMother () {
