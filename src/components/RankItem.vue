@@ -82,6 +82,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      height: 5vw;
     }
 
     > img {
