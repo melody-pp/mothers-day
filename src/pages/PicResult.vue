@@ -12,14 +12,9 @@
     <img src="../assets/picResult/pic_01.png" class="tips center">
     <img src="../assets/picResult/pic_06.png" class="onceMore" @click="moveTo(1)">
 
-    <img src="../assets/picResult/pic_04.png" class="enterBtn" @click="showModal=true">
+    <img src="../assets/picResult/pic_04.png" class="enterBtn" @click="enter">
     <img src="../assets/picResult/pic_05.png" class="myHome" @click="toMyHome">
     <img src="../assets/picResult/xiangkuangBG2.png" class="xiangkuangBG">
-
-    <img hidden src="../assets/picResult/pic_055.png" ref="base">
-    <img hidden :src="motherPic" ref="mother">
-    <img hidden :src="selfPic" ref="self">
-    <canvas hidden width="1098" height="764" ref="canvas"/>
 
     <!--彈框-->
     <div class="waringModal" v-show="showModal">
@@ -44,43 +39,22 @@
     data: () => ({
       showModal: false,  // 是否显示遮罩
     }),
-    mounted () {
-      this.$refs.self.onload = this.generateRes.bind(this)
-    },
     methods: {
-      generateRes () {
-        const {base, mother, self, canvas} = this.$refs
-        const ctx = canvas.getContext('2d')
-        const imgXYWH = [0, 0, 549, 764]
-        const selfXYWH = [549, 0, 549, 764]
-        const motherXYWH = [0, 0, 549, 764]
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        ctx.fillStyle = '#fff'
-        ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-        ctx.drawImage(self, ...imgXYWH, ...selfXYWH)
-        ctx.drawImage(mother, ...imgXYWH, ...motherXYWH)
-        ctx.drawImage(base, 0, 0, 726, 533, 0, 0, 1098, 764)
-
-        this.setState({picResult: canvas.toDataURL()})
-        setTimeout(() => {
-          this.setState({processing: false})
-        }, 2500)
+      enter () {
+        if (this.processing) {
+          return
+        }
+        this.showModal = true
       },
       queren () {
-        this.postPicResult(() => {
-          this.getPerson()
-          this.moveDown()
-        })
+        this.getPerson()
+        this.moveDown()
       },
       quxiao () {
         this.showModal = false
       },
       toMyHome () {
-        this.postPicResult(() => {
-          this.moveTo(8)
-        })
+        this.moveTo(8)
       }
     },
   }

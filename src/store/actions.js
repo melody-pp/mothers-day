@@ -38,18 +38,26 @@ export default {
     })
   },
   // 上传合照
-  postPicResult ({state, commit}, callback) {
+  postPic ({state, commit}, callback) {
     const data = new FormData
     data.append('openid', state.urlParams.openid)
-    data.append('tothumb', state.picResult)
 
-    commit('setState', {ajaxLoading: true})
+    data.append('selfThumb', state.editedSelf.picData)
+    data.append('selfX', state.editedSelf.deltaX)
+    data.append('selfY', state.editedSelf.deltaY)
+
+    data.append('motherThumb', state.editedMother.picData)
+    data.append('motherX', state.editedMother.deltaX)
+    data.append('motherY', state.editedMother.deltaY)
+
+    commit('setState', {processing: true, ajaxLoading: true,})
     http.post('/uploadthumb', data).then(res => {
       commit('setPhotoflag', 1)
-      commit('setState', {ajaxLoading: false})
+      commit('setState', {ajaxLoading: false, picResult: res.data})
+      setTimeout(() => {commit('setState', {processing: false,})}, 2000)
       callback && callback()
     }, () => {
-      commit('setState', {ajaxLoading: false})
+      commit('setState', {processing: false, ajaxLoading: false,})
     })
   },
   // 上传个人信息

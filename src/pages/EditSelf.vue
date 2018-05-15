@@ -26,11 +26,15 @@
     methods: {
       next () {
         this.moveDown()
-        this.setState({processing: true})
+        this.setState({
+          editedSelf: {
+            deltaX: this.deltaX,
+            deltaY: this.deltaY,
+            picData: this.selfPic,
+          }
+        })
 
-        setTimeout(() => {
-          this.setState({selfPic: this.getEditedURL()})
-        }, 500)
+        this.postPic()
       },
       takeSelf () {
         const self = this.$refs.self

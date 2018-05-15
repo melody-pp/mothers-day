@@ -5,8 +5,10 @@ export default {
   isMoving: false,   // 页面翻页中标识，翻页中不再触发翻页
   useAnimate: true,  // 翻页是否有动画效果
 
-  selfPic: '',       // 自己头像
-  motherPic: '',     // 母亲头像
+  selfPic: '',       // 上传自己图片
+  editedSelf:{},     // 编辑后自己图片信息（img、x、y）
+  motherPic: '',     // 上传母亲图片
+  editedMother:{},   // 编辑后母亲图片信息（img、x、y）
   picResult: '',     // 最终生成图片dataURL
   processing: true,  // 是否正在生成合照
 
