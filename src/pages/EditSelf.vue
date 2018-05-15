@@ -25,7 +25,6 @@
     mixins: [vuexMixin, editImgMixin],
     methods: {
       next () {
-        // this.moveDown()
         this.setState({
           editedSelf: {
             deltaX: this.deltaX,

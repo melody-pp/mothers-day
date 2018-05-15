@@ -53,9 +53,10 @@ export default {
 
     commit('setState', {processing: true, ajaxLoading: true,})
     http.post('/uploadimg', data).then(res => {
+      commit('moveDown')
       commit('setPhotoflag', 1)
       commit('setState', {ajaxLoading: false, picResult: res.data})
-      setTimeout(() => {commit('setState', {processing: false,})}, 2000)
+      setTimeout(() => {commit('setState', {processing: false,})}, 1200)
       callback && callback()
     }, () => {
       commit('setState', {processing: false, ajaxLoading: false,})
